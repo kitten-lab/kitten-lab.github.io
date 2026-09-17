@@ -11,14 +11,18 @@ body.desk-page {
   --dim: #9ab09a;
   --brass: #c4a060;
   --brass-hi: #e8d090;
-  --paper: #e4d4b0;
-  --paper-edge: #c8b48a;
   background: #0e1a14;
   color: var(--text);
 }
 
 body.desk-page .site-rail {
-  background: var(--paper, #e7ecf4);
+  background: color-mix(in srgb, #e7ecf4 94%, #fff);
+  color: #151a28;
+}
+
+body.desk-page .site-rail .brand small,
+body.desk-page .site-rail .now-chip {
+  color: #5c6578;
 }
 
 .dw-office {
