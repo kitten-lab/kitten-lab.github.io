@@ -6,306 +6,424 @@
   <title>kitten-lab — Danielle Leve</title>
   <meta name="description" content="Danielle Leve. Systems designer. Software, games, and desks with SKUs and ports — a production line, not a maybe.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="css/site.css?v=12">
+  <link rel="stylesheet" href="css/site.css?v=16">
 </head>
 <body>
-  <header class="site-header wrap">
+  <header class="site-rail">
+    <div class="site-header wrap">
     <a class="brand" href="index.html">
       kitten-lab
       <small>software</small>
     </a>
+    <a class="cat-chip" href="index.html#work">ROM Cat</a>
     <nav aria-label="Primary">
       <a href="index.html" aria-current="page">work</a>
       <a href="about.html">about</a>
     </nav>
+    </div>
   </header>
 
   <main>
-    <section class="hero wrap">
-      <p class="kicker">danielle leve · systems designer · 20+ years in games</p>
-      <h1>hi, i'm dani</h1>
-      <p class="lede">does something matter here? and how does it become?</p>
-      <p class="lede quiet">
-        kitten-lab began as a challenge: a prototype of any kind. it's since exploded into software, games, narrative machines — mapping the inner psyche this way, through product and storytelling.
-      </p>
-      <p class="lede quiet">
+    <section class="mast wrap">
+      <div class="mast-id">
+        <h1>Danielle Leve</h1>
+        <p>systems designer · 20+ years in games</p>
+      </div>
+      <p class="mast-voice">
+        does something matter here? and how does it become?<br>
         i'm not sure what this is yet. but i'm making it.
       </p>
     </section>
 
     <section class="section wrap" id="work">
       <div class="section-head">
-        <h2>featured</h2>
-        <div class="filters" role="group" aria-label="Filter work">
-          <button type="button" data-filter="feature" aria-pressed="true">featured</button>
-          <button type="button" data-filter="product">products</button>
-          <button type="button" data-filter="game">games</button>
-          <button type="button" data-filter="tool">tools</button>
-          <button type="button" data-filter="desk">desks</button>
-          <button type="button" data-filter="all">all</button>
-        </div>
+        <h2>the line</h2>
+        <nav class="house-index" aria-label="Houses">
+          <a href="#h-mypt" data-house="mypt">CO.MYPT</a>
+          <a href="#h-lea" data-house="lea">CO.LEA</a>
+          <a href="#h-wbs" data-house="wbs">CO.WBS</a>
+          <a href="#h-dbs" data-house="dbs">CO.DBS</a>
+          <a href="#h-bbc" data-house="bbc">CO.BBC</a>
+          <a href="#h-host" data-house="host">CO.HOST</a>
+          <a href="#h-dcc" data-house="dcc">CO.DCC</a>
+          <a href="#h-kde" data-house="kde">CO.KDE</a>
+          <a href="#h-smh" data-house="smh">CO.SMH</a>
+          <a href="#h-bbg" data-house="bbg">CO.BBG</a>
+          <a href="#h-toy" data-house="toy">CO.TOY</a>
+        </nav>
       </div>
 
-      <div class="grid" data-view="feature">
-        <a class="card feature" href="work/pocket-go.html" data-kind="product" data-feature>
-          <div class="meta">
-            <span>product</span>
+      <article class="house" id="h-mypt" data-house="mypt">
+        <header class="house-head">
+          <span class="sku">CO.MYPT</span>
+          <h3>My Pocket Things</h3>
+          <p>Pocket apps for one kind of clay. Not terminals. Not a shared WWW pretending to be three products.</p>
+        </header>
+        <div class="ledger">
+          <div class="ledger-head" aria-hidden="true">
+            <span>SKU</span>
+            <span>name</span>
+            <span>port</span>
+            <span>status</span>
+            <span>what it is</span>
+          </div>
+          <a class="row" href="work/pocket-go.html">
             <span class="sku">CO.MYPT-004-GO</span>
+            <span class="name">Pocket Go</span>
             <span class="port">43210</span>
-            <span class="pill live">desk</span>
-          </div>
-          <div>
-            <h3>Pocket Go</h3>
-            <p>A WWW you inhabit. BIOS in the pocket. Cabinets that mint look-throughs.</p>
-          </div>
-        </a>
-
-        <a class="card" href="work/pocket-notebook.html" data-kind="product">
-          <div class="meta">
-            <span>product</span>
+            <span class="st live">desk</span>
+            <span class="job">A WWW you inhabit. BIOS in the pocket. Cabinets that mint look-throughs.</span>
+          </a>
+          <a class="row" href="work/pocket-notebook.html">
             <span class="sku">CO.MYPT-002-NOTES</span>
+            <span class="name">Pocket Notebook</span>
             <span class="port">43165</span>
-            <span class="pill live">desk</span>
-          </div>
-          <div>
-            <h3>Pocket Notebook</h3>
-            <p>Cloth books. Open, flip, edit the source, the page prints. Not Go. Not a chapbook.</p>
-          </div>
-        </a>
-
-        <a class="card" href="work/pocket-chapbook.html" data-kind="product">
-          <div class="meta">
-            <span>product</span>
+            <span class="st live">desk</span>
+            <span class="job">Cloth books. Open, flip, edit the source, the page prints.</span>
+          </a>
+          <a class="row" href="work/pocket-chapbook.html">
             <span class="sku">CO.MYPT-001-CHAPS</span>
-            <span class="pill live">desk</span>
-          </div>
-          <div>
-            <h3>Pocket Chapbook</h3>
-            <p>A poem pool and the books you make from it. Reorder sheets until it is a chapbook.</p>
-          </div>
-        </a>
+            <span class="name">Pocket Chapbook</span>
+            <span class="port">—</span>
+            <span class="st live">desk</span>
+            <span class="job">A poem pool and the books you make from it.</span>
+          </a>
+        </div>
+      </article>
 
-        <a class="card" href="work/world-builder-studio.html" data-kind="game" data-feature>
-          <div class="meta">
-            <span>game engine</span>
-            <span class="sku">CO.WBS</span>
-            <span class="pill live">desk</span>
+      <article class="house" id="h-lea" data-house="lea">
+        <header class="house-head">
+          <span class="sku">CO.LEA</span>
+          <h3>L.E. AWN Industries</h3>
+          <p>Desks. One Hands, four seats, then benches that are not seats.</p>
+        </header>
+        <div class="ledger">
+          <div class="ledger-head" aria-hidden="true">
+            <span>SKU</span>
+            <span>name</span>
+            <span>port</span>
+            <span>status</span>
+            <span>what it is</span>
           </div>
-          <div>
-            <h3>World Builder Studio</h3>
-            <p>A game engine you walk into. AIDM is the game. DOS is the office product.</p>
-          </div>
-        </a>
-
-        <a class="card" href="work/desk-world.html" data-kind="desk" data-feature>
-          <div class="meta">
-            <span>desk line</span>
+          <a class="row" href="work/desk-world.html">
             <span class="sku">CO.LEA</span>
-            <span class="port">43167–43172</span>
-            <span class="pill live">desk</span>
-          </div>
-          <div>
-            <h3>Desk World</h3>
-            <p>One Hands. Four seats. Papers live on the felt. Sophia is a seat, not the product.</p>
-          </div>
-        </a>
-
-        <a class="card" href="work/terminal-prolog.html" data-kind="game" data-feature>
-          <div class="meta">
-            <span>game</span>
-            <span class="sku">SMH-001-PROLOG</span>
-            <span class="pill">spec</span>
-          </div>
-          <div>
-            <h3>Terminal Prolog</h3>
-            <p>No action verbs. Only thought. Can you bootstrap cognition and remember *if* you are?</p>
-          </div>
-        </a>
-
-        <a class="card" href="work/kde-notes-chords.html" data-kind="game" data-feature>
-          <div class="meta">
-            <span>game</span>
-            <span class="sku">CO.KDE-001-INSTR</span>
-            <span class="pill live">itch</span>
-          </div>
-          <div>
-            <h3>KDE Notes &amp; Chords</h3>
-            <p>Fifteen keys. A chord dumps a story. Pocket instrument on itch.</p>
-          </div>
-        </a>
-
-        <a class="card" href="work/datbox.html" data-kind="product">
-          <div class="meta">
-            <span>product line</span>
-            <span class="sku">CO.DBS</span>
-            <span class="pill live">desk</span>
-          </div>
-          <div>
-            <h3>DATBOX</h3>
-            <p>loreBOX, shotBOX, promptBOX. World chunks in specialized bags. One house.</p>
-          </div>
-        </a>
-
-        <a class="card" href="work/digital-office-spaces.html" data-kind="product">
-          <div class="meta">
-            <span>product</span>
-            <span class="pill live">desk</span>
-          </div>
-          <div>
-            <h3>Digital Office Spaces</h3>
-            <p>The office product on the World Builder kernel. Not a game.</p>
-          </div>
-        </a>
-
-        <a class="card" href="work/sopr-documenter.html" data-kind="product">
-          <div class="meta">
-            <span>product</span>
-            <span class="sku">SPR-403</span>
-            <span class="pill live">v0</span>
-          </div>
-          <div>
-            <h3>sopr Documenter</h3>
-            <p>Fragments into bins. Resort until it is a document. The unsexy one, on purpose.</p>
-          </div>
-        </a>
-
-        <a class="card" href="work/great-road-mapper.html" data-kind="product">
-          <div class="meta">
-            <span>product</span>
-            <span class="pill live">v0</span>
-          </div>
-          <div>
-            <h3>Great Road Mapper</h3>
-            <p>Personal production board for multi-title pipelines. A road you can see.</p>
-          </div>
-        </a>
-
-        <a class="card" href="work/reqrep.html" data-kind="product">
-          <div class="meta">
-            <span>product</span>
-            <span class="pill live">v0</span>
-          </div>
-          <div>
-            <h3>ReqRep</h3>
-            <p>The request bay. Discuss, close AGREED, lock scope, sign the prep. Ugly name. Good product.</p>
-          </div>
-        </a>
-
-        <a class="card" href="work/deck-host.html" data-kind="tool">
-          <div class="meta">
-            <span>tool</span>
-            <span class="sku">CO.HOST-DECK</span>
-            <span class="pill live">desk</span>
-          </div>
-          <div>
-            <h3>Deck Host</h3>
-            <p>Small programs in real windows. Software you open, not a tab you lose.</p>
-          </div>
-        </a>
-
-        <a class="card" href="work/glass-compost.html" data-kind="desk">
-          <div class="meta">
-            <span>desk</span>
+            <span class="name">Desk World</span>
+            <span class="port">43167–72</span>
+            <span class="st live">desk</span>
+            <span class="job">Hands + felt. Sophia, Cassandra, Ava, Qua are seats, not the product.</span>
+          </a>
+          <a class="row" href="work/glass-compost.html">
             <span class="sku">CO.LEA-003-GLASS</span>
+            <span class="name">Glass Compost</span>
             <span class="port">43182</span>
-            <span class="pill live">desk</span>
-          </div>
-          <div>
-            <h3>Glass Compost</h3>
-            <p>Hand-cut room for the chat mountain. Log, trunk, branch, leaf. The grain stays.</p>
-          </div>
-        </a>
-
-        <a class="card" href="work/emt-bench.html" data-kind="desk">
-          <div class="meta">
-            <span>desk</span>
+            <span class="st live">desk</span>
+            <span class="job">Hand-cut room for the chat mountain. Log, trunk, branch, leaf.</span>
+          </a>
+          <a class="row" href="work/emt-bench.html">
             <span class="sku">CO.LEA-002-EMT</span>
+            <span class="name">EM Translation Bench</span>
             <span class="port">43150</span>
-            <span class="pill live">desk</span>
-          </div>
-          <div>
-            <h3>EM Translation Bench</h3>
-            <p>Concordance / code bay. Two languages looking at each other.</p>
-          </div>
-        </a>
+            <span class="st live">desk</span>
+            <span class="job">Concordance / code bay. Two languages looking at each other.</span>
+          </a>
+        </div>
+      </article>
 
-        <a class="card" href="work/forgetting-house.html" data-kind="game">
-          <div class="meta">
-            <span>game</span>
-            <span class="sku">SMH-002-TFH</span>
-            <span class="pill design">design</span>
+      <article class="house" id="h-wbs" data-house="wbs">
+        <header class="house-head">
+          <span class="sku">CO.WBS</span>
+          <h3>World Builder Studios</h3>
+          <p>Stages you walk into. The engine and the office product share a kernel.</p>
+        </header>
+        <div class="ledger">
+          <div class="ledger-head" aria-hidden="true">
+            <span>SKU</span>
+            <span>name</span>
+            <span>port</span>
+            <span>status</span>
+            <span>what it is</span>
           </div>
-          <div>
-            <h3>The Forgetting House</h3>
-            <p>A card rogue-like of amnesia. Rebuild meaning from fragments after everything has fallen apart.</p>
-          </div>
-        </a>
+          <a class="row" href="work/world-builder-studio.html">
+            <span class="sku">CO.WBS-001-STUDIO</span>
+            <span class="name">World Builder Studio</span>
+            <span class="port">—</span>
+            <span class="st live">desk</span>
+            <span class="job">A game engine you walk into. AIDM is the game.</span>
+          </a>
+          <a class="row" href="work/digital-office-spaces.html">
+            <span class="sku">CO.WBS-DOS</span>
+            <span class="name">Digital Office Spaces</span>
+            <span class="port">—</span>
+            <span class="st live">desk</span>
+            <span class="job">The office product on the same kernel. Not a game.</span>
+          </a>
+        </div>
+      </article>
 
-        <a class="card" href="work/dream-gardener.html" data-kind="game">
-          <div class="meta">
-            <span>game</span>
-            <span class="pill design">design</span>
+      <article class="house" id="h-dbs" data-house="dbs">
+        <header class="house-head">
+          <span class="sku">CO.DBS</span>
+          <h3>DatBox Studio</h3>
+          <p>Specialized bags for world chunks. One house, not three companies.</p>
+        </header>
+        <div class="ledger">
+          <div class="ledger-head" aria-hidden="true">
+            <span>SKU</span>
+            <span>name</span>
+            <span>port</span>
+            <span>status</span>
+            <span>what it is</span>
           </div>
-          <div>
-            <h3>Dream Gardener</h3>
-            <p>Cozy cultivation inside the dreaming. What is the deal with that cave that keeps appearing?</p>
-          </div>
-        </a>
+          <a class="row" href="work/lore-box.html">
+            <span class="sku">CO.DAT-LORE</span>
+            <span class="name">loreBOX</span>
+            <span class="port">—</span>
+            <span class="st live">desk</span>
+            <span class="job">Lore papers. Store, deck, chip.</span>
+          </a>
+          <a class="row" href="work/shot-box.html">
+            <span class="sku">CO.DAT-SHOT</span>
+            <span class="name">shotBOX</span>
+            <span class="port">—</span>
+            <span class="st live">desk</span>
+            <span class="job">Shots as a bag, not a folder of stills.</span>
+          </a>
+          <a class="row" href="work/prompt-box.html">
+            <span class="sku">CO.DAT-PROMPT</span>
+            <span class="name">promptBOX</span>
+            <span class="port">—</span>
+            <span class="st live">desk</span>
+            <span class="job">Prompts as material that can be imported later.</span>
+          </a>
+        </div>
+      </article>
 
-        <a class="card" href="work/moire-arcana.html" data-kind="game">
-          <div class="meta">
-            <span>game</span>
-            <span class="sku">CO.BBG-001-ARCANA</span>
-            <span class="pill design">design</span>
+      <article class="house" id="h-bbc" data-house="bbc">
+        <header class="house-head">
+          <span class="sku">CO.BBC</span>
+          <h3>Big Box Company</h3>
+          <p>Documentation industrial. Unsexy on purpose. Each SKU stands alone.</p>
+        </header>
+        <div class="ledger">
+          <div class="ledger-head" aria-hidden="true">
+            <span>SKU</span>
+            <span>name</span>
+            <span>port</span>
+            <span>status</span>
+            <span>what it is</span>
           </div>
-          <div>
-            <h3>Moire Arcana</h3>
-            <p>Frameworks of frameworks. Tarot, letters, systems that model systems.</p>
-          </div>
-        </a>
+          <a class="row" href="work/sopr-documenter.html">
+            <span class="sku">SPR-403</span>
+            <span class="name">sopr Documenter</span>
+            <span class="port">—</span>
+            <span class="st live">v0</span>
+            <span class="job">Fragments into bins. Resort until it is a document.</span>
+          </a>
+          <a class="row" href="work/great-road-mapper.html">
+            <span class="sku">CO.BBC-001-GRM</span>
+            <span class="name">Great Road Mapper</span>
+            <span class="port">—</span>
+            <span class="st live">v0</span>
+            <span class="job">Personal production board for multi-title pipelines.</span>
+          </a>
+          <a class="row" href="work/reqrep.html">
+            <span class="sku">CO.BBC-002-RR</span>
+            <span class="name">ReqRep</span>
+            <span class="port">—</span>
+            <span class="st live">v0</span>
+            <span class="job">The request bay. Discuss, close AGREED, lock scope, sign the prep.</span>
+          </a>
+        </div>
+      </article>
 
-        <a class="card" href="work/chesters-toy-box.html" data-kind="game">
-          <div class="meta">
-            <span>crate</span>
-            <span class="pill live">desk</span>
+      <article class="house" id="h-host" data-house="host">
+        <header class="house-head">
+          <span class="sku">CO.HOST</span>
+          <h3>Deck Host</h3>
+          <p>Windows the ROMs open in. Not a tab you lose.</p>
+        </header>
+        <div class="ledger">
+          <div class="ledger-head" aria-hidden="true">
+            <span>SKU</span>
+            <span>name</span>
+            <span>port</span>
+            <span>status</span>
+            <span>what it is</span>
           </div>
-          <div>
-            <h3>Chester’s Toy Box</h3>
-            <p>The crate. Ineffable, Eddy, Time Machine, Import Station, Injector live inside — not beside.</p>
-          </div>
-        </a>
+          <a class="row" href="work/deck-host.html">
+            <span class="sku">CO.HOST-DECK</span>
+            <span class="name">Deck Host</span>
+            <span class="port">—</span>
+            <span class="st live">desk</span>
+            <span class="job">Small programs in real windows. Launcher is CO.HOST-001-LAUNCH.</span>
+          </a>
+        </div>
+      </article>
 
-        <a class="card" href="work/rom-cat.html" data-kind="tool">
-          <div class="meta">
-            <span>tool</span>
+      <article class="house" id="h-dcc" data-house="dcc">
+        <header class="house-head">
+          <span class="sku">CO.DCC</span>
+          <h3>Dewey Catalog Co.</h3>
+          <p>The yellow pages of this line. Incomplete ROMs are allowed.</p>
+        </header>
+        <div class="ledger">
+          <div class="ledger-head" aria-hidden="true">
+            <span>SKU</span>
+            <span>name</span>
+            <span>port</span>
+            <span>status</span>
+            <span>what it is</span>
+          </div>
+          <a class="row" href="work/rom-cat.html">
             <span class="sku">CO.DCC-001-ROMCAT</span>
-            <span class="pill live">desk</span>
-          </div>
-          <div>
-            <h3>ROM Cat</h3>
-            <p>Yellow pages of producers and small programs. Incomplete allowed.</p>
-          </div>
-        </a>
+            <span class="name">ROM Cat</span>
+            <span class="port">—</span>
+            <span class="st live">desk</span>
+            <span class="job">Producers, then SKUs. This site reads that filing.</span>
+          </a>
+        </div>
+      </article>
 
-        <a class="card" href="work/sky-lite.html" data-kind="tool">
-          <div class="meta">
-            <span>tool</span>
-            <span class="pill">public</span>
+      <article class="house" id="h-kde" data-house="kde">
+        <header class="house-head">
+          <span class="sku">CO.KDE</span>
+          <h3>KDE Fugue Inc.</h3>
+          <p>Looping pocket machines.</p>
+        </header>
+        <div class="ledger">
+          <div class="ledger-head" aria-hidden="true">
+            <span>SKU</span>
+            <span>name</span>
+            <span>port</span>
+            <span>status</span>
+            <span>what it is</span>
           </div>
-          <div>
-            <h3>Sky-lite</h3>
-            <p>A small narrative DSL. Compose pages without the usual slog.</p>
+          <a class="row" href="work/kde-notes-chords.html">
+            <span class="sku">CO.KDE-001-INSTR</span>
+            <span class="name">KDE Notes &amp; Chords</span>
+            <span class="port">—</span>
+            <span class="st live">itch</span>
+            <span class="job">Fifteen keys. A chord dumps a story.</span>
+          </a>
+        </div>
+      </article>
+
+      <article class="house" id="h-smh" data-house="smh">
+        <header class="house-head">
+          <span class="sku">CO.SMH</span>
+          <h3>Something Mattered Here</h3>
+          <p>That’s the thesis.</p>
+        </header>
+        <div class="ledger">
+          <div class="ledger-head" aria-hidden="true">
+            <span>SKU</span>
+            <span>name</span>
+            <span>port</span>
+            <span>status</span>
+            <span>what it is</span>
           </div>
-        </a>
-      </div>
+          <a class="row" href="work/terminal-prolog.html">
+            <span class="sku">SMH-001-PROLOG</span>
+            <span class="name">Terminal Prolog</span>
+            <span class="port">—</span>
+            <span class="st">spec</span>
+            <span class="job">No action verbs. Only thought.</span>
+          </a>
+          <a class="row" href="work/forgetting-house.html">
+            <span class="sku">SMH-002-TFH</span>
+            <span class="name">The Forgetting House</span>
+            <span class="port">—</span>
+            <span class="st">design</span>
+            <span class="job">A card rogue-like of amnesia.</span>
+          </a>
+        </div>
+      </article>
+
+      <article class="house" id="h-bbg" data-house="bbg">
+        <header class="house-head">
+          <span class="sku">CO.BBG</span>
+          <h3>BAR-B Games</h3>
+          <p>Systems that model systems.</p>
+        </header>
+        <div class="ledger">
+          <div class="ledger-head" aria-hidden="true">
+            <span>SKU</span>
+            <span>name</span>
+            <span>port</span>
+            <span>status</span>
+            <span>what it is</span>
+          </div>
+          <a class="row" href="work/moire-arcana.html">
+            <span class="sku">CO.BBG-001-ARCANA</span>
+            <span class="name">Moire Arcana</span>
+            <span class="port">—</span>
+            <span class="st">design</span>
+            <span class="job">Tarot, letters, frameworks of frameworks.</span>
+          </a>
+        </div>
+      </article>
+
+      <article class="house" id="h-toy" data-house="toy">
+        <header class="house-head">
+          <span class="sku">CO.TOY</span>
+          <h3>Charlie’s Toys</h3>
+          <p>The crate. They live inside Chester’s Toy Box, not beside it on a shelf.</p>
+        </header>
+        <div class="ledger">
+          <div class="ledger-head" aria-hidden="true">
+            <span>SKU</span>
+            <span>name</span>
+            <span>port</span>
+            <span>status</span>
+            <span>what it is</span>
+          </div>
+          <a class="row" href="work/chesters-toy-box.html">
+            <span class="sku">CO.IMP</span>
+            <span class="name">Chester’s Toy Box</span>
+            <span class="port">—</span>
+            <span class="st live">desk</span>
+            <span class="job">Ineffable, Eddy, Time Machine, Import Station, Injector.</span>
+          </a>
+        </div>
+      </article>
+
+      <article class="house" id="h-open" data-house="open">
+        <header class="house-head">
+          <span class="sku">—</span>
+          <h3>not chipped yet</h3>
+          <p>On the public shelf. Not a ROM Cat SKU yet. That’s allowed.</p>
+        </header>
+        <div class="ledger">
+          <div class="ledger-head" aria-hidden="true">
+            <span>SKU</span>
+            <span>name</span>
+            <span>port</span>
+            <span>status</span>
+            <span>what it is</span>
+          </div>
+          <a class="row" href="work/dream-gardener.html">
+            <span class="sku">—</span>
+            <span class="name">Dream Gardener</span>
+            <span class="port">—</span>
+            <span class="st">design</span>
+            <span class="job">Cozy cultivation inside the dreaming.</span>
+          </a>
+          <a class="row" href="work/sky-lite.html">
+            <span class="sku">—</span>
+            <span class="name">Sky-lite</span>
+            <span class="port">—</span>
+            <span class="st live">public</span>
+            <span class="job">A small narrative DSL.</span>
+          </a>
+        </div>
+      </article>
     </section>
 
     <section class="about-band wrap">
-      <h2>a production line, not a maybe</h2>
+      <h2>the filing is the studio</h2>
       <div>
         <p>
-          Founded March 2026. Houses, SKUs, ports. The toys are the work.
-          ROM Cat is the yellow pages of that line.
+          Founded March 2026. ROM Cat is the yellow pages. This page is the public reading of that catalog — houses first, then the toys.
         </p>
         <p>
           i'm not sure what the lab is yet. the products are already here.
@@ -323,6 +441,6 @@
       <a href="https://x.com/kitkatkittenlab">x</a>
     </div>
   </footer>
-  <script src="js/site.js?v=6"></script>
+  <script src="js/site.js?v=7"></script>
 </body>
 </html>
