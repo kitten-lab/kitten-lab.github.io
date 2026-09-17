@@ -215,6 +215,117 @@ nav a[aria-current="page"] {
   line-height: 1.4;
 }
 
+.open-files {
+  padding: 0.85rem 0 0.15rem;
+}
+
+.open-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.45rem 1.1rem;
+  margin: 0 0 0.7rem;
+}
+
+.open-head h2 {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-transform: lowercase;
+  letter-spacing: 0.04em;
+}
+
+.open-head p {
+  margin: 0;
+  max-width: 62ch;
+  color: var(--quiet);
+  font-size: 0.9rem;
+}
+
+.open-slips {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem;
+}
+
+.open-slip {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas:
+    "sku mark port"
+    "name name name"
+    "job job job";
+  gap: 0.2rem 0.7rem;
+  padding: 0.7rem 0.85rem 0.75rem;
+  border-left: 4px solid var(--hue);
+  background: color-mix(in srgb, var(--hue) 10%, var(--paper-2));
+  text-decoration: none;
+  color: inherit;
+}
+
+.open-slip:hover,
+.open-slip:focus-visible {
+  color: inherit;
+  background: color-mix(in srgb, var(--hue) 16%, var(--paper-2));
+}
+
+.open-slip .sku {
+  grid-area: sku;
+  width: fit-content;
+  padding: 0.12rem 0.4rem 0.1rem;
+  border-radius: 2px 7px 2px 2px;
+  background: var(--hue);
+  color: #f4f6fb;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.03em;
+}
+
+.open-slip .mark {
+  grid-area: mark;
+  align-self: center;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  color: var(--signal);
+}
+
+.open-slip .port {
+  grid-area: port;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--quiet);
+  font-variant-numeric: tabular-nums;
+}
+
+.open-slip .name {
+  grid-area: name;
+  font-family: var(--display);
+  font-size: 1.35rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.open-slip .job {
+  grid-area: job;
+  color: var(--quiet);
+  font-size: 0.88rem;
+}
+
+.row.is-open .name::after {
+  content: "open";
+  margin-left: 0.4rem;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  color: var(--signal);
+  vertical-align: 0.15em;
+}
+
 .kicker {
   margin: 0 0 1rem;
   color: var(--quiet);
@@ -1017,6 +1128,10 @@ nav a[aria-current="page"] {
   .mast-voice {
     justify-self: start;
     text-align: left;
+  }
+
+  .open-slips {
+    grid-template-columns: 1fr;
   }
 
   .house-head {
