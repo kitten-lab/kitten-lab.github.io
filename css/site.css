@@ -122,7 +122,8 @@ a:hover {
   color: var(--quiet);
 }
 
-body.go-page .now-chip {
+body.go-page .now-chip,
+body.desk-page .now-chip {
   display: inline;
   margin-right: 0.9rem;
 }
