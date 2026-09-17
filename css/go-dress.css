@@ -1,47 +1,94 @@
 @import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=Black+Ops+One&family=Share+Tech+Mono&family=Special+Elite&display=swap");
 
-/* Pocket Go dress — lift from www.css + librarian booths, not the lobby fever.
-   Site rail (ROM Cat) stays above this window. */
-
-body.go-page {
-  background: #7a7a7a;
-}
+/* Pocket Go — catalog paper for the page. Booths and look-rooms keep their dress.
+   WWW chrome is a mini window around rooms, not a wrapper for the whole manual. */
 
 body.go-page .site-rail {
-  background: var(--paper);
+  background: color-mix(in srgb, var(--paper) 94%, #fff);
 }
 
-.go-frame {
-  margin: 0.55rem auto 2.2rem;
-  width: min(1180px, calc(100% - var(--pad) * 2));
+.go-hero {
+  padding: 1.6rem 0 0;
+  scroll-margin-top: 4.5rem;
+}
+
+.go-hero h1 {
+  margin: 0.2rem 0 0;
+  font-family: var(--display);
+  font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.go-hero .sku {
+  display: inline-block;
+  padding: 0.18rem 0.45rem 0.14rem;
+  border-radius: 2px 8px 2px 2px;
+  background: var(--hue, #1a3a8a);
+  color: #f4f6fb;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+}
+
+.go-hero .pg-lede {
+  max-width: 62ch;
+  color: var(--ink);
+}
+
+body.go-page .pg-nav {
+  gap: 0.35rem;
+}
+
+body.go-page .pg-nav a {
+  display: inline-block;
+  padding: 0.28rem 0.7rem 0.24rem;
+  border: 1px solid color-mix(in srgb, var(--ink) 16%, var(--line));
+  border-radius: 2px 8px 2px 2px;
+  background: var(--paper-2);
+  color: var(--ink);
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+}
+
+body.go-page .pg-nav a:hover,
+body.go-page .pg-nav a:focus-visible {
+  color: var(--paper);
+  background: var(--ink);
+  border-color: var(--ink);
+}
+
+.go-mini {
   background: gray;
   box-shadow:
     inset 2px 2px 0 #ffffff55,
     inset -2px -2px 0 #00000044,
-    0 8px 18px #00000033;
+    0 6px 14px #00000022;
+  padding: 0 0 0.28rem;
 }
 
 .go-titlebar {
   display: flex;
   align-items: center;
   gap: 0.45rem;
-  height: 1.85rem;
-  margin: 0.22rem 0.35rem 0;
+  height: 1.55rem;
+  margin: 0.18rem 0.28rem 0;
   padding: 0 0.3rem;
   background-image: linear-gradient(to top, #0000cd, #1a3aff);
   border: 1px solid #0000cd;
   color: #fff;
   font-family: "IBM Plex Mono", "Courier New", Consolas, monospace;
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 700;
 }
 
 .go-mark {
   flex: 0 0 auto;
   background: #5b5b5b;
-  padding: 0.08rem 0.38rem;
+  padding: 0.06rem 0.32rem;
   letter-spacing: 0.02em;
-  font-size: 0.68rem;
+  font-size: 0.62rem;
 }
 
 .go-name {
@@ -52,186 +99,11 @@ body.go-page .site-rail {
   white-space: nowrap;
 }
 
-.go-win {
-  display: flex;
-  gap: 3px;
-  margin-left: auto;
-}
-
-.go-win a {
-  width: 22px;
-  height: 18px;
-  line-height: 16px;
-  text-align: center;
-  text-decoration: none;
-  color: #111;
-  background: gray;
-  border: 1px solid rgba(0, 0, 0, 0.63);
-  font-size: 11px;
-  box-shadow:
-    inset -1px -1px 0 #00000033,
-    inset 1px 1px 0 #ffffff66;
-}
-
-.go-win a:hover {
-  color: #111;
-  background: #c0c0c0;
-}
-
-.go-bar {
-  display: flex;
-  align-items: stretch;
-  gap: 0.15rem;
-  padding: 0.22rem 0.35rem;
-  background: gray;
-  font-family: "IBM Plex Mono", "Courier New", Consolas, monospace;
-}
-
-.go-bar a,
-.go-slug,
-.go-go {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 2.6rem;
-  padding: 0.18rem 0.4rem;
-  border: 1px solid rgba(0, 0, 0, 0.63);
-  background: gray;
-  color: #111;
-  font-size: 0.68rem;
-  text-decoration: none;
-  box-shadow:
-    inset -2px -2px 0 #00000033,
-    inset 2px 2px 0 #ffffff66,
-    1px 1px 0 #ffffff66,
-    -1px -1px 0 #00000066;
-}
-
-.go-bar a:hover {
-  color: #111;
-  background: #c0c0c0;
-}
-
-.go-slug {
-  flex: 1;
-  justify-content: flex-start;
-  min-width: 0;
-  margin: 0 0.2rem;
-  background: #fff;
-  color: #000;
-  font-weight: 700;
-  box-shadow:
-    1px 1px 0 #ffffff66,
-    -1px -1px 0 #00000066;
-  cursor: default;
-}
-
-.go-go {
-  min-width: 2.8rem;
-  background: #c9a227;
-  color: #111;
-  font-weight: 700;
-}
-
-.go-stage {
-  margin: 0 0.35rem 0.35rem;
-  background: #fff;
-  color: #000;
-  font: 15px/1.4 "Times New Roman", Times, serif;
-  min-height: 60vh;
-  padding: 0.65rem 0.9rem 1.4rem;
-  box-shadow: inset 1px 1px 0 #ffffff88, inset -1px -1px 0 #00000044;
-}
-
-body.go-page .pg {
-  padding: 0 0 1rem;
-}
-
-body.go-page .crumb,
-body.go-page .pg-block > h2,
-body.go-page .pg-nav,
-body.go-page .pg-note,
-body.go-page .pg-lede,
-body.go-page .pg-foot,
-body.go-page .go-shot figcaption {
-  font-family: "Times New Roman", Times, serif;
-}
-
-body.go-page .crumb {
-  font-size: 0.92rem;
-}
-
-body.go-page .pg-block > h2 {
-  font-size: 1.15rem;
-  font-weight: bold;
-  letter-spacing: 0;
-  text-transform: none;
-}
-
-body.go-page .pg-nav {
-  font-size: 0.95rem;
-}
-
-body.go-page .tok {
-  font-family: "Courier New", Courier, monospace;
-  font-size: 0.82em;
-  background: #fff;
-  border: 1px solid #808080;
-}
-
-body.go-page .go-lead {
-  margin: 0 0 0.7rem;
-  padding-bottom: 0.65rem;
-  border-bottom: 1px solid #000;
-}
-
-body.go-page .go-lead h1 {
-  margin: 0.15rem 0 0.45rem;
-  font: bold 2.55rem/1.05 "Times New Roman", Times, serif;
-  letter-spacing: 0;
-}
-
-body.go-page .go-lead .pg-lede {
-  margin: 0.45rem 0 0;
-  max-width: 58ch;
-  color: #000;
-}
-
-body.go-page .go-lead .pg-nav {
-  margin-top: 0.5rem;
-}
-
-body.go-page .go-lead .pg-nav a {
-  color: #00e;
-}
-
-body.go-page .fm-line {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.2rem 0.9rem;
-  margin: 0.15rem 0 0;
-  width: max-content;
-  max-width: 100%;
-  padding: 3px 7px;
-  border: 1px solid #000;
-  background: #fff;
-  font-family: "Times New Roman", Times, serif;
-  font-size: 0.88rem;
-}
-
-body.go-page .pg-block {
-  padding-top: 1.1rem;
-}
-
-body.go-page .pg-note {
-  color: #000;
-}
-
 body.go-page .go-shots {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0.75rem;
-  margin: 0.85rem 0 0.2rem;
+  gap: 0.9rem;
+  margin: 1.4rem 0 0.2rem;
 }
 
 body.go-page .go-shot {
@@ -239,32 +111,84 @@ body.go-page .go-shot {
 }
 
 body.go-page .go-shot img {
-  width: 100%;
+  display: block;
+  width: calc(100% - 0.56rem);
   height: auto;
+  margin: 0.22rem 0.28rem 0;
   border: 1px solid #000;
   background: #000;
 }
 
 body.go-page .go-shot figcaption {
-  margin-top: 0.35rem;
+  margin-top: 0.45rem;
   font-size: 0.88rem;
-  font-style: italic;
-  color: #222;
+  color: var(--quiet);
+}
+
+body.go-page .pg-note strong {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+body.go-page .pg-block {
+  scroll-margin-top: 4.5rem;
+}
+
+body.go-page .looks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+body.go-page .looks li {
+  display: grid;
+  grid-template-columns: minmax(7.4rem, max-content) 1fr;
+  gap: 0.12rem 0.4rem;
+  align-items: baseline;
+  margin: 0 0 0.28rem;
+}
+
+body.go-page .looks .tok {
+  margin: 0;
 }
 
 body.go-page .clay-board {
-  padding: 0.55rem 0.7rem 0.7rem;
-  background: #fff;
-  border: 1px solid #000;
+  padding: 0.75rem 0.9rem 0.95rem;
+  background: var(--paper-2);
+  border: 1px solid var(--line);
 }
 
-body.go-page .clay-board p {
-  margin: 0 0 0.65rem;
+body.go-page .clay-manual {
+  display: grid;
+  gap: 0.55rem 1.1rem;
+  margin: 0 0 0.85rem;
 }
 
-body.go-page .clay-board p:last-child {
-  margin-bottom: 0;
-  color: #404040;
+body.go-page .clay-manual > div {
+  display: grid;
+  grid-template-columns: minmax(8.2rem, 11rem) 1fr;
+  gap: 0.35rem 0.85rem;
+  align-items: baseline;
+}
+
+body.go-page .clay-manual dt {
+  margin: 0;
+}
+
+body.go-page .clay-manual dd {
+  margin: 0;
+  color: var(--quiet);
+  font-size: 0.92rem;
+}
+
+body.go-page .clay-board > p {
+  margin: 0;
+  color: var(--quiet);
+  font-size: 0.92rem;
+}
+
+body.go-page .tok {
+  font-family: var(--mono);
 }
 
 /* BIOS — main cabinet. Lift from librarian.is-readme */
@@ -296,11 +220,11 @@ body.go-page .mouth.is-bios dt {
 body.go-page .bios-ides {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0.4rem;
+  gap: 0.3rem;
 }
 
 body.go-page .bios-leaf {
-  padding: 0.4rem 0.5rem 0.5rem 0.6rem;
+  padding: 0.32rem 0.4rem 0.38rem 0.48rem;
   background: #0b1020;
   border: 1px solid #1e2a44;
   box-shadow:
@@ -308,12 +232,13 @@ body.go-page .bios-leaf {
     inset 0 0 0 1px #00000088;
   color: #e8ecf4;
   font-family: "IBM Plex Mono", "Share Tech Mono", monospace;
-  font-size: 0.72rem;
+  font-size: 0.58rem;
+  line-height: 1.35;
 }
 
 body.go-page .bios-leaf h3 {
-  margin: 0 0 0.45rem;
-  font-size: 0.72rem;
+  margin: 0 0 0.28rem;
+  font-size: 0.58rem;
   color: #ffff55;
 }
 
@@ -338,29 +263,49 @@ body.go-page .bios-leaf code {
 
 /* Cabinet booths — lift from librarian.css house paints */
 body.go-page .mouths {
-  gap: 0.65rem;
+  gap: 0.45rem;
 }
 
 body.go-page .mouth {
   display: grid;
-  grid-template-columns: 10.5rem 1fr;
-  padding: 0.65rem 0.7rem 0.7rem;
+  grid-template-columns: 8.6rem 1fr;
+  gap: 0.45rem 0.7rem;
+  padding: 0.48rem 0.55rem 0.52rem;
   border: 0;
   border-left-width: 0;
   color: var(--ink, #efe6d0);
-  font-size: 0.78rem;
+  font-size: 0.62rem;
+  line-height: 1.35;
   box-shadow:
     inset 2px 2px 0 #ffffff18,
     inset -1px -1px 0 #00000066;
 }
 
 body.go-page .mouth header {
-  padding-right: 0.35rem;
+  padding-right: 0.25rem;
 }
 
 body.go-page .mouth h3 {
-  font-size: 1.05rem;
+  margin: 0 0 0.2rem;
+  font-size: 0.78rem;
   letter-spacing: 0.04em;
+}
+
+body.go-page .mouth .job {
+  font-size: 0.62rem;
+}
+
+body.go-page .mouth dl {
+  gap: 0.38rem;
+}
+
+body.go-page .mouth dt {
+  font-size: 0.56rem;
+  margin: 0 0 0.12rem;
+}
+
+body.go-page .mouth dd {
+  font-size: 0.62rem;
 }
 
 body.go-page .mouth .job,
@@ -369,7 +314,13 @@ body.go-page .mouth .mouth-id {
   color: var(--mute, #8a9a82);
 }
 
+body.go-page .mouth-id {
+  font-size: 0.56rem;
+}
+
 body.go-page .mouth .tok {
+  padding: 0.04rem 0.28rem;
+  font-size: 0.54rem;
   background: color-mix(in srgb, var(--slip, #fff) 80%, #fff);
   color: #243028;
   border-color: color-mix(in srgb, var(--rule, #c4a574) 55%, #000);
@@ -426,10 +377,14 @@ body.go-page .mouth.is-hunt {
 body.go-page .mouth.is-hunt h3,
 body.go-page .mouth.is-hunt .mouth-id {
   font-family: "Black Ops One", "Share Tech Mono", sans-serif;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #ff3a32;
-  text-shadow: 2px 0 0 rgba(255, 0, 40, 0.45);
+  text-shadow: 1px 0 0 rgba(255, 0, 40, 0.45);
+}
+
+body.go-page .mouth.is-hunt h3 {
+  font-size: 0.72rem;
 }
 
 body.go-page .mouth.is-tps {
@@ -582,27 +537,16 @@ body.go-page .shop.is-status {
 }
 
 body.go-page .pg-foot {
-  color: #404040;
-}
-
-body.go-page .site-footer {
-  width: min(1180px, calc(100% - var(--pad) * 2));
-  margin-inline: auto;
-  color: #1a1a1a;
-  border-top-color: #555;
+  color: var(--quiet);
 }
 
 @media (max-width: 760px) {
   body.go-page .go-shots,
   body.go-page .shops,
   body.go-page .mouth,
-  body.go-page .bios-ides {
+  body.go-page .bios-ides,
+  body.go-page .looks li,
+  body.go-page .clay-manual > div {
     grid-template-columns: 1fr;
-  }
-
-  .go-bar a:not(.go-slug) {
-    min-width: 2.4rem;
-    padding-inline: 0.3rem;
-    font-size: 0.7rem;
   }
 }

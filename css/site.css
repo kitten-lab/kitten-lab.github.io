@@ -436,7 +436,7 @@ nav a[aria-current="page"] {
 }
 
 .house-head .sku {
-  grid-row: 1 / span 2;
+  grid-row: 1;
   align-self: start;
   width: fit-content;
   margin-top: 0.15rem;
@@ -757,6 +757,11 @@ nav a[aria-current="page"] {
 
 .prose p {
   margin: 0 0 1rem;
+}
+
+.prose code {
+  font-family: var(--mono);
+  font-size: 0.88em;
 }
 
 .prose h3 {

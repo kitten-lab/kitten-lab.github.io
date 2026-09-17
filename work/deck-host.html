@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/site.css?v=16">
+  <link rel="stylesheet" href="../css/site.css?v=19">
 </head>
 <body>
   <header class="site-header wrap">
@@ -28,21 +28,69 @@
       <p class="kicker">Tool</p>
       <h1>Deck Host</h1>
       <div class="meta">
-        <span class="pill live">Active</span>
-        <span>Windows for small software</span>
+        <span class="pill live">desk</span>
+        <span>CO.HOST-DECK</span>
+        <span>windows for ROMs</span>
       </div>
     </header>
 
     <article class="prose">
-      <h2>Why</h2>
+      <h2>why</h2>
       <p>
-        Browser tabs dissolve. I wanted the lab’s small programs to feel like
-        things you open: a dedicated window, a path to ship one tool as one
-        install. Deck Host is that coat. The product inside stays itself.
+        Deck Host is the window runtime for ROMs. The ROM is the product.
+        The host is the chrome that makes it feel like a program instead of a tab.
       </p>
       <p>
-        It is infrastructure with a point of view. If we store more than we
-        can hold, the containers still have to be findable with the hands.
+        It was made so a pocket tool could be double-clicked, sit in its own
+        window, and ship as one install — not open a browser, keep a server
+        console running, and remember the port. One folder, one icon, the ROM’s
+        UI, quit that actually quits. Development may still split server and
+        window. Delivery is not supposed to.
+      </p>
+
+      <h2>where it came from</h2>
+      <p>
+        The shell is a rework of the old myPI pocket-browser. Pocket internet
+        needed a real window. Deck Host generalizes that: any ROM can wear it,
+        not only myPI. ROM Cat files it as <code>CO.HOST-DECK</code>. The
+        primary face is ROM Launcher (<code>CO.HOST-001-LAUNCH</code>).
+      </p>
+
+      <h2>three rooms</h2>
+      <ul>
+        <li>
+          <strong>Shell</strong> — the window: caption, drag, deep mode,
+          spawn and health, profiles (desk, rail, office).
+        </li>
+        <li>
+          <strong>ROM Launcher</strong> — a start menu of cartridge cases.
+          Identity from ROM Cat. Recipes only know how to run.
+        </li>
+        <li>
+          <strong>Receiver</strong> — a felt stage that is a ROM, not a
+          second launcher.
+        </li>
+      </ul>
+      <p>
+        A typical glass ROM starts a local server, waits until it is healthy,
+        then opens frameless glass on that URL. Static toys can skip the server
+        so a frozen exe is enough. The later dream is a ROM deck — many carts,
+        one host. Today the house mostly does one ROM, one window, with the
+        launcher as the shelf.
+      </p>
+
+      <h2>the title bar</h2>
+      <p>
+        The host does not own a ROM’s data, verbs, or world. Caption
+        integration is how a ROM becomes the title bar:
+        <code>data-deck-chrome</code>, <code>data-deck-drag</code> —
+        Pocket Go’s Win 3.1 chrome, the desks’ rails, the launcher’s top
+        strip. That is the point of a real window on this stack.
+      </p>
+      <p>
+        Deck Host exists so the tools can live as cartridges in glass, not
+        pages in a browser. The launcher is how you pick a cart. The shell
+        is the deck they plug into.
       </p>
     </article>
   </main>

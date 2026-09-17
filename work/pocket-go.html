@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Pocket Go — Kitten Lab</title>
-  <meta name="description" content="A WWW you inhabit. Markdown as rooms. BIOS to edit the pocket. Cabinets that mint look-throughs. Danielle Leve / Kitten Lab.">
+  <meta name="description" content="A pocket internet of markdown rooms. Same page, several minds. Danielle Leve / Kitten Lab.">
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="../css/site.css?v=16">
-  <link rel="stylesheet" href="../css/go-dress.css?v=3">
+  <link rel="stylesheet" href="../css/site.css?v=19">
+  <link rel="stylesheet" href="../css/go-dress.css?v=6">
 </head>
 <body class="go-page">
   <header class="site-rail">
@@ -25,37 +25,37 @@
     </div>
   </header>
 
-  <div class="go-frame">
-    <div class="go-titlebar">
-      <span class="go-mark">mypi:go</span>
-      <span class="go-name">Pocket Go</span>
-    </div>
-    <div class="go-bar">
-      <a href="../index.html#work">Back</a>
-      <a href="../index.html">Home</a>
-      <span class="go-slug">go.kitten-lab/pocket-go</span>
-      <span class="go-go">GO!</span>
-    </div>
-    <div class="go-stage">
-  <main class="pg">
-    <header class="go-lead">
+  <main class="wrap pg">
+    <header class="go-hero">
       <p class="crumb"><a href="../index.html">work</a> / Pocket Go</p>
       <h1>Pocket Go</h1>
-      <p class="fm-line">
-        <span>CO.MYPT-004-GO</span>
-        <span>CO.MYPT</span>
-        <span>43210</span>
-        <span>desk</span>
-      </p>
+      <dl class="facts">
+        <div>
+          <dt>sku</dt>
+          <dd><span class="sku" data-house="mypt">CO.MYPT-004-GO</span></dd>
+        </div>
+        <div>
+          <dt>house</dt>
+          <dd>CO.MYPT</dd>
+        </div>
+        <div>
+          <dt>port</dt>
+          <dd>43210</dd>
+        </div>
+        <div>
+          <dt>status</dt>
+          <dd>desk</dd>
+        </div>
+      </dl>
       <p class="pg-lede">
-        Markdown as rooms. BIOS as a tiny IDE — the main cabinet.
-        The other mouths follow the page. The dress can look like a fever
-        dream. The machine is not.
+        A pocket internet. Folders of markdown become rooms the moment they
+        exist. A page is a crate. Cabinets follow you, so the same material
+        can be catalogued, woven, hunted, dated, and cited. The dress can
+        look like anything. The files stay files.
       </p>
       <nav class="pg-nav" aria-label="On this page">
         <a href="#shot">rooms</a>
         <a href="#cabinets">cabinets</a>
-        <a href="#bios">bios</a>
         <a href="#rooms">look rooms</a>
         <a href="#clay">clay</a>
       </nav>
@@ -63,17 +63,29 @@
 
     <div class="go-shots" id="shot">
       <figure class="go-shot">
-        <img src="../img/pocket-go-codes.png" alt="Pocket Go: Chester's Crates on go.codes, Detective docked on OT-001.">
+        <div class="go-mini">
+          <div class="go-titlebar">
+            <span class="go-mark">mypi:go</span>
+            <span class="go-name">go.codes/OT/001/</span>
+          </div>
+          <img src="../img/pocket-go-codes.png" alt="Pocket Go: Chester's Crates on go.codes, Detective docked on a chip-code room.">
+        </div>
         <figcaption>
-          Narrative world. <code>go.codes/OT/001/</code> — Chester’s Crates.
-          Detective is a mouth on this crate.
+          A chip-code room. Detective is looking at this page.
+          The catalog is a different drawer on the same crate.
         </figcaption>
       </figure>
       <figure class="go-shot">
-        <img src="../img/pocket-go-room.png" alt="Pocket Go: a dressed books aisle with the Librarian docked.">
+        <div class="go-mini">
+          <div class="go-titlebar">
+            <span class="go-mark">mypi:go</span>
+            <span class="go-name">go.media</span>
+          </div>
+          <img src="../img/pocket-go-room.png" alt="Pocket Go: a dressed books aisle with the Librarian docked.">
+        </div>
         <figcaption>
-          A store the page is wearing. <code>go.media</code> —
-          Librarian on the crate. The lobby is not the product.
+          A host wearing a store. Dress is CSS on the room.
+          The start page is a lobby. The product is the hosts.
         </figcaption>
       </figure>
     </div>
@@ -81,7 +93,12 @@
     <section class="pg-block" id="cabinets">
       <h2>cabinets</h2>
       <p class="pg-note">
-        BIOS is the letter. The others are mouths on the same crate.
+        BIOS is the letter — you edit the WWW from inside it. The others are
+        mouths on the same crate. Each booth is an instruction card:
+        <strong>files</strong> is what you put in the drawer.
+        <strong>look tokens</strong> is what you plant on a page so the room
+        can show it. <strong>opens</strong> is the dressed host that tool
+        lives in.
       </p>
       <div class="mouths">
         <article class="mouth is-bios" id="bios">
@@ -136,16 +153,27 @@
           <header>
             <p class="mouth-id">librarian · ctrl+shift+l</p>
             <h3>Catalog</h3>
-            <p class="job">Fields on this crate. Booth green. Not tags.</p>
+            <p class="job">Structured facts about this page. Booth green. A different drawer from tags.</p>
           </header>
           <dl>
             <dt>files</dt>
             <dd>Add Meta (time, bool, input, textbox). Add Lore. Attach Lore. A ledger by field, not by word.</dd>
             <dt>look tokens</dt>
             <dd>
-              <span class="tok">{{meta}}</span>
-              <span class="tok">{{lib:label}}</span>
-              <span class="tok">{{shelf}}</span>
+              <ul class="looks">
+                <li>
+                  <span class="tok">{{meta}}</span>
+                  Prints this page’s catalog onto the paper, so filed facts are part of the room.
+                </li>
+                <li>
+                  <span class="tok">{{lib:label}}</span>
+                  One field, in place — author, or whatever you named it — without opening the drawer.
+                </li>
+                <li>
+                  <span class="tok">{{shelf}}</span>
+                  A card shelf for this place. The page can wear its own catalog as furniture.
+                </li>
+              </ul>
             </dd>
             <dt>opens</dt>
             <dd>
@@ -160,7 +188,7 @@
           <header>
             <p class="mouth-id">charlie · ctrl+shift+c</p>
             <h3>Weave</h3>
-            <p class="job">Words that connect pages. Amber phosphor.</p>
+            <p class="job">Names connecting to names. Amber phosphor. Associative mind, not a record type.</p>
           </header>
           <dl>
             <dt>files</dt>
@@ -170,17 +198,27 @@
             </dd>
             <dt>look tokens</dt>
             <dd>
-              <span class="tok">{{tagsearch}}</span>
-              <span class="tok">{{taglook}}</span>
-              <span class="tok">#word</span>
+              <ul class="looks">
+                <li>
+                  <span class="tok">{{tagsearch}}</span>
+                  Plants a tag search on any page, so looking up a word does not require a trip to the shop.
+                </li>
+                <li>
+                  <span class="tok">{{taglook}}</span>
+                  What already edged this crate — the weave that is already here.
+                </li>
+                <li>
+                  <span class="tok">#word</span>
+                  A hash printed on the note. Click it and you are on that word across the pocket.
+                </li>
+              </ul>
             </dd>
             <dt>opens</dt>
             <dd>
               <span class="opens">go.tags</span> — Charlie’s Tag Emporium.
               The shop is clay that calls Charlie’s tag tools: scan a word,
               on-touch mint, look-through of what already edged that crate.
-              Drop <code>{{tagsearch}}</code> on any page and the same tool
-              appears. The host is the dressed room those tools live in.
+              The host is the dressed room those tools live in.
             </dd>
           </dl>
         </article>
@@ -189,17 +227,31 @@
           <header>
             <p class="mouth-id">detective · ctrl+shift+a</p>
             <h3>Hunt</h3>
-            <p class="job">Slips and mindset. Stamp red. Not the catalog.</p>
+            <p class="job">A second mind on the same crate. Stamp red. Case thoughts that never land in the catalog.</p>
           </header>
           <dl>
             <dt>files</dt>
             <dd>Own meta bank. Own lore house. Librarian can catalog the same crate and never hold these thoughts.</dd>
             <dt>look tokens</dt>
             <dd>
-              <span class="tok">{{huntsearch}}</span>
-              <span class="tok">{{huntlook}}</span>
-              <span class="tok">{{meta:detective}}</span>
-              <span class="tok">{{det:label}}</span>
+              <ul class="looks">
+                <li>
+                  <span class="tok">{{huntsearch}}</span>
+                  A keyword box you can drop on any page. Hunt without leaving the room.
+                </li>
+                <li>
+                  <span class="tok">{{huntlook}}</span>
+                  Hits for the query you are on, printed in the hall.
+                </li>
+                <li>
+                  <span class="tok">{{meta:detective}}</span>
+                  Detective’s chips on this page — the case shelf, visible.
+                </li>
+                <li>
+                  <span class="tok">{{det:label}}</span>
+                  One detective field, in place, the way <code>{{lib:}}</code> is for the catalog.
+                </li>
+              </ul>
             </dd>
             <dt>opens</dt>
             <dd>
@@ -214,7 +266,7 @@
           <header>
             <p class="mouth-id">tps · ctrl+shift+t</p>
             <h3>When</h3>
-            <p class="job">Named dates. Carbon time-card. Year-only stays a year.</p>
+            <p class="job">Named dates, as known. A year stays a year. Carbon time-card.</p>
           </header>
           <dl>
             <dt>files</dt>
@@ -224,8 +276,16 @@
             </dd>
             <dt>look tokens</dt>
             <dd>
-              <span class="tok">{{meta:tps}}</span>
-              <span class="tok">{{tps:label}}</span>
+              <ul class="looks">
+                <li>
+                  <span class="tok">{{meta:tps}}</span>
+                  Prints this page’s stamps onto the paper, at the precision you actually had.
+                </li>
+                <li>
+                  <span class="tok">{{tps:label}}</span>
+                  One named when — created, referenced, or a title you typed — in place.
+                </li>
+              </ul>
             </dd>
             <dt>opens</dt>
             <dd>
@@ -240,7 +300,7 @@
           <header>
             <p class="mouth-id">cards · ctrl+shift+d</p>
             <h3>Deck</h3>
-            <p class="job">Lore faces from every mouth on this crate.</p>
+            <p class="job">Lore faces from every mouth on this crate. Fragments you can hop.</p>
           </header>
           <dl>
             <dt>files</dt>
@@ -250,11 +310,28 @@
             </dd>
             <dt>look tokens</dt>
             <dd>
-              <span class="tok">{{loresearch}}</span>
-              <span class="tok">{{lorelook}}</span>
-              <span class="tok">{{faces}}</span>
-              <span class="tok">{{face:crate}}</span>
-              <span class="tok">{{edges}}</span>
+              <ul class="looks">
+                <li>
+                  <span class="tok">{{loresearch}}</span>
+                  Keyword across filed lore cards, plantable on any page.
+                </li>
+                <li>
+                  <span class="tok">{{lorelook}}</span>
+                  The hits for that look, as faces in the room.
+                </li>
+                <li>
+                  <span class="tok">{{faces}}</span>
+                  Prints the body of each note in this hall as a grid you can walk.
+                </li>
+                <li>
+                  <span class="tok">{{face:crate}}</span>
+                  One note, anywhere in the pocket, by crate id — printed here.
+                </li>
+                <li>
+                  <span class="tok">{{edges}}</span>
+                  Crates this card touches, as doors. The card is the edge.
+                </li>
+              </ul>
             </dd>
             <dt>opens</dt>
             <dd>
@@ -270,7 +347,7 @@
           <header>
             <p class="mouth-id">cites · clay, not a sixth mouth</p>
             <h3>Addresses</h3>
-            <p class="job">A mark on any page that mints a chain of rooms.</p>
+            <p class="job">A mark on any page that mints a chain of rooms you can stand on.</p>
           </header>
           <dl>
             <dt>files</dt>
@@ -280,9 +357,20 @@
             </dd>
             <dt>look tokens</dt>
             <dd>
-              <span class="tok">{{codesearch}}</span>
-              <span class="tok">{{codelook}}</span>
-              <span class="tok">{{compost}}</span>
+              <ul class="looks">
+                <li>
+                  <span class="tok">{{codesearch}}</span>
+                  Search or mint a chip-code from any page, not only the directory.
+                </li>
+                <li>
+                  <span class="tok">{{codelook}}</span>
+                  Notes that already pointed at this chain — the look-through.
+                </li>
+                <li>
+                  <span class="tok">{{compost}}</span>
+                  The cut that sits on this ZIP: headline, note, tags. The mountain has an address.
+                </li>
+              </ul>
             </dd>
             <dt>opens</dt>
             <dd>
@@ -300,8 +388,9 @@
     <section class="pg-block" id="rooms">
       <h2>look rooms</h2>
       <p class="pg-note">
-        The WWW has bays because a cabinet (or a clay mark) planted tools
-        there. Dress is environment CSS. The tool is the token.
+        These hosts exist because a cabinet (or a clay mark) planted tools
+        there. Dress is environment CSS. The tool is the token. The room
+        can look like a shop, a blotter, a crate directory — anything.
       </p>
       <div class="shops">
         <article class="shop is-tags">
@@ -322,7 +411,7 @@
         </article>
         <article class="shop is-report">
           <h3>crate report</h3>
-          <p>Every cabinet on one page. Not a sixth mouth. The box they share.</p>
+          <p>Every cabinet on one page. The box they share.</p>
         </article>
         <article class="shop is-status">
           <h3>status</h3>
@@ -336,23 +425,57 @@
     <section class="pg-block" id="clay">
       <h2>clay</h2>
       <p class="pg-note">
-        Tokens on any page. The environment decides how it looks.
-        Cabinets are drawers. These are the holes they plant.
+        Tokens on any page. The token decides <em>what</em> is listed.
+        The environment decides <em>how</em> it looks. Cabinets are drawers.
+        These are the holes they plant so a room can contain anything.
       </p>
       <div class="clay-board">
-        <p>
-          <span class="tok">{{paper}}</span>
-          <span class="tok">{{subshell}}</span>
-          <span class="tok">{{files}}</span>
-          <span class="tok">{{doors}}</span>
-          <span class="tok">{{dir}}</span>
-          <span class="tok">{{tree}}</span>
-          <span class="tok">{{faces}}</span>
-          <span class="tok">{{cover}}</span>
-          <span class="tok">{{crumb}}</span>
-          <span class="tok">{{recent}}</span>
-          <span class="tok">[[Note]]</span>
-        </p>
+        <dl class="clay-manual">
+          <div>
+            <dt><span class="tok">{{paper}}</span></dt>
+            <dd>The hole in a dress shell. Filled with the note you opened.</dd>
+          </div>
+          <div>
+            <dt><span class="tok">{{subshell}}</span></dt>
+            <dd>Nested chrome that sits in the parent’s paper hole. A hall inside a campus.</dd>
+          </div>
+          <div>
+            <dt><span class="tok">{{files}}</span></dt>
+            <dd>Notes in this folder. A bookstore paints them as covers; another skin can make a list.</dd>
+          </div>
+          <div>
+            <dt><span class="tok">{{doors}}</span></dt>
+            <dd>Subfolders as door cards. A host becomes a street of rooms.</dd>
+          </div>
+          <div>
+            <dt><span class="tok">{{dir}}</span></dt>
+            <dd>Notes and subfolders together. The hall as a directory.</dd>
+          </div>
+          <div>
+            <dt><span class="tok">{{tree}}</span></dt>
+            <dd>A file tree from the dress shell. Folders open and close. The path you are on stays open.</dd>
+          </div>
+          <div>
+            <dt><span class="tok">{{faces}}</span></dt>
+            <dd>The body of each note in this hall, printed as a grid you can click into.</dd>
+          </div>
+          <div>
+            <dt><span class="tok">{{cover}}</span></dt>
+            <dd>This page’s jacket, printed where you put it. The environment dresses the object.</dd>
+          </div>
+          <div>
+            <dt><span class="tok">{{crumb}}</span></dt>
+            <dd>The trail: home / folder / note. You can always walk back.</dd>
+          </div>
+          <div>
+            <dt><span class="tok">{{recent}}</span></dt>
+            <dd>Last kept notes across the pocket. Type <code>recent</code> on the bar.</dd>
+          </div>
+          <div>
+            <dt><span class="tok">[[Note]]</span></dt>
+            <dd>Wiki to a file or a room of that name, inside the host you are standing in.</dd>
+          </div>
+        </dl>
         <p>
           A folder in <code>~hosts/</code> is a WWW. A folder becomes
           <code>go.{name}</code>. The page is the crate. The file still
@@ -366,9 +489,7 @@
         Go is the WWW.
       </p>
     </section>
-    </main>
-    </div>
-  </div>
+  </main>
 
   <footer class="site-footer wrap">
     <span>© <span data-year>2026</span> Danielle Leve</span>
