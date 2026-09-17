@@ -239,9 +239,9 @@ nav a[aria-current="page"] {
   grid-column: span 4;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  min-height: 176px;
-  padding: 1.05rem 1.15rem 1rem;
+  justify-content: flex-start;
+  gap: 0.15rem;
+  padding: 0.95rem 1.1rem 1rem;
   border: 1px solid var(--line);
   background: color-mix(in srgb, var(--paper-2) 88%, transparent);
   text-decoration: none;
@@ -267,13 +267,11 @@ nav a[aria-current="page"] {
 
 .grid[data-view="feature"] .card[data-feature]:not(.feature) {
   grid-column: span 6;
-  min-height: 210px;
 }
 
 .card.feature {
   grid-column: span 12;
-  min-height: 280px;
-  padding: 1.6rem 1.7rem;
+  padding: 1.4rem 1.55rem;
   background:
     radial-gradient(ellipse at 90% 10%, rgba(232, 76, 255, 0.16), transparent 50%),
     color-mix(in srgb, var(--paper-2) 88%, transparent);
