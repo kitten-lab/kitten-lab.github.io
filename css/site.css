@@ -1,16 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,560;1,9..144,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap");
 
 :root {
-  --paper: #0b0c12;
-  --paper-2: #14151f;
-  --ink: #f0eaf8;
-  --quiet: #9b93ad;
-  --line: color-mix(in srgb, #e84cff 28%, transparent);
-  --signal: #e84cff;
-  --live: #3dff9a;
-  --game: #3dff9a;
-  --tool: #7aa2ff;
-  --desk: #ffc85a;
+  --paper: #f3efe6;
+  --paper-2: #fffdf8;
+  --ink: #1c1915;
+  --quiet: #6a645c;
+  --line: #d4cfc4;
+  --signal: #8f1d2c;
+  --live: #2c5c3f;
+  --game: #1c1915;
+  --tool: #1c1915;
+  --desk: #1c1915;
   --pad: clamp(1.25rem, 4vw, 3rem);
   --measure: 68ch;
   --display: "Fraunces", "Iowan Old Style", Georgia, serif;
@@ -39,33 +39,10 @@ body {
   font-optical-sizing: auto;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: -20% -10% auto;
-  height: 70vh;
-  pointer-events: none;
-  z-index: 0;
-  background:
-    radial-gradient(ellipse at 18% 40%, rgba(232, 76, 255, 0.22), transparent 55%),
-    radial-gradient(ellipse at 88% 10%, rgba(61, 255, 154, 0.1), transparent 50%);
-}
-
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 1;
-  opacity: 0.035;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='80' height='80'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='.55'/></svg>");
-}
-
 main,
 .site-header,
 .site-footer {
   position: relative;
-  z-index: 2;
 }
 
 img {
@@ -146,7 +123,7 @@ nav a[aria-current="page"] {
 
 .kicker {
   margin: 0 0 1rem;
-  color: var(--live);
+  color: var(--quiet);
   font-family: var(--mono);
   font-size: 0.78rem;
   text-transform: lowercase;
@@ -154,13 +131,12 @@ nav a[aria-current="page"] {
 
 .hero h1 {
   margin: 0;
-  max-width: 16ch;
+  max-width: 14ch;
   font-family: var(--display);
   font-weight: 500;
-  font-size: clamp(2.6rem, 7.2vw, 5.1rem);
+  font-size: clamp(2.6rem, 7.2vw, 4.6rem);
   line-height: 0.95;
   letter-spacing: -0.03em;
-  font-variation-settings: "SOFT" 50, "WONK" 1;
 }
 
 .hero h1 em {
@@ -243,26 +219,10 @@ nav a[aria-current="page"] {
   gap: 0.15rem;
   padding: 0.95rem 1.1rem 1rem;
   border: 1px solid var(--line);
-  background: color-mix(in srgb, var(--paper-2) 88%, transparent);
+  background: var(--paper-2);
   text-decoration: none;
   color: inherit;
-  transition: background 160ms ease, color 160ms ease, border-color 160ms ease, transform 160ms ease;
-}
-
-.card[data-kind="product"] {
-  border-color: color-mix(in srgb, var(--signal) 55%, transparent);
-}
-
-.card[data-kind="game"] {
-  border-color: color-mix(in srgb, var(--game) 50%, transparent);
-}
-
-.card[data-kind="tool"] {
-  border-color: color-mix(in srgb, var(--tool) 55%, transparent);
-}
-
-.card[data-kind="desk"] {
-  border-color: color-mix(in srgb, var(--desk) 55%, transparent);
+  transition: border-color 160ms ease, background 160ms ease;
 }
 
 .grid[data-view="feature"] .card[data-feature]:not(.feature) {
@@ -272,17 +232,13 @@ nav a[aria-current="page"] {
 .card.feature {
   grid-column: span 12;
   padding: 1.4rem 1.55rem;
-  background:
-    radial-gradient(ellipse at 90% 10%, rgba(232, 76, 255, 0.16), transparent 50%),
-    color-mix(in srgb, var(--paper-2) 88%, transparent);
 }
 
 .card:hover,
 .card:focus-visible {
-  background: #1a1024;
+  background: var(--paper-2);
   color: var(--ink);
-  border-color: var(--signal);
-  transform: translate(-2px, -3px);
+  border-color: var(--ink);
 }
 
 .card:hover .meta,
@@ -312,6 +268,13 @@ nav a[aria-current="page"] {
   font-size: 0.72rem;
   letter-spacing: 0.04em;
   text-transform: lowercase;
+}
+
+.sku,
+.port {
+  text-transform: none;
+  letter-spacing: 0.02em;
+  color: var(--ink);
 }
 
 .pill {
@@ -345,10 +308,9 @@ nav a[aria-current="page"] {
 .about-band h2 {
   margin: 0;
   font-family: var(--display);
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(1.8rem, 3.4vw, 2.6rem);
   font-weight: 500;
-  line-height: 1.05;
-  font-variation-settings: "SOFT" 40, "WONK" 1;
+  line-height: 1.1;
 }
 
 .about-band p {
@@ -588,7 +550,7 @@ nav a[aria-current="page"] {
   font-weight: 500;
   text-transform: lowercase;
   letter-spacing: 0.03em;
-  color: var(--live);
+  color: var(--ink);
 }
 
 .tile p {
@@ -612,10 +574,8 @@ nav a[aria-current="page"] {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
   gap: 0;
-  border: 1px solid color-mix(in srgb, var(--tool) 60%, transparent);
-  background:
-    linear-gradient(180deg, color-mix(in srgb, var(--tool) 10%, transparent), transparent 42%),
-    color-mix(in srgb, var(--paper-2) 92%, transparent);
+  border: 1px solid var(--line);
+  background: var(--paper-2);
 }
 
 .bios-board .pane {
@@ -632,7 +592,7 @@ nav a[aria-current="page"] {
   font-size: 0.78rem;
   font-weight: 500;
   text-transform: lowercase;
-  color: var(--tool);
+  color: var(--ink);
 }
 
 .bios-board dl {
@@ -739,7 +699,7 @@ nav a[aria-current="page"] {
 }
 
 .opens {
-  color: var(--live);
+  color: var(--ink);
   font-family: var(--mono);
   font-size: 0.88rem;
 }
