@@ -1,6 +1,7 @@
 (function () {
   const stage = document.getElementById("desk");
   const cloth = document.getElementById("cloth") || stage;
+  const surface = document.getElementById("surface") || cloth;
   const logEl = document.getElementById("mira-log");
   const form = document.getElementById("mira-form");
   const input = document.getElementById("mira-in");
@@ -9,8 +10,28 @@
 
   let hand = null;
   let drag = null;
+  const GRAB = 8;
 
   const spaces = () => [...stage.querySelectorAll(".dw-space")];
+
+  function localXY(e) {
+    const r = surface.getBoundingClientRect();
+    return {
+      x: e.clientX - r.left,
+      y: e.clientY - r.top,
+    };
+  }
+
+  function liftToCloth(piece) {
+    piece.classList.remove("is-in");
+    if (piece.parentElement !== surface) surface.appendChild(piece);
+  }
+
+  function place(piece, e, dx, dy) {
+    const p = localXY(e);
+    piece.style.left = Math.max(0, p.x - dx) + "px";
+    piece.style.top = Math.max(0, p.y - dy) + "px";
+  }
 
   function kindOf(el) {
     return (el && el.dataset.kind) || "felt";
@@ -33,7 +54,7 @@
   }
 
   function feltList() {
-    return [...cloth.querySelectorAll(".dw-piece")]
+    return [...surface.querySelectorAll(".dw-piece")]
       .filter((el) => !el.closest(".dw-pocket"))
       .map((el) => el.dataset.name || kindOf(el));
   }
@@ -51,62 +72,81 @@
     );
   }
 
-  function putOnFelt(piece, x, y) {
-    const r = cloth.getBoundingClientRect();
-    piece.classList.remove("is-in");
-    cloth.appendChild(piece);
-    piece.style.left = Math.max(0, x - r.left - piece.offsetWidth / 2) + "px";
-    piece.style.top = Math.max(0, y - r.top - 12) + "px";
+  function dropTarget(space) {
+    return space.querySelector(".env-body") ||
+      space.querySelector(".tool-inbox-shell") ||
+      space.querySelector(".tool-fax-shell") ||
+      space.querySelector(".can") ||
+      space;
   }
 
   function hitSpace(x, y, skip) {
     return spaces().find((space) => {
       if (space === skip || space.contains(skip)) return false;
-      const b = space.getBoundingClientRect();
+      const b = dropTarget(space).getBoundingClientRect();
       return x >= b.left && x <= b.right && y >= b.top && y <= b.bottom;
     });
   }
 
-  cloth.addEventListener("pointerdown", (e) => {
+  function onDown(e) {
+    if (e.pointerType === "mouse" && e.button !== 0) return;
     if (e.target.closest("button, input, a, .dw-mira")) return;
     const piece = e.target.closest(".dw-piece");
-    if (!piece || piece.classList.contains("dw-mira")) return;
-    e.preventDefault();
+    if (!piece || !cloth.contains(piece)) return;
     setHand(piece);
     const r = piece.getBoundingClientRect();
     drag = {
+      pointerId: e.pointerId,
       piece,
       dx: e.clientX - r.left,
       dy: e.clientY - r.top,
+      x0: e.clientX,
+      y0: e.clientY,
+      moved: false,
+      fromSpace: piece.closest(".dw-space"),
     };
-    piece.classList.add("is-held");
-    piece.setPointerCapture(e.pointerId);
-  });
+    try {
+      piece.setPointerCapture(e.pointerId);
+    } catch (_) {}
+  }
 
-  cloth.addEventListener("pointermove", (e) => {
-    if (!drag) return;
-    const r = cloth.getBoundingClientRect();
-    drag.piece.classList.remove("is-in");
-    if (drag.piece.parentElement !== cloth) cloth.appendChild(drag.piece);
-    drag.piece.style.left = e.clientX - r.left - drag.dx + "px";
-    drag.piece.style.top = e.clientY - r.top - drag.dy + "px";
-  });
+  function onMove(e) {
+    if (!drag || e.pointerId !== drag.pointerId) return;
+    const dist = Math.hypot(e.clientX - drag.x0, e.clientY - drag.y0);
+    if (!drag.moved) {
+      if (dist < GRAB) return;
+      drag.moved = true;
+      drag.piece.classList.add("is-held");
+      liftToCloth(drag.piece);
+    }
+    if (e.cancelable) e.preventDefault();
+    place(drag.piece, e, drag.dx, drag.dy);
+  }
 
-  function endDrag(e) {
-    if (!drag) return;
-    const { piece } = drag;
+  function onUp(e) {
+    if (!drag || e.pointerId !== drag.pointerId) return;
+    const { piece, moved } = drag;
     piece.classList.remove("is-held");
-    const space = hitSpace(e.clientX, e.clientY, piece);
-    const movable = piece.dataset.kind === "leaf" ||
-      piece.dataset.kind === "card" ||
-      piece.dataset.kind === "key";
-    if (space && movable) putIn(piece, space);
-    else if (space && space.dataset.space === "trash") putIn(piece, space);
+    try {
+      piece.releasePointerCapture(e.pointerId);
+    } catch (_) {}
+    if (moved) {
+      const space = hitSpace(e.clientX, e.clientY, piece);
+      if (space && space !== drag.fromSpace) {
+        const movable =
+          piece.dataset.kind === "leaf" ||
+          piece.dataset.kind === "card" ||
+          piece.dataset.kind === "key";
+        if (movable || space.dataset.space === "trash") putIn(piece, space);
+      }
+    }
     drag = null;
   }
 
-  cloth.addEventListener("pointerup", endDrag);
-  cloth.addEventListener("pointercancel", endDrag);
+  cloth.addEventListener("pointerdown", onDown);
+  document.addEventListener("pointermove", onMove, { passive: false });
+  document.addEventListener("pointerup", onUp);
+  document.addEventListener("pointercancel", onUp);
 
   cloth.addEventListener("click", (e) => {
     if (e.target.closest(".dw-mira")) return;
@@ -136,7 +176,7 @@
     wrap.style.left = left;
     wrap.style.top = top;
     wrap.innerHTML = html;
-    cloth.appendChild(wrap);
+    surface.appendChild(wrap);
     setHand(wrap);
     writeln("spawned · " + name);
   }
@@ -193,7 +233,7 @@
       return;
     }
     if (low === "trash" || low === "trash can") {
-      const can = cloth.querySelector('[data-space="trash"]');
+      const can = surface.querySelector('[data-space="trash"]');
       if (low === "trash can") {
         writeln("trash can · already on the felt");
         return;

@@ -104,8 +104,18 @@ body.desk-page .site-rail {
 }
 
 .dw-cloth {
-  position: relative;
   min-height: 34rem;
+  overflow: auto;
+  touch-action: pan-x pan-y;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.dw-surface {
+  position: relative;
+  width: 100%;
+  min-width: 42rem;
+  height: 34rem;
 }
 
 .dw-piece {
@@ -113,10 +123,13 @@ body.desk-page .site-rail {
   z-index: 2;
   cursor: grab;
   user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
   touch-action: none;
 }
 
 .dw-piece.is-held {
+  position: absolute;
   z-index: 40;
   cursor: grabbing;
   filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.45));
@@ -732,32 +745,36 @@ body.desk-page .site-rail {
 }
 
 @media (max-width: 860px) {
+  .dw-office {
+    margin-left: 0.6rem;
+    margin-right: 0.6rem;
+    overflow: hidden;
+  }
+
   .dw-stage {
     display: flex;
     flex-direction: column;
     min-height: 0;
-    overflow: visible;
+    overflow: hidden;
   }
 
   .dw-cloth {
-    min-height: 0;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-end;
-    gap: 0.8rem;
-    padding: 0.7rem;
+    display: block;
+    width: 100%;
+    min-width: 0;
+    height: min(70vh, 32rem);
+    min-height: 22rem;
+    overflow: auto;
   }
 
-  .dw-piece,
-  .dw-leaf,
-  .dw-card {
-    position: relative;
-    left: auto !important;
-    top: auto !important;
+  .dw-surface {
+    width: 42rem;
+    height: 34rem;
   }
 
   .dw-mira {
-    min-height: 16rem;
+    min-height: 12rem;
     width: 100%;
+    flex: 0 0 auto;
   }
 }
