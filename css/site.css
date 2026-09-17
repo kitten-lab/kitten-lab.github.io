@@ -123,7 +123,8 @@ a:hover {
 }
 
 body.go-page .now-chip,
-body.desk-page .now-chip {
+body.desk-page .now-chip,
+body.emt-page .now-chip {
   display: inline;
   margin-right: 0.9rem;
 }
@@ -245,7 +246,7 @@ nav a[aria-current="page"] {
 
 .open-slips {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 0.65rem;
 }
 

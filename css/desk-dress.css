@@ -113,6 +113,12 @@ body.desk-page .site-rail .now-chip {
   touch-action: pan-x pan-y;
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.dw-cloth::-webkit-scrollbar {
+  display: none;
 }
 
 .dw-surface {

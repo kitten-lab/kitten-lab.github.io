@@ -1,0 +1,396 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Special+Elite&display=swap");
+
+/* EM Translation Bench — a work table of papers. Lift from concor app.css.
+   ROM Cat rail stays catalog paper. */
+
+body.emt-page {
+  --desk: #1a3a28;
+  --desk-deep: #0f2418;
+  --desk-grain: rgba(0, 0, 0, 0.18);
+  --ink: #1a1410;
+  --paper: #e8dcc4;
+  --paper-hi: #f3e8d2;
+  --brass: #b8954a;
+  --ox: #8a2818;
+  --mono: "IBM Plex Mono", ui-monospace, monospace;
+  --serif: "Libre Baskerville", Georgia, serif;
+  --stamp: "Special Elite", "Courier New", monospace;
+  background: var(--desk-deep);
+  color: #e8dcc4;
+}
+
+body.emt-page .site-rail {
+  background: color-mix(in srgb, #e7ecf4 94%, #fff);
+  color: #151a28;
+}
+
+body.emt-page .site-rail .brand small,
+body.emt-page .site-rail .now-chip {
+  color: #5c6578;
+}
+
+.emt-office {
+  max-width: 1180px;
+  margin: 0.55rem var(--pad) 2.2rem;
+  border: 1px solid #0a120c;
+  box-shadow: 0 12px 28px #00000066;
+}
+
+.emt-chrome {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 1.7rem;
+  padding: 0 0.5rem;
+  background: linear-gradient(180deg, #2a2018 0%, #1a1410 100%);
+  color: #d8c8a8;
+  border-bottom: 1px solid #4a3828;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+}
+
+.emt-chrome strong {
+  color: var(--brass);
+  font-weight: 600;
+}
+
+.emt-chrome .emt-name {
+  flex: 1;
+  opacity: 0.8;
+  letter-spacing: 0.14em;
+}
+
+.emt-felt {
+  padding: 0.7rem 0.85rem 0.9rem;
+  background-color: var(--desk);
+  background-image:
+    radial-gradient(ellipse 120% 80% at 50% 0%, rgba(80, 140, 90, 0.12), transparent 55%),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 3px,
+      var(--desk-grain) 3px,
+      var(--desk-grain) 4px
+    ),
+    linear-gradient(180deg, #1e4230 0%, #163224 40%, #102818 100%);
+}
+
+.emt-lead {
+  margin: 0 0 0.7rem;
+}
+
+.emt-lead h1 {
+  margin: 0.15rem 0 0.3rem;
+  font-family: var(--stamp);
+  font-size: clamp(1.45rem, 3vw, 2rem);
+  font-weight: 400;
+  color: #f0e0c0;
+}
+
+.emt-lead .fm-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.85rem;
+  margin: 0 0 0.35rem;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  color: var(--brass);
+}
+
+.emt-lead .pg-lede {
+  margin: 0;
+  max-width: 64ch;
+  color: #b8c8b4;
+  font-family: var(--serif);
+  font-size: 0.9rem;
+}
+
+.emt-stage {
+  position: relative;
+  height: 34rem;
+  margin: 0 0 0.65rem;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.35);
+}
+
+.emt-cloth {
+  height: 100%;
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.emt-cloth::-webkit-scrollbar {
+  display: none;
+}
+
+.emt-surface {
+  position: relative;
+  width: 100%;
+  min-width: 46rem;
+  height: 34rem;
+}
+
+.emt-obj {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  min-width: 11rem;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--skin, #8a7048);
+  box-shadow:
+    3px 5px 14px rgba(0, 0, 0, 0.35),
+    0 0 0 1px var(--skin-glow, transparent),
+    inset 0 0 0 1px rgba(255, 245, 220, 0.22);
+  overflow: hidden;
+  touch-action: none;
+  z-index: 5;
+}
+
+.emt-obj.is-hand {
+  z-index: 80;
+  box-shadow:
+    4px 8px 22px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(184, 149, 74, 0.4);
+}
+
+.emt-skin-book {
+  --skin: #6a4020;
+  --skin-deep: #2a1c14;
+  --skin-mid: #3a2c20;
+  --skin-ink: #f4e8d0;
+  --skin-kind: var(--brass);
+  --skin-glow: rgba(106, 64, 32, 0.35);
+}
+
+.emt-skin-strong {
+  --skin: #a02820;
+  --skin-deep: #2a0c0a;
+  --skin-mid: #4a1814;
+  --skin-ink: #f8d8d0;
+  --skin-kind: #e87868;
+  --skin-glow: rgba(160, 40, 32, 0.4);
+}
+
+.emt-skin-word {
+  --skin: #2860a0;
+  --skin-deep: #0a1428;
+  --skin-mid: #142848;
+  --skin-ink: #d0e0f8;
+  --skin-kind: #78b0e8;
+  --skin-glow: rgba(40, 96, 160, 0.4);
+}
+
+.emt-skin-letter {
+  --skin: #7050a0;
+  --skin-deep: #140a22;
+  --skin-mid: #281848;
+  --skin-ink: #e0d0f8;
+  --skin-kind: #b090e0;
+  --skin-glow: rgba(112, 80, 160, 0.38);
+}
+
+.emt-skin-help {
+  --skin: #5a5850;
+  --skin-deep: #181614;
+  --skin-mid: #2a2820;
+  --skin-ink: #e0dcd0;
+  --skin-kind: #b0a890;
+  --skin-glow: rgba(90, 88, 80, 0.35);
+}
+
+.emt-skin-cab {
+  --skin: #4a4030;
+  --skin-deep: #1a1610;
+  --skin-mid: #2c2418;
+  --skin-ink: #e8dcc8;
+  --skin-kind: #c4a878;
+  --skin-glow: rgba(74, 64, 48, 0.4);
+}
+
+.emt-title {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.28rem 0.4rem;
+  background: linear-gradient(180deg, var(--skin-mid) 0%, var(--skin-deep) 100%);
+  color: var(--skin-ink);
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.04em;
+  cursor: grab;
+  border-bottom: 1px solid color-mix(in srgb, var(--skin) 55%, #000);
+}
+
+.emt-kind {
+  color: var(--skin-kind);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.52rem;
+}
+
+.emt-name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: var(--stamp);
+  font-size: 0.78rem;
+  color: var(--skin-ink);
+}
+
+.emt-body {
+  padding: 0.4rem 0.5rem 0.55rem;
+  font-family: var(--serif);
+  font-size: 0.68rem;
+  line-height: 1.4;
+  overflow: visible;
+}
+
+.emt-verse {
+  font-size: 1.05rem;
+  direction: rtl;
+  text-align: right;
+  line-height: 1.7;
+  margin: 0 0 0.45rem;
+}
+
+.emt-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.22rem;
+  margin: 0 0 0.4rem;
+  justify-content: flex-end;
+}
+
+.emt-row.is-en {
+  justify-content: flex-start;
+  font-style: italic;
+  font-size: 0.72rem;
+}
+
+.emt-chip {
+  display: inline-block;
+  padding: 0.08rem 0.32rem;
+  border: 1px solid #c4a87866;
+  background: var(--paper-hi);
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  color: var(--ox);
+}
+
+.emt-chip.is-et {
+  background: #8a2818;
+  color: #f8d8d0;
+  border-color: #c04030;
+}
+
+.emt-field {
+  margin: 0 0 0.4rem;
+}
+
+.emt-field label {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #6a5848;
+  margin: 0 0 0.12rem;
+}
+
+.emt-print {
+  padding: 0.2rem 0.35rem;
+  background: var(--paper-hi);
+  border: 1px solid #c4b090;
+  font-size: 0.78rem;
+}
+
+.emt-print.is-he {
+  direction: rtl;
+  text-align: right;
+  font-size: 1.05rem;
+}
+
+.emt-help {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  line-height: 1.45;
+  white-space: pre-wrap;
+  color: #3a3428;
+}
+
+.emt-cab-face {
+  min-height: 7rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0.4rem;
+  background:
+    repeating-linear-gradient(180deg, #3a3228 0 0.55rem, #2a241c 0.55rem 0.62rem);
+  color: var(--brass);
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+}
+
+.emt-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-height: 2.4rem;
+  padding: 0.25rem 0.4rem;
+  background: linear-gradient(180deg, #1a1814 0%, #12100c 100%);
+  border-top: 1px solid #4a3828;
+  font-family: var(--mono);
+}
+
+.emt-bar button {
+  appearance: none;
+  border: 1px solid #5a4a30;
+  background: #2a2218;
+  color: #e0d0b0;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.06em;
+  padding: 0.22rem 0.45rem;
+  cursor: pointer;
+}
+
+.emt-bar button:hover,
+.emt-bar button:focus-visible {
+  border-color: var(--brass);
+  color: #fff8e8;
+}
+
+.emt-bar .emt-div {
+  width: 1px;
+  height: 1.2rem;
+  background: #4a3828;
+  margin: 0 0.2rem;
+}
+
+.emt-foot {
+  margin: 0.35rem 0 0;
+  max-width: 70ch;
+  color: #9ab09a;
+  font-size: 0.82rem;
+}
+
+.emt-foot a {
+  color: var(--brass);
+}
+
+@media (max-width: 860px) {
+  .emt-office {
+    margin-left: 0.6rem;
+    margin-right: 0.6rem;
+  }
+
+  .emt-cloth {
+    height: min(70vh, 32rem);
+  }
+}

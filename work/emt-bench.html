@@ -4,46 +4,176 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>EM Translation Bench — Kitten Lab</title>
-  <meta name="description" content="A concordance / code bay for translation work. Danielle Leve / Kitten Lab.">
+  <meta name="description" content="A concordance table: Hebrew, Strong, English as papers you drag. Danielle Leve / Kitten Lab.">
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="../css/site.css?v=16">
+  <link rel="stylesheet" href="../css/site.css?v=20">
+  <link rel="stylesheet" href="../css/emt-dress.css?v=2">
 </head>
-<body>
-  <header class="site-header wrap">
+<body class="emt-page">
+  <header class="site-rail">
+    <div class="site-header wrap">
     <a class="brand" href="../index.html">
       kitten-lab
       <small>software</small>
     </a>
+    <a class="cat-chip" href="../index.html#work">ROM Cat</a>
+    <span class="now-chip">CO.LEA-002-EMT</span>
     <nav aria-label="Primary">
       <a href="../index.html">work</a>
       <a href="../about.html">about</a>
     </nav>
+    </div>
   </header>
 
-  <main class="wrap">
-    <header class="page-hero">
-      <p class="kicker">desk</p>
-      <h1>EM Translation Bench</h1>
-      <div class="meta">
-        <span class="pill live">active</span>
-        <span>concordance</span>
+  <div class="emt-office">
+    <div class="emt-chrome">
+      <span>CO.<strong>LEA</strong></span>
+      <span class="emt-name">EM TRANSLATION BENCH · 002-EMT</span>
+    </div>
+    <div class="emt-felt">
+      <header class="emt-lead">
+        <p class="fm-line">
+          <span>CO.LEA-002-EMT</span>
+          <span>43150</span>
+          <span>concordance table</span>
+        </p>
+        <h1>EM Translation Bench</h1>
+        <p class="pg-lede">
+          Two languages looking at each other, as papers on a desk.
+          A book is three rows: Hebrew, Strong numbers, English. Click a cell
+          and a paper comes out. Blue is your reading. Red is his number.
+          Drag everything. The ? paper is how you ask.
+        </p>
+      </header>
+
+      <div class="emt-stage" aria-label="Translation table. Drag papers.">
+        <div class="emt-cloth" id="emt-cloth">
+        <div class="emt-surface" id="emt-surface">
+
+        <article class="emt-obj emt-skin-book" id="paper-gen" data-kind="BOOK" style="left:3%;top:4%;width:28rem;z-index:6">
+          <div class="emt-title">
+            <span class="emt-kind">book</span>
+            <span class="emt-name">Genesis</span>
+          </div>
+          <div class="emt-body">
+            <p class="emt-verse">בְּרֵאשִׁית בָּרָא אֱלֹהִים אֵת הַשָּׁמַיִם וְאֵת הָאָרֶץ</p>
+            <div class="emt-row">
+              <span class="emt-chip">H7225</span>
+              <span class="emt-chip">H1254</span>
+              <span class="emt-chip">H430</span>
+              <span class="emt-chip is-et">H853</span>
+              <span class="emt-chip">H8064</span>
+              <span class="emt-chip is-et">H853</span>
+              <span class="emt-chip">H776</span>
+            </div>
+            <div class="emt-row is-en">
+              <span>In the beginning</span>
+              <span>created</span>
+              <span>God</span>
+              <span class="emt-chip is-et">את</span>
+              <span>the heavens</span>
+              <span>and</span>
+              <span>the earth</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="emt-obj emt-skin-strong" id="paper-strong" data-kind="STRONG" style="left:58%;top:6%;width:16.5rem;z-index:7">
+          <div class="emt-title">
+            <span class="emt-kind">strong</span>
+            <span class="emt-name">H853 · את</span>
+          </div>
+          <div class="emt-body">
+            <div class="emt-field">
+              <label>lemma</label>
+              <div class="emt-print is-he">אֵת</div>
+            </div>
+            <div class="emt-field">
+              <label>gloss</label>
+              <div class="emt-print">untranslatable object marker</div>
+            </div>
+            <p>Always marked red. Not a word you invent. His force.</p>
+          </div>
+        </article>
+
+        <article class="emt-obj emt-skin-word" id="paper-word" data-kind="WORD" style="left:52%;top:42%;width:16rem;z-index:8">
+          <div class="emt-title">
+            <span class="emt-kind">word</span>
+            <span class="emt-name">בראשית</span>
+          </div>
+          <div class="emt-body">
+            <div class="emt-field">
+              <label>as written</label>
+              <div class="emt-print is-he">בְּרֵאשִׁית</div>
+            </div>
+            <div class="emt-field">
+              <label>your reading</label>
+              <div class="emt-print">in a beginning / head</div>
+            </div>
+            <p>Weak force. Optional Strong later.</p>
+          </div>
+        </article>
+
+        <article class="emt-obj emt-skin-letter" id="paper-letter" data-kind="LETTER" style="left:4%;top:52%;width:13rem;z-index:5">
+          <div class="emt-title">
+            <span class="emt-kind">letter</span>
+            <span class="emt-name">א alef</span>
+          </div>
+          <div class="emt-body">
+            <div class="emt-print is-he">א</div>
+            <p>1 · ox / strength / first. LET is the letter library. The א ב board is typing only.</p>
+          </div>
+        </article>
+
+        <article class="emt-obj emt-skin-help" id="paper-help" data-kind="HELP" style="left:22%;top:48%;width:17.5rem;z-index:9">
+          <div class="emt-title">
+            <span class="emt-kind">help</span>
+            <span class="emt-name">how to</span>
+          </div>
+          <div class="emt-body">
+            <div class="emt-help">TABLE — drag by the title bar.
+BOOK — three rows. Each cell opens a paper.
+BLUE word — your definitions.
+RED Strong — his number.
+H853 / את — object marker. Always red.
+? on the bar brings this paper forward.</div>
+          </div>
+        </article>
+
+        <article class="emt-obj emt-skin-cab" id="paper-cab" data-kind="CAB" style="left:78%;top:48%;width:10.5rem;z-index:4">
+          <div class="emt-title">
+            <span class="emt-kind">cab</span>
+            <span class="emt-name">FileKeeper</span>
+          </div>
+          <div class="emt-cab-face">CAB</div>
+        </article>
+
+        </div>
+        </div>
       </div>
-    </header>
 
-    <article class="prose">
-      <h2>why</h2>
-      <p>Understanding and knowledge meet and something new has to get born. EMT is the translation desk — concordance, code bay, two languages looking at each other.</p>
+      <div class="emt-bar" aria-label="Library bar">
+        <button type="button" data-raise="paper-gen">GEN</button>
+        <button type="button" data-raise="paper-letter">LET</button>
+        <button type="button" data-raise="paper-word">WRD</button>
+        <span class="emt-div" aria-hidden="true"></span>
+        <button type="button" data-raise="paper-help">?</button>
+        <button type="button" data-raise="paper-cab">CAB</button>
+        <button type="button" data-raise="paper-strong">H853</button>
+      </div>
 
-      <h2>status</h2>
-      <p>Active. Used to live under a retired house name. The bench kept going.</p>
-      
-    </article>
-  </main>
+      <p class="emt-foot">
+        Same house as <a href="desk-world.html">Desk World</a> — a table of CSS
+        objects — different pieces. Concordance / code bay. Was Jack’s Concor.
+      </p>
+    </div>
+  </div>
 
   <footer class="site-footer wrap">
     <span>© <span data-year>2026</span> Danielle Leve</span>
-    <a href="../index.html">all work</a>
+    <a href="../index.html">work</a>
   </footer>
-  <script src="../js/site.js"></script>
+  <script src="../js/site.js?v=7"></script>
+  <script src="../js/emt-bench.js?v=1"></script>
 </body>
 </html>
