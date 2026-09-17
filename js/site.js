@@ -2,8 +2,8 @@ const year = document.querySelector("[data-year]");
 if (year) year.textContent = String(new Date().getFullYear());
 
 const filters = document.querySelectorAll("[data-filter]");
-const cards = document.querySelectorAll("[data-kind]");
 const grid = document.querySelector(".grid");
+const cards = grid ? grid.querySelectorAll(".card") : [];
 const workTitle = document.querySelector("#work h2");
 
 const titles = {
@@ -15,8 +15,15 @@ const titles = {
   all: "all of it",
 };
 
+function cardMatches(card, kind) {
+  if (kind === "all") return true;
+  if (kind === "feature") return card.hasAttribute("data-feature");
+  return card.getAttribute("data-kind") === kind;
+}
+
 function applyFilter(kind) {
-  if (grid) grid.dataset.view = kind;
+  if (!grid) return;
+  grid.dataset.view = kind;
   if (workTitle) workTitle.textContent = titles[kind] || kind;
   filters.forEach((button) => {
     button.setAttribute(
@@ -25,11 +32,7 @@ function applyFilter(kind) {
     );
   });
   cards.forEach((card) => {
-    const match =
-      kind === "all" ||
-      (kind === "feature" && card.hasAttribute("data-feature")) ||
-      card.getAttribute("data-kind") === kind;
-    card.classList.toggle("hidden", !match);
+    card.classList.toggle("hidden", !cardMatches(card, kind));
   });
 }
 

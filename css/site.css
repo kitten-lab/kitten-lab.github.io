@@ -444,6 +444,10 @@ nav a[aria-current="page"] {
   display: none !important;
 }
 
+.grid[data-view="feature"] .card:not([data-feature]) {
+  display: none;
+}
+
 @media (max-width: 980px) {
   .card:not(.feature) {
     grid-column: span 6;
