@@ -403,6 +403,23 @@ nav a[aria-current="page"] {
   margin: 0 0 1rem;
 }
 
+.prose h3 {
+  margin: 1.4rem 0 0.4rem;
+  font-family: var(--display);
+  font-size: 1.25rem;
+  font-weight: 500;
+  text-transform: none;
+}
+
+.prose ul {
+  margin: 0 0 1.25rem;
+  padding: 0 0 0 1.15rem;
+}
+
+.prose li {
+  margin: 0 0 0.45rem;
+}
+
 .crumb {
   font-family: var(--mono);
   font-size: 0.78rem;
