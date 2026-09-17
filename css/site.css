@@ -405,6 +405,55 @@ nav a[aria-current="page"] {
   margin: 0 0 1rem;
 }
 
+.crumb {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  text-transform: lowercase;
+  color: var(--quiet);
+  margin: 0 0 1.2rem;
+}
+
+.crumb a {
+  color: var(--quiet);
+}
+
+.crumb a:hover {
+  color: var(--signal);
+}
+
+.inside {
+  list-style: none;
+  margin: 1.25rem 0 2rem;
+  padding: 0;
+}
+
+.inside li {
+  border-top: 1px solid var(--line);
+  padding: 1rem 0;
+}
+
+.inside a {
+  text-decoration: none;
+}
+
+.inside a:hover {
+  color: var(--signal);
+}
+
+.inside strong {
+  display: block;
+  font-family: var(--display);
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 0.25rem;
+}
+
+.inside span {
+  color: var(--quiet);
+  font-size: 0.95rem;
+}
+
 .stage {
   margin: 1.5rem 0 2rem;
   aspect-ratio: 16 / 9;
