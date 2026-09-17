@@ -6,7 +6,7 @@
   <title>kitten-lab — a girl with ai and a microphone</title>
   <meta name="description" content="Danielle Leve. I make things with AI and my own mind. Kitten Lab: products, games, and strange systems.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="css/site.css?v=3">
+  <link rel="stylesheet" href="css/site.css?v=4">
 </head>
 <body>
   <header class="site-header wrap">
@@ -33,18 +33,19 @@
 
     <section class="section wrap" id="work">
       <div class="section-head">
-        <h2>work / may appear unrelated</h2>
+        <h2>featured</h2>
         <div class="filters" role="group" aria-label="Filter work">
-          <button type="button" data-filter="all" aria-pressed="true">all</button>
+          <button type="button" data-filter="feature" aria-pressed="true">featured</button>
           <button type="button" data-filter="product">products</button>
           <button type="button" data-filter="game">games</button>
           <button type="button" data-filter="tool">tools</button>
           <button type="button" data-filter="desk">desks</button>
+          <button type="button" data-filter="all">all</button>
         </div>
       </div>
 
       <div class="grid">
-        <a class="card feature" href="work/pocket-go.html" data-kind="product">
+        <a class="card feature" href="work/pocket-go.html" data-kind="product" data-feature>
           <div class="meta">
             <span>product</span>
             <span class="pill live">active</span>
@@ -55,7 +56,7 @@
           </div>
         </a>
 
-        <a class="card" href="work/world-builder-studio.html" data-kind="product">
+        <a class="card" href="work/world-builder-studio.html" data-kind="product" data-feature>
           <div class="meta">
             <span>product</span>
             <span class="pill live">active</span>
@@ -66,7 +67,7 @@
           </div>
         </a>
 
-        <a class="card" href="work/sophia-desk.html" data-kind="desk">
+        <a class="card" href="work/sophia-desk.html" data-kind="desk" data-feature>
           <div class="meta">
             <span>desk</span>
             <span class="pill live">active</span>
@@ -88,7 +89,7 @@
           </div>
         </a>
 
-        <a class="card" href="work/terminal-prolog.html" data-kind="game">
+        <a class="card" href="work/terminal-prolog.html" data-kind="game" data-feature>
           <div class="meta">
             <span>game</span>
             <span class="pill">public spec</span>
@@ -99,7 +100,7 @@
           </div>
         </a>
 
-        <a class="card" href="work/kde-notes-chords.html" data-kind="game">
+        <a class="card" href="work/kde-notes-chords.html" data-kind="game" data-feature>
           <div class="meta">
             <span>game</span>
             <span class="pill live">itch</span>
@@ -118,6 +119,17 @@
           <div>
             <h3>Glass Compost</h3>
             <p>Hand-cut room for the chat mountain. Compaction without throwing the strange away.</p>
+          </div>
+        </a>
+
+        <a class="card" href="work/emt-bench.html" data-kind="desk">
+          <div class="meta">
+            <span>desk</span>
+            <span class="pill live">active</span>
+          </div>
+          <div>
+            <h3>EM Translation Bench</h3>
+            <p>Concordance / code bay. Two languages looking at each other.</p>
           </div>
         </a>
 
@@ -294,17 +306,6 @@
           <div>
             <h3>Eddy’s Encoder</h3>
             <p>A dirty mint for strange pull. Slightly illegal fun.</p>
-          </div>
-        </a>
-
-        <a class="card" href="work/emt-bench.html" data-kind="tool">
-          <div class="meta">
-            <span>tool</span>
-            <span class="pill live">active</span>
-          </div>
-          <div>
-            <h3>EM Translation Bench</h3>
-            <p>Concordance / code bay. Two languages looking at each other.</p>
           </div>
         </a>
 

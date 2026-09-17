@@ -257,8 +257,17 @@ nav a[aria-current="page"] {
   border-color: color-mix(in srgb, var(--game) 50%, transparent);
 }
 
+.card[data-kind="tool"] {
+  border-color: color-mix(in srgb, var(--tool) 55%, transparent);
+}
+
 .card[data-kind="desk"] {
   border-color: color-mix(in srgb, var(--desk) 55%, transparent);
+}
+
+.grid[data-view="feature"] .card[data-feature]:not(.feature) {
+  grid-column: span 6;
+  min-height: 210px;
 }
 
 .card.feature {
