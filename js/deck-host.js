@@ -184,18 +184,18 @@
       sku: "SMH-002-TFH",
     },
     {
-      href: "moire-arcana.html",
-      julie: "#7a2f6a",
-      badge: "ARCANA",
-      name: "Moire Arcana",
-      sku: "CO.BBG-001-ARCANA",
-    },
-    {
       href: "dream-gardener.html",
-      julie: "#7a2f6a",
+      julie: "#8f1d2c",
       badge: "DREAM",
       name: "Dream Gardener",
-      sku: "CO.BBG",
+      sku: "SMH-003-DREAM",
+    },
+    {
+      href: "adm.html",
+      julie: "#8f1d2c",
+      badge: "AIDM",
+      name: "AIDM",
+      sku: "SMH-004-AIDM",
     },
     {
       href: "ineffable-box.html",
@@ -238,6 +238,13 @@
       name: "The Injector",
       sku: "CO.IMP-INJ",
     },
+    {
+      href: "moire-arcana.html",
+      julie: "#7a2f6a",
+      badge: "ARCANA",
+      name: "Moire Arcana",
+      sku: "TOY-006-ARCANA",
+    },
   ];
 
   const KIND = {
@@ -264,13 +271,14 @@
     "CO.KDE-001-INSTR": "game",
     "SMH-001-PROLOG": "game",
     "SMH-002-TFH": "game",
-    "CO.BBG-001-ARCANA": "game",
-    "CO.BBG": "game",
+    "SMH-003-DREAM": "game",
+    "SMH-004-AIDM": "game",
     "CO.TOY-002-USBOX": "game",
     "CO.TOY-004-EEE": "game",
     "CO.TOY-003-TMACH": "game",
     "CO.TOY-001-TERMINAL": "tool",
     "CO.IMP-INJ": "tool",
+    "TOY-006-ARCANA": "game",
   };
 
   LINE.forEach((c) => {
@@ -300,9 +308,7 @@
     const soon = c.soon ? " is-soon" : "";
     const href = c.href ? `href="${esc(base + c.href)}"` : "";
     const tag = c.href ? "a" : "div";
-    const title = c.soon
-      ? `Coming soon · ${c.name} · ${c.sku}`
-      : `${c.name} · ${c.sku}`;
+    const title = c.soon ? `Coming soon · ${c.name}` : c.name;
     const veil = c.soon
       ? `<span class="rl-case-veil" aria-hidden="true"></span>` +
         `<span class="rl-case-status">coming soon</span>`
@@ -311,9 +317,8 @@
       `<${tag} class="rl-case${soon}${julie} ${href} title="${esc(title)}">` +
       `<span class="rl-case-shell" aria-hidden="true"></span>` +
       `<span class="rl-case-notch" aria-hidden="true"></span>` +
-      `<span class="rl-case-badge">${esc(c.badge || "ROM")}</span>` +
+      `<span class="rl-case-badge">ROM</span>` +
       `<span class="rl-case-label"${plate}><span class="rl-case-label-main">${esc(c.name)}</span></span>` +
-      `<span class="rl-case-sku">${esc(c.sku)}</span>` +
       `<span class="rl-case-pins" aria-hidden="true"></span>` +
       veil +
       `</${tag}>`
