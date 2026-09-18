@@ -124,7 +124,8 @@ a:hover {
 
 body.go-page .now-chip,
 body.desk-page .now-chip,
-body.emt-page .now-chip {
+body.emt-page .now-chip,
+body.host-page .now-chip {
   display: inline;
   margin-right: 0.9rem;
 }
@@ -246,7 +247,7 @@ nav a[aria-current="page"] {
 
 .open-slips {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(15.5rem, 1fr));
   gap: 0.65rem;
 }
 
@@ -504,6 +505,10 @@ nav a[aria-current="page"] {
 .row:hover .name,
 .row:focus-visible .name {
   color: var(--hue);
+}
+
+div.row {
+  cursor: default;
 }
 
 .row .sku {

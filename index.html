@@ -3,12 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>kitten-lab — Danielle Leve</title>
-  <meta name="description" content="Danielle Leve. Systems designer. Software, games, and desks.">
+  <title>kitten-lab</title>
+  <meta name="description" content="Deck Host. Pocket ROMs unzip into it. Danielle Leve / Kitten Lab.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="css/site.css?v=20">
+  <link rel="stylesheet" href="css/site.css?v=22">
+  <link rel="stylesheet" href="css/host-dress.css?v=11">
 </head>
-<body>
+<body data-rom-base="work/">
   <header class="site-rail">
     <div class="site-header wrap">
     <a class="brand" href="index.html">
@@ -24,43 +25,37 @@
   </header>
 
   <main>
-    <section class="mast wrap">
-      <div class="mast-id">
-        <h1>Danielle Leve</h1>
-        <p>systems designer · 20+ years in games</p>
-      </div>
-      <p class="mast-voice">
-        does something matter here? and how does it become?<br>
-        i'm not sure what this is yet. but i'm making it.
-      </p>
-    </section>
-
-    <section class="open-files wrap" aria-label="Open">
-      <div class="open-head">
-        <h2>open</h2>
-      </div>
-      <div class="open-slips">
-        <a class="open-slip" data-house="mypt" href="work/pocket-go.html">
-          <span class="sku">CO.MYPT-004-GO</span>
-          <span class="mark">open</span>
-          <span class="port">43210</span>
-          <span class="name">Pocket Go</span>
-          <span class="job">A WWW you inhabit. BIOS in the pocket. Cabinets that mint look-throughs.</span>
-        </a>
-        <a class="open-slip" data-house="lea" href="work/desk-world.html">
-          <span class="sku">CO.LEA</span>
-          <span class="mark">open</span>
-          <span class="port">43167–72</span>
-          <span class="name">Desk World</span>
-          <span class="job">A felt. CSS objects you drag. Mira edits what’s in hand.</span>
-        </a>
-        <a class="open-slip" data-house="lea" href="work/emt-bench.html">
-          <span class="sku">CO.LEA-002-EMT</span>
-          <span class="mark">open</span>
-          <span class="port">43150</span>
-          <span class="name">EM Translation Bench</span>
-          <span class="job">Concordance / code bay. Two languages looking at each other.</span>
-        </a>
+    <section class="dh-band" aria-label="Coming soon: Deck Host">
+      <div class="dh-office is-hero">
+        <header class="dh-lead">
+          <p class="dh-kicker">coming soon</p>
+          <h1>Deck Host</h1>
+          <p class="pg-lede">
+            One program. Pocket ROMs unzip into it.
+          </p>
+        </header>
+        <div class="dh-tray">
+          <div class="dh-tray-head">
+            <p class="dh-tray-kicker">pocket ROMs</p>
+            <div class="dh-tray-tools">
+              <div class="dh-kinds" role="group" aria-label="kind">
+                <button type="button" class="dh-kind" data-kind="all" aria-pressed="true">all</button>
+                <button type="button" class="dh-kind" data-kind="tool">tool</button>
+                <button type="button" class="dh-kind" data-kind="desk">desk</button>
+                <button type="button" class="dh-kind" data-kind="game">game</button>
+              </div>
+              <div class="dh-tray-nav">
+                <button type="button" class="dh-nudge" data-nudge="-1" aria-label="Earlier carts">‹</button>
+                <button type="button" class="dh-nudge" data-nudge="1" aria-label="Later carts">›</button>
+              </div>
+            </div>
+          </div>
+          <div class="dh-grid" data-carts tabindex="0" aria-label="ROM carts. Use the arrows or the mouse wheel."></div>
+        </div>
+        <p class="dh-ad-foot">
+          CO.HOST-DECK · CO.HOST-001-LAUNCH ·
+          <a href="#work">the line</a>
+        </p>
       </div>
     </section>
 
@@ -68,19 +63,55 @@
       <div class="section-head">
         <h2>the line</h2>
         <nav class="house-index" aria-label="Houses">
+          <a href="#h-dcc" data-house="dcc">CO.DCC</a>
           <a href="#h-mypt" data-house="mypt">CO.MYPT</a>
           <a href="#h-lea" data-house="lea">CO.LEA</a>
           <a href="#h-wbs" data-house="wbs">CO.WBS</a>
           <a href="#h-dbs" data-house="dbs">CO.DBS</a>
           <a href="#h-bbc" data-house="bbc">CO.BBC</a>
           <a href="#h-host" data-house="host">CO.HOST</a>
-          <a href="#h-dcc" data-house="dcc">CO.DCC</a>
           <a href="#h-kde" data-house="kde">CO.KDE</a>
-          <a href="#h-smh" data-house="smh">CO.SMH</a>
           <a href="#h-bbg" data-house="bbg">CO.BBG</a>
           <a href="#h-toy" data-house="toy">CO.TOY</a>
         </nav>
       </div>
+
+      <article class="house" id="h-dcc" data-house="dcc">
+        <header class="house-head">
+          <span class="sku">CO.DCC</span>
+          <h3>Dewey Catalog Co.</h3>
+        </header>
+        <div class="ledger">
+          <div class="ledger-head" aria-hidden="true">
+            <span>SKU</span>
+            <span>name</span>
+            <span>port</span>
+            <span>status</span>
+            <span>what it is</span>
+          </div>
+          <a class="row" href="work/rom-cat.html">
+            <span class="sku">CO.DCC-001-ROMCAT</span>
+            <span class="name">ROM Cat</span>
+            <span class="port">—</span>
+            <span class="st live">desk</span>
+            <span class="job">Producers, then SKUs. This site reads that filing.</span>
+          </a>
+          <div class="row">
+            <span class="sku">CO.DCC-STICKY</span>
+            <span class="name">TINY notes</span>
+            <span class="port">—</span>
+            <span class="st live">desk</span>
+            <span class="job">Cute crooked sticky drawer. Keep; do not destroy.</span>
+          </div>
+          <div class="row">
+            <span class="sku">CO.DCC-002-VENS</span>
+            <span class="name">cat-o-vens</span>
+            <span class="port">—</span>
+            <span class="st">idea</span>
+            <span class="job">Codes / alts catalog. Same cabinet family, different drawer.</span>
+          </div>
+        </div>
+      </article>
 
       <article class="house" id="h-mypt" data-house="mypt">
         <header class="house-head">
@@ -183,6 +214,13 @@
             <span class="st live">desk</span>
             <span class="job">The office product on the same kernel. Not a game.</span>
           </a>
+          <a class="row" href="work/sky-lite.html">
+            <span class="sku">—</span>
+            <span class="name">Sky-lite</span>
+            <span class="port">—</span>
+            <span class="st live">public</span>
+            <span class="job">A small narrative DSL.</span>
+          </a>
         </div>
       </article>
 
@@ -273,35 +311,19 @@
             <span>status</span>
             <span>what it is</span>
           </div>
-          <a class="row" href="work/deck-host.html">
+          <a class="row is-open" href="work/deck-host.html">
             <span class="sku">CO.HOST-DECK</span>
             <span class="name">Deck Host</span>
             <span class="port">—</span>
             <span class="st live">desk</span>
-            <span class="job">Small programs in real windows. Launcher is CO.HOST-001-LAUNCH.</span>
+            <span class="job">The program you get. Windows for ROMs.</span>
           </a>
-        </div>
-      </article>
-
-      <article class="house" id="h-dcc" data-house="dcc">
-        <header class="house-head">
-          <span class="sku">CO.DCC</span>
-          <h3>Dewey Catalog Co.</h3>
-        </header>
-        <div class="ledger">
-          <div class="ledger-head" aria-hidden="true">
-            <span>SKU</span>
-            <span>name</span>
-            <span>port</span>
-            <span>status</span>
-            <span>what it is</span>
-          </div>
-          <a class="row" href="work/rom-cat.html">
-            <span class="sku">CO.DCC-001-ROMCAT</span>
-            <span class="name">ROM Cat</span>
-            <span class="port">—</span>
+          <a class="row is-open" href="work/deck-host.html#cases">
+            <span class="sku">CO.HOST-001-LAUNCH</span>
+            <span class="name">ROM Launcher</span>
+            <span class="port">43170</span>
             <span class="st live">desk</span>
-            <span class="job">Producers, then SKUs. This site reads that filing.</span>
+            <span class="job">Start menu of cartridge cases. Primary face.</span>
           </a>
         </div>
       </article>
@@ -326,22 +348,6 @@
             <span class="st live">itch</span>
             <span class="job">Fifteen keys. A chord dumps a story.</span>
           </a>
-        </div>
-      </article>
-
-      <article class="house" id="h-smh" data-house="smh">
-        <header class="house-head">
-          <span class="sku">CO.SMH</span>
-          <h3>Something Mattered Here</h3>
-        </header>
-        <div class="ledger">
-          <div class="ledger-head" aria-hidden="true">
-            <span>SKU</span>
-            <span>name</span>
-            <span>port</span>
-            <span>status</span>
-            <span>what it is</span>
-          </div>
           <a class="row" href="work/terminal-prolog.html">
             <span class="sku">SMH-001-PROLOG</span>
             <span class="name">Terminal Prolog</span>
@@ -379,6 +385,13 @@
             <span class="st">design</span>
             <span class="job">Tarot, letters, frameworks of frameworks.</span>
           </a>
+          <a class="row" href="work/dream-gardener.html">
+            <span class="sku">—</span>
+            <span class="name">Dream Gardener</span>
+            <span class="port">—</span>
+            <span class="st">design</span>
+            <span class="job">Cozy cultivation inside the dreaming.</span>
+          </a>
         </div>
       </article>
 
@@ -395,42 +408,40 @@
             <span>status</span>
             <span>what it is</span>
           </div>
-          <a class="row" href="work/chesters-toy-box.html">
-            <span class="sku">CO.IMP</span>
-            <span class="name">Chester’s Toy Box</span>
+          <a class="row" href="work/ineffable-box.html">
+            <span class="sku">CO.TOY-002-USBOX</span>
+            <span class="name">Ineffable Box</span>
             <span class="port">—</span>
             <span class="st live">desk</span>
-            <span class="job">Ineffable, Eddy, Time Machine, Import Station, Injector.</span>
+            <span class="job">Omens, hymns, secrets. Ship at the moment of notice.</span>
           </a>
-        </div>
-      </article>
-
-      <article class="house" id="h-open" data-house="open">
-        <header class="house-head">
-          <span class="sku">—</span>
-          <h3>unfiled</h3>
-        </header>
-        <div class="ledger">
-          <div class="ledger-head" aria-hidden="true">
-            <span>SKU</span>
-            <span>name</span>
-            <span>port</span>
-            <span>status</span>
-            <span>what it is</span>
-          </div>
-          <a class="row" href="work/dream-gardener.html">
-            <span class="sku">—</span>
-            <span class="name">Dream Gardener</span>
-            <span class="port">—</span>
-            <span class="st">design</span>
-            <span class="job">Cozy cultivation inside the dreaming.</span>
+          <a class="row" href="work/eddies-encoder.html">
+            <span class="sku">CO.TOY-004-EEE</span>
+            <span class="name">Eddy’s Encoder</span>
+            <span class="port">43145</span>
+            <span class="st live">desk</span>
+            <span class="job">A dirty mint for strange pull.</span>
           </a>
-          <a class="row" href="work/sky-lite.html">
-            <span class="sku">—</span>
-            <span class="name">Sky-lite</span>
+          <a class="row" href="work/meta-time-machine.html">
+            <span class="sku">CO.TOY-003-TMACH</span>
+            <span class="name">Meta Time Machine</span>
             <span class="port">—</span>
-            <span class="st live">public</span>
-            <span class="job">A small narrative DSL.</span>
+            <span class="st live">desk</span>
+            <span class="job">A rail of when. Stamps and reports.</span>
+          </a>
+          <a class="row" href="work/import-station.html">
+            <span class="sku">CO.TOY-001-TERMINAL</span>
+            <span class="name">Import Station</span>
+            <span class="port">43101</span>
+            <span class="st live">desk</span>
+            <span class="job">Bring material in without losing the grain.</span>
+          </a>
+          <a class="row" href="work/the-injector.html">
+            <span class="sku">CO.IMP-INJ</span>
+            <span class="name">The Injector</span>
+            <span class="port">—</span>
+            <span class="st live">desk</span>
+            <span class="job">Deliver what was never sent.</span>
           </a>
         </div>
       </article>
@@ -454,5 +465,6 @@
     </div>
   </footer>
   <script src="js/site.js?v=7"></script>
+  <script src="js/deck-host.js?v=11"></script>
 </body>
 </html>
