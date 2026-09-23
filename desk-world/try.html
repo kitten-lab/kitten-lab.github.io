@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Try the desk — Desk World — Kitten Lab</title>
+  <meta name="description" content="A felt. CSS objects you drag. Mira edits whatever is in hand. Danielle Leve / Kitten Lab.">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../css/site.css?v=17">
+  <link rel="stylesheet" href="../css/desk-dress.css?v=11">
+</head>
+<body class="desk-page">
+  <header class="site-rail">
+    <div class="site-header wrap">
+    <a class="brand" href="../index.html">
+      kitten-lab
+      <small>software</small>
+    </a>
+    <a class="cat-chip" href="../index.html#work">ROM Cat</a>
+    <span class="now-chip">LEA-571-WORLD</span>
+    <nav aria-label="Primary">
+      <a href="../index.html">work</a>
+      <a href="../about.html">about</a>
+    </nav>
+    </div>
+  </header>
+
+  <div class="wrap" style="padding:24px 0"><a href="index.html">← Back to Desk World</a><h1>Try the desk</h1><p>An interactive illustration of moving and filing objects. <a href="index.html">Explore the full desktop environment</a> to see ROMs, writing, mail, and fax at work.</p></div>
+  <div class="dw-office">
+    <div class="dw-rail">
+      <span>Hands</span>
+      <strong>Desk World</strong>
+      <span>drag · drop · mira</span>
+    </div>
+    <div class="dw-felt">
+      <header class="dw-lead">
+        <p class="fm-line">
+          <span>LEA-571-WORLD</span>
+          <span>43167</span>
+          <span>a desk, not a form</span>
+        </p>
+        <h1>Desk World</h1>
+        <p class="pg-lede">
+          Everything on the cloth is a CSS object. Pick it up. Put a leaf in an
+          envelope. Pin it to cork. File it in the can. Fax it off the island.
+          The green box is Mira — she edits whatever is in hand.
+          <kbd>dress up lined</kbd> is a costume sheet.
+          <kbd>-ins karaoke</kbd> installs a machine. There is no menu. There is a table.
+        </p>
+      </header>
+
+      <div class="dw-stage" id="desk" aria-label="Desk felt. Drag objects. Drop them into spaces. Type in Mira.">
+        <div class="dw-cloth" id="cloth">
+        <div class="dw-surface" id="surface">
+        <article class="dw-piece dw-leaf is-lined" data-kind="leaf" data-name="a leaf" style="left:4%;top:4%">
+          <span class="k">leaf</span>
+          <h3>title, by, body</h3>
+          <p>Not a card. Not a file. A paper you pick up.</p>
+        </article>
+
+        <div class="dw-piece dw-env is-oak dw-space" data-kind="deck" data-name="oak envelope" data-space="envelope" style="left:22%;top:6%">
+          <div class="env-flap"></div>
+          <div class="env-body">
+            <span class="env-label">oak</span>
+            <span class="dw-hint">drop in</span>
+            <div class="dw-pocket">
+              <article class="dw-piece dw-card is-in" data-kind="card" data-name="a card">
+                <span class="k">card</span>
+                <h3>files in envelopes</h3>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <div class="dw-piece dw-env is-velvet dw-space" data-kind="deck" data-name="velvet packet" data-space="envelope" style="left:42%;top:3%">
+          <div class="env-flap"></div>
+          <div class="env-body">
+            <span class="env-label">velvet</span>
+            <span class="dw-hint">drop in</span>
+            <div class="dw-pocket"></div>
+          </div>
+        </div>
+
+        <div class="dw-piece dw-board dw-space" data-kind="board" data-name="cork board" data-space="board" style="left:62%;top:4%">
+          <span class="dw-hint">pin here</span>
+          <div class="dw-pocket"></div>
+        </div>
+
+        <div class="dw-piece dw-key" data-kind="key" data-name="key 3" style="left:58%;top:28%">
+          <span class="key-cap"><span class="key-pip"></span>3</span>
+        </div>
+
+        <div class="dw-piece dw-tool" data-kind="tool" data-name="stamper" style="left:3%;top:38%">
+          <div class="tool-stamper">
+            <div class="tool-stamper-body">
+              <span class="tool-stamper-knob"></span>
+              <span class="tool-stamper-handle"></span>
+              <span class="tool-stamper-collar"></span>
+              <span class="tool-stamper-plate"><span class="tool-stamper-label">received</span></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="dw-piece dw-karaoke" data-kind="tool" data-name="karaoke" style="left:16%;top:36%">
+          <div class="tool-karaoke">
+            <span class="tool-karaoke-tag">karaoke</span>
+            <div class="tool-karaoke-slot"><div class="tool-karaoke-face" data-kven>KVEN</div></div>
+            <div class="tool-karaoke-levers">
+              <button type="button" class="tool-karaoke-lever" data-pull onclick="dwPull(event)">PULL</button>
+              <button type="button" class="tool-karaoke-lever tool-karaoke-copy">COPY</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="dw-piece dw-chipper" data-kind="tool" data-name="chipper" style="left:36%;top:38%">
+          <div class="tool-chipper-body">
+            <span class="tool-chipper-clip"></span>
+            <span class="tool-chipper-jaw"></span>
+            <span class="tool-chipper-plate"><span class="tool-chipper-label">OT-001</span></span>
+          </div>
+        </div>
+
+        <div class="dw-piece dw-eraser" data-kind="tool" data-name="eraser" style="left:50%;top:42%">
+          <div class="tool-eraser-body">
+            <span class="tool-eraser-band"></span>
+            <span class="tool-eraser-block"><span class="tool-eraser-label">eraser</span></span>
+            <span class="tool-eraser-edge"></span>
+          </div>
+        </div>
+
+        <div class="dw-piece dw-inbox dw-space" data-kind="inbox" data-name="inbox" data-space="inbox" style="left:64%;top:38%">
+          <div class="tool-inbox-shell">
+            <span class="tool-inbox-flag">mail</span>
+            <span class="tool-inbox-slot"></span>
+            <strong>inbox</strong>
+            <span class="dw-hint">file here</span>
+            <div class="dw-pocket"></div>
+          </div>
+        </div>
+
+        <div class="dw-piece dw-fax dw-space" data-kind="fax" data-name="fax" data-space="fax" style="left:3%;top:68%">
+          <div class="tool-fax-shell">
+            <span class="tool-fax-brand">CHESTER'S</span>
+            <span class="tool-fax-word">FAX</span>
+            <span class="tool-fax-dest">kmoire</span>
+            <span class="dw-hint">drop leaf → md</span>
+            <div class="dw-pocket"></div>
+          </div>
+        </div>
+
+        <div class="dw-piece dw-trash dw-space" data-kind="trash" data-name="trash can" data-space="trash" style="left:22%;top:70%">
+          <div class="lid"></div>
+          <div class="can">trash</div>
+          <div class="dw-pocket"></div>
+        </div>
+
+        </div>
+        </div>
+
+        <div class="dw-mira" id="mira" data-kind="mira">
+          <div class="bar"><span class="dot"></span> mira · phosphor · prompt follows the hand</div>
+          <div class="log" id="mira-log">
+            <div>the table is the app.</div>
+            <div>click something. type at it.</div>
+            <div class="dim">help · papers please · dress up lined · trash · spawn key</div>
+          </div>
+          <form class="row" id="mira-form" autocomplete="off">
+            <label for="mira-in" id="mira-ps">felt&gt;</label>
+            <input id="mira-in" name="line" spellcheck="false" aria-label="Mira">
+          </form>
+        </div>
+      </div>
+
+      <p class="dw-foot">
+        This page is the verbs on a still. Hands is the live table — pick up,
+        drop in, dress, fax, empty the can. Four felt colors exist because the
+        core is still one sheet per process, not because the product is four
+        girls. <a href="../work/sophia-desk.html">Sophia</a>,
+        <a href="../work/cassandra-desk.html">Cassandra</a>,
+        <a href="../work/ava-desk.html">Ava</a>,
+        <a href="../work/qua-desk.html">Qua</a> are seats. Glass Compost and EM Translation
+        Bench are other desks; they can sit here as ROM carts.
+      </p>
+    </div>
+  </div>
+
+  <footer class="site-footer wrap">
+    <span>© <span data-year>2026</span> Danielle Leve</span>
+    <a href="../index.html">work</a>
+  </footer>
+  <script src="../js/site.js?v=7"></script>
+  <script src="../js/desk-world.js?v=10"></script>
+</body>
+</html>

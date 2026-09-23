@@ -1,0 +1,29 @@
+.desk-site{--blue:#244b3e}
+.desk-welcome{background:#173f33;color:#f7ecd1;padding:38px;box-shadow:0 5px 0 #0e2b24}
+.desk-welcome-copy{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:center;margin-bottom:30px}
+.desk-welcome h1{font-size:clamp(42px,4.5vw,66px);margin:0;letter-spacing:-2px}
+.desk-welcome h1 em{color:#e6cf96}
+.desk-welcome-copy p{font-size:16px;max-width:420px}
+.desk-photo{margin:0;min-width:0}
+.desk-photo>a{display:block;cursor:zoom-in}
+.desk-photo img{box-shadow:none;border:1px solid #9d927966}
+.desk-photo figcaption{display:flex;justify-content:space-between;gap:12px;padding-top:12px;font:12px/1.5 Georgia,serif}
+.desk-photo figcaption span:last-child{font-style:italic}
+.desk-introduction{padding:65px 0 45px;max-width:760px}
+.desk-introduction>p:last-child{max-width:650px;font-size:18px}
+.desk-feature{display:grid;grid-template-columns:.8fr 1.4fr;gap:40px;align-items:center;border-top:1px solid var(--line);padding:45px 0}
+.desk-feature>div>p{font-size:15px;max-width:380px}
+.desk-feature .eyebrow,.desk-tour .eyebrow{color:var(--red);font-size:11px}
+.desk-connections{background:#e7dfc9;padding:36px;margin:20px 0 50px;border:1px solid var(--line)}
+.connection-pair{display:grid;grid-template-columns:1fr 1fr;gap:45px}
+.connection-pair article{position:relative;padding-top:18px;border-top:1px solid #b9ae94}
+.connection-pair h3{font:28px Georgia,serif;margin:20px 0 16px}
+.connection-pair p{max-width:460px;font-size:15px}
+.postmark{font:bold 11px 'Courier New',monospace;letter-spacing:3px;color:var(--red);border:1px solid;padding:5px 10px;display:inline-block}
+.desk-colors{padding:0 0 50px}
+.desk-color-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-bottom:25px}
+.desk-color-grid figcaption{font-size:13px}
+.desk-tour{padding:35px 0 45px;border-top:1px solid var(--line)}
+.desk-tour>div{max-width:660px;margin-bottom:25px}
+@media(max-width:950px){.desk-welcome-copy{grid-template-columns:1fr}.desk-feature{grid-template-columns:1fr;gap:24px}.desk-feature>div>p{max-width:620px}.desk-color-grid{gap:16px}.desk-photo figcaption{flex-wrap:wrap}}
+@media(max-width:760px){.desk-welcome{padding:25px 20px}.desk-welcome h1{font-size:44px}.desk-welcome-copy{gap:24px}.desk-introduction{padding:45px 0 25px}.connection-pair,.desk-color-grid{grid-template-columns:1fr;gap:30px}.desk-connections{padding:25px}.desk-color-grid .desk-photo{max-width:540px}.desk-feature{padding:30px 0}}
