@@ -1,0 +1,26 @@
+/* Deck Host shares the lab paper, with the slate of the host slot. */
+.host-site{--blue:#2a3148}
+.host-site .go-welcome{background:#2a3148;box-shadow:0 5px 0 #161b28}
+.host-site .go-welcome h1 em{color:#e6cf96}
+.host-site .button{color:#2a3148}
+.host-hero{margin:8px 0 0;min-width:0}
+.host-hero .host-object{height:300px;max-width:340px;margin:8px auto 0}
+.host-hero figcaption{margin:8px 0 0;font:italic 13px/1.5 Georgia,serif;color:#f7ecd1;text-align:center}
+.host-holds{padding:48px 40px 56px}
+.host-holds h2{font-size:28px;margin-bottom:12px}
+.host-holds p{font-size:14px}
+.host-pair{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;padding:48px 40px 64px;border-top:1px solid var(--line)}
+.host-pair h2{font-size:28px;margin-bottom:14px}
+.host-pair p{font-size:15px;max-width:460px}
+.host-skin-row{display:flex;flex-wrap:wrap;gap:20px 24px;margin-top:22px}
+.host-skin-row figure,.host-cat{margin:0}
+.host-skin-row img{width:168px;max-width:100%;height:auto;box-shadow:4px 5px 0 #302f2620}
+.host-skin-row figcaption{margin-top:8px;font:italic 14px/1.4 Georgia,serif}
+.host-cat{margin-top:22px}
+.host-cat img{width:min(100%,420px);height:auto;box-shadow:4px 5px 0 #302f2620}
+@media(max-width:760px){
+  .host-hero{max-width:340px}
+  .host-holds,.host-pair{padding-inline:0}
+  .host-holds{padding-top:36px;padding-bottom:40px}
+  .host-pair{grid-template-columns:1fr;gap:36px;padding-top:36px}
+}
