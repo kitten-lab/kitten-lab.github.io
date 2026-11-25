@@ -1,0 +1,246 @@
+/* PHOSPHOR_TERMINAL / _all.css - skin-wide extras every rom wears under PHOSPHOR (phxskin 20261120).
+ * Loaded by dsc-load.js after tokens.css and before the rom's own roms/<rom>.css.
+ * The shared core tokens PHOSPHOR pins (see Maker_CC\ROM_DECK\skins\docs\SKIN_COMPONENTS.md),
+ * then an answer for every --dex-role-* (docs\SHADE_SPEC.md). All of it reads --phx-*, so the
+ * four tints (tokens.css) recolor everything at once. */
+:root {
+  /* per-skin choice: maker accents off, the phosphor stays the accent everywhere */
+  --dex-makers: off;
+
+  /* shared core tokens (the rest come from tokens.css through dex-base.css) */
+  --dex-ink-soft: var(--phx-asst);
+  --dex-ink-faint: var(--phx-faint);
+  --dex-border-soft: var(--phx-line);
+  --dex-warn: var(--phx-cut);
+  --dex-good: var(--phx-hot);
+  --dex-font-display: "VT323", "IBM Plex Mono", Consolas, monospace;
+  --dex-font-hand: "VT323", "IBM Plex Mono", Consolas, monospace;
+  /* tag palette for tags without a saved color: one phosphor in eight strengths and hues of it */
+  --dex-tag-1: var(--phx-accent);
+  --dex-tag-2: var(--phx-cut);
+  --dex-tag-3: var(--phx-branch);
+  --dex-tag-4: var(--phx-hot);
+  --dex-tag-5: var(--phx-asst);
+  --dex-tag-6: var(--phx-text);
+  --dex-tag-7: var(--phx-dim);
+  --dex-tag-8: var(--phx-edge);
+  /* the glass: GC's terminal screen (a haze at the top, its 4px rows), a darker rim at the corners */
+  --phx-scanlines: repeating-linear-gradient(180deg, transparent 0 2px, var(--phx-scan) 2px 3px);
+  --phx-screen:
+    radial-gradient(ellipse 120% 80% at 50% 0%, var(--phx-glow), transparent 60%),
+    radial-gradient(ellipse 140% 120% at 50% 50%, transparent 60%, rgba(0, 0, 0, 0.35) 100%),
+    var(--phx-scanlines);
+  --dex-bg-image: var(--phx-screen);
+  /* bars: the chrome glass with the rows on it */
+  --phx-bar-image: linear-gradient(180deg, color-mix(in srgb, var(--phx-accent) 5%, transparent), transparent 70%), var(--phx-scanlines);
+}
+
+/* -- role answers (phxskin 20261120, docs\SHADE_SPEC.md) --
+ * PHOSPHOR everywhere = Glass Compost's terminal: dark glass, phosphor ink that blooms a little,
+ * outlined square keys that go inverse video when pressed, VT323 in the title bar, Plex Mono for
+ * the rest, cut-mark stamps in the bright phosphor. */
+:root {
+  /* cabinet houses: phosphor shades, so the cabinet reads as one screen */
+  --dex-house-io: var(--phx-text);
+  --dex-house-cu: var(--phx-cut);
+  --dex-house-ab: var(--phx-alert);
+  --dex-house-dx: var(--phx-branch);
+  --dex-house-tps: var(--phx-dim);
+  /* surfaces */
+  --dex-role-app: var(--phx-bg);
+  --dex-role-app-image: var(--phx-screen);
+  --dex-role-app-ink: var(--phx-text);
+  --dex-role-ink: var(--phx-text);
+  --dex-role-panel: var(--phx-panel);
+  --dex-role-panel-ink: var(--phx-text);
+  --dex-role-panel-head: var(--phx-accent);
+  --dex-role-card: var(--phx-panel2);
+  --dex-role-card-image: none;
+  --dex-role-card-ink: var(--phx-text);
+  --dex-role-card-head: var(--phx-hot);
+  --dex-role-card-edge: var(--phx-line);
+  --dex-role-card-radius: 0;
+  --dex-role-card-shadow: inset 0 0 0 1px color-mix(in srgb, var(--phx-accent) 6%, transparent);
+  --dex-role-mute: var(--phx-dim);
+  --dex-role-faint: var(--phx-faint);
+  --dex-role-link: var(--phx-accent);
+  --dex-role-field: var(--phx-well);
+  --dex-role-field-ink: var(--phx-text);
+  --dex-role-field-edge: var(--phx-line);
+  --dex-role-field-focus: var(--phx-accent);
+  --dex-role-field-radius: 0;
+  --dex-role-field-bevel: inset 0 0 8px color-mix(in srgb, var(--phx-accent) 6%, transparent);
+  --dex-role-pop: var(--phx-panel2);
+  --dex-role-pop-ink: var(--phx-text);
+  --dex-role-pop-edge: var(--phx-edge);
+  --dex-role-pop-radius: 0;
+  --dex-role-pop-shadow: var(--dex-pop-shadow);
+  --dex-role-scrim: var(--dex-backdrop);
+  --dex-role-hover: var(--dex-hover);
+  --dex-role-select: var(--phx-select);
+  --dex-role-select-ink: var(--phx-hot);
+  --dex-role-select-mark: var(--phx-accent);
+  --dex-role-code: var(--phx-well);
+  --dex-role-code-ink: var(--phx-text);
+  /* lines, shape, type */
+  --dex-role-edge: var(--phx-edge);
+  --dex-role-edge-soft: var(--phx-line);
+  --dex-role-edge-w: 1px;
+  --dex-role-radius: 0;
+  --dex-role-radius-sm: 0;
+  --dex-role-shadow: var(--dex-drop-shadow);
+  --dex-role-glow: var(--phx-bloom);
+  --dex-role-font: var(--dex-font);
+  --dex-role-font-body: var(--dex-font);
+  --dex-role-font-label: var(--dex-font);
+  --dex-role-font-mono: var(--dex-font-mono);
+  --dex-role-label-case: uppercase;
+  --dex-role-label-track: 0.1em;
+  --dex-role-control-size: 10px;
+  /* title bar: GC's chrome glass, VT323 caps in the accent, one lit rule under it */
+  --dex-role-bar: var(--phx-bar-image), var(--phx-chrome);
+  --dex-role-bar-ink: var(--phx-accent);
+  --dex-role-bar-edge: var(--phx-line);
+  --dex-role-bar-edge-w: 0 0 1px 0;
+  --dex-role-bar-radius: 0;
+  --dex-role-bar-shadow: 0 1px 0 color-mix(in srgb, var(--phx-accent) 25%, transparent);
+  --dex-role-bar-margin: 0;
+  --dex-role-bar-h: 36px;
+  --dex-role-bar-font: "VT323", "IBM Plex Mono", Consolas, monospace;
+  --dex-role-bar-weight: 400;
+  --dex-role-bar-size: 20px;
+  --dex-role-bar-track: 0.14em;
+  --dex-role-bar-case: uppercase;
+  /* spine: a lit cursor block at the left edge */
+  --dex-role-bar-spine: var(--phx-accent);
+  --dex-role-bar-spine-w: 5px;
+  --dex-role-bar-spine-edge: var(--phx-chrome);
+  /* no tape: a terminal has nothing pinned to it */
+  --dex-role-bar-tape: none;
+  --dex-role-bar-tape-show: none;
+  --dex-role-bar-tape-edge: transparent;
+  --dex-role-bar-tape-clip: none;
+  --dex-role-bar-tape-rot: 0deg;
+  /* stamp after the title: a boxed status word in the bright phosphor */
+  --dex-role-bar-stamp-show: inline-block;
+  --dex-role-bar-stamp-ink: var(--phx-cut);
+  /* chip: inverse video */
+  --dex-role-chip: var(--phx-accent);
+  --dex-role-chip-ink: var(--phx-bg);
+  --dex-role-chip-edge: var(--phx-accent);
+  --dex-role-chip-radius: 0;
+  --dex-role-chip-bevel: 0 0 8px var(--phx-glow);
+  --dex-role-code-tag-ink: var(--phx-dim);
+  --dex-role-code-tag-edge: var(--phx-line);
+  /* window buttons: outlined squares; close lights up in the alert color */
+  --dex-role-cap-btn: transparent;
+  --dex-role-cap-btn-ink: var(--phx-text);
+  --dex-role-cap-btn-edge: var(--phx-line);
+  --dex-role-cap-btn-hover: var(--phx-select);
+  --dex-role-cap-btn-close: var(--phx-alert);
+  --dex-role-cap-btn-close-ink: var(--phx-bg);
+  --dex-role-cap-btn-radius: 0;
+  --dex-role-cap-btn-bevel: none;
+  --dex-role-cap-btn-size: 22px;
+  /* buttons: outlined keys, inverse video for the primary (GC's house buttons when on) */
+  --dex-role-btn: var(--phx-panel2);
+  --dex-role-btn-ink: var(--phx-accent);
+  --dex-role-btn-edge: var(--phx-line);
+  --dex-role-btn-hover: var(--phx-select);
+  --dex-role-btn-hover-ink: var(--phx-hot);
+  --dex-role-btn-active: var(--phx-well);
+  --dex-role-btn-bevel: none;
+  --dex-role-btn-bevel-in: inset 0 0 0 1px var(--phx-accent);
+  --dex-role-btn-radius: 0;
+  --dex-role-btn-font: var(--dex-font);
+  --dex-role-btn-weight: 500;
+  --dex-role-btn-case: uppercase;
+  --dex-role-btn-track: 0.06em;
+  --dex-role-btn-primary: var(--phx-accent);
+  --dex-role-btn-primary-ink: var(--phx-bg);
+  --dex-role-btn-primary-hover: var(--phx-hot);
+  --dex-role-btn-primary-edge: var(--phx-accent);
+  /* tabs */
+  --dex-role-tab: transparent;
+  --dex-role-tab-ink: var(--phx-dim);
+  --dex-role-tab-on: var(--phx-panel2);
+  --dex-role-tab-on-ink: var(--phx-accent);
+  --dex-role-tab-edge: var(--phx-line);
+  --dex-role-tab-radius: 0;
+  /* cabinet: a panel of the screen, a chrome head, slips as dim rows */
+  --dex-role-cab: var(--phx-panel);
+  --dex-role-cab-image: var(--phx-scanlines);
+  --dex-role-cab-ink: var(--phx-text);
+  --dex-role-cab-edge: var(--phx-line);
+  --dex-role-cab-radius: 0;
+  --dex-role-cab-shadow: inset 0 0 0 1px color-mix(in srgb, var(--phx-accent) 5%, transparent);
+  --dex-role-cab-head: var(--phx-bar-image), var(--phx-chrome);
+  --dex-role-cab-head-ink: var(--phx-accent);
+  --dex-role-cab-head-font: var(--dex-font);
+  --dex-role-cab-tab: transparent;
+  --dex-role-cab-tab-ink: var(--phx-dim);
+  --dex-role-cab-tab-on: var(--phx-select);
+  --dex-role-cab-tab-on-ink: var(--phx-hot);
+  --dex-role-cab-label: var(--phx-dim);
+  --dex-role-slip: var(--phx-panel2);
+  --dex-role-slip-ink: var(--phx-text);
+  --dex-role-slip-edge: var(--phx-line);
+  --dex-role-slip-radius: 0;
+  --dex-role-slip-shadow: none;
+  --dex-role-slip-strip-w: 3px;
+  --dex-role-slip-key-mix: 0%;
+  --dex-role-slip-key-ink: var(--phx-accent);
+  --dex-role-pin: var(--phx-select);
+  --dex-role-pin-ink: var(--phx-hot);
+  --dex-role-pin-edge: var(--phx-edge);
+  --dex-role-pin-mix: 0%;
+  --dex-role-pin-strip-w: 3px;
+  --dex-role-pin-radius: 0;
+  --dex-role-sub: var(--phx-well);
+  --dex-role-sub-ink: var(--phx-asst);
+  --dex-role-stamp-ink: var(--phx-cut);
+  --dex-role-stamp-bg: transparent;
+  --dex-role-stamp-border: 1px solid;
+  --dex-role-stamp-radius: 0;
+  --dex-role-stamp-rot: 0deg;
+  --dex-role-stamp-font: var(--dex-font);
+  --dex-role-stamp-shadow: 0 0 6px var(--phx-bloom);
+  /* the page you write on (ROSEDOC MED): the dark glass, phosphor type */
+  --dex-role-page: var(--phx-panel);
+  --dex-role-page-ink: var(--phx-text);
+  --dex-role-page-mute: var(--phx-dim);
+  --dex-role-page-rule: var(--phx-line);
+  --dex-role-page-code: var(--phx-well);
+  --dex-role-page-link: var(--phx-hot);
+  --dex-role-page-font: var(--dex-font);
+  --dex-role-page-font-mono: var(--dex-font-mono);
+}
+
+/* -- menus and the desk (docs\SHADE_SPEC.md "The Surface") --
+ * The start menu is a terminal window: chrome glass with the rows on it, a lit edge. Rom colors
+ * are mixed into the glass at 30% and their initials are the brightest phosphor. The desk is
+ * the screen itself, a faint phosphor grid on it. */
+:root {
+  --dex-role-menu: var(--phx-chrome);
+  --dex-role-menu-image: var(--phx-bar-image);
+  --dex-role-menu-ink: var(--phx-text);
+  --dex-role-menu-edge: var(--phx-edge);
+  --dex-role-menu-radius: 0;
+  --dex-role-menu-shadow: 0 0 0 1px var(--phx-glow), 0 0 22px var(--phx-glow), 0 14px 34px rgba(0, 0, 0, 0.6);
+  --dex-role-data-mix: 30%;
+  --dex-role-data-ink: var(--phx-hot);
+  --dex-role-desk: var(--phx-desk);
+  --dex-role-desk-image: var(--phx-screen);
+  --dex-role-desk-grid: color-mix(in srgb, var(--phx-text) 5%, transparent);
+  --dex-role-desk-grid-major: color-mix(in srgb, var(--phx-text) 10%, transparent);
+  --dex-role-scroll: var(--phx-faint);
+  --dex-role-scroll-track: var(--phx-well);
+}
+
+/* -- the glow and the glass (every rom) --
+ * A lit screen: the ink blooms a little (none on the blue BIOS tint), selections are inverse video,
+ * scrollbars are phosphor rails. Kept to the body so a rom's own text-shadow still wins. */
+:root { --phx-ink-glow: 0 0 4px var(--dex-role-glow); }
+body { text-shadow: var(--phx-ink-glow); }
+:root { scrollbar-color: var(--dex-role-scroll) var(--dex-role-scroll-track); }
+::selection { background: var(--phx-accent); color: var(--phx-bg); text-shadow: none; }

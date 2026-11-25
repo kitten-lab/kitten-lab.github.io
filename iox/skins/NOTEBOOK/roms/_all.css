@@ -1,0 +1,158 @@
+/* NOTEBOOK / _all.css — skin-wide extras every rom wears under NOTEBOOK (skinunify 20261119).
+ * Loaded after tokens.css and before the rom's own roms/<rom>.css.
+ * Pins the shared core tokens (see Maker_CC\ROM_DECK\skins\docs\SKIN_COMPONENTS.md)
+ * to ABUJO's notebook values, with its hand and script faces from the local font stack. */
+@font-face { font-family: "NbkHand"; src: local("Ink Free"), local("InkFree"), local("Segoe Print"), local("SegoePrint"); }
+@font-face { font-family: "NbkScript"; src: local("Segoe Script"), local("SegoeScript"); }
+:root {
+  /* per-skin choice: maker accents off, the notebook's rose stays the accent everywhere */
+  --dex-makers: off;
+
+  --dex-bg: #ece6dc;
+  --dex-surface: #fcfaf5;
+  --dex-surface-2: #f6f1e8;
+  --dex-surface-sunk: #fffefb;
+  --dex-chrome: #fcfaf5;
+  --dex-chrome-ink: #26221e;
+  --dex-ink-soft: #4a443d;
+  --dex-ink-faint: #bdb4a6;
+  --dex-border: #26221e;
+  --dex-border-soft: #e2dbcf;
+  --dex-accent-2: #a0703f;
+  --dex-accent-ink: #fcfaf5;
+  --dex-accent-wash: #f6e7b8;
+  --dex-focus: #b5544b;
+  --dex-good: #6f8f75;
+  --dex-warn: #b9824a;
+  --dex-info: #2a4a6a;
+  --dex-tag-1: #8c2f2f;
+  --dex-tag-2: #8a5a2a;
+  --dex-tag-3: #3d5c45;
+  --dex-tag-4: #2a4a6a;
+  --dex-tag-5: #5c3d6e;
+  --dex-tag-6: #6e4a32;
+  --dex-tag-7: #3d5a62;
+  --dex-tag-8: #8a3d55;
+  --dex-font-hand: "NbkHand", "Ink Free", "Segoe Print", "Comic Neue", "Bradley Hand", cursive;
+  --dex-font-display: "NbkScript", "Segoe Script", "Brush Script MT", "Snell Roundhand", cursive;
+  --dex-radius-sm: 2px;
+  --dex-border-w: 1.25px;
+  --dex-shadow-tint: #3a3024;
+}
+
+/* ── role answers (skinroles 20261119, docs\SHADE_SPEC.md) ──
+ * NOTEBOOK everywhere = ABUJO's own notebook: paper title strip with an ink outline, a stitched
+ * spine and pink washi tape, round inked window buttons, paper buttons, quiet tabs, paper slips. */
+:root {
+  /* cabinet houses darkened to read on paper (~4.5:1), same set as DEX LIGHT */
+  --dex-house-io: #335a3c;
+  --dex-house-cu: #7a4d0c;
+  --dex-house-ab: #962f25;
+  --dex-house-dx: #175560;
+  --dex-house-tps: #4c5363;
+  --dex-role-app: var(--dex-bg);
+  --dex-role-app-image: none;
+  --dex-role-panel: var(--dex-surface-2);
+  --dex-role-card: var(--dex-surface);
+  --dex-role-card-image: none;
+  --dex-role-card-edge: var(--dex-border-soft);
+  --dex-role-card-radius: 3px;
+  --dex-role-card-shadow: 0 1px 0 #d4ccbf, 2px 3px 8px color-mix(in srgb, var(--dex-shadow-tint) 10.2%, transparent);
+  --dex-role-field: var(--dex-surface-sunk);
+  --dex-role-field-edge: var(--dex-border);
+  --dex-role-field-focus: var(--dex-focus);
+  --dex-role-select: var(--dex-accent-wash);
+  --dex-role-edge: var(--dex-border);
+  --dex-role-edge-soft: var(--dex-border-soft);
+  --dex-role-edge-w: 1.25px;
+  --dex-role-radius: 3px;
+  --dex-role-radius-sm: 2px;
+  --dex-role-font-body: var(--dex-font-hand);
+  --dex-role-font-label: var(--dex-font);
+  --dex-role-label-track: 0.22em;
+  --dex-role-control-size: 9.5px;
+  --dex-role-bar: var(--dex-surface);
+  --dex-role-bar-ink: var(--dex-chrome-ink);
+  --dex-role-bar-edge: var(--dex-border);
+  --dex-role-bar-edge-w: 1.25px;
+  --dex-role-bar-radius: 3px;
+  --dex-role-bar-shadow: 0 1px 0 #d4ccbf;
+  --dex-role-bar-margin: 6px 8px 4px;
+  --dex-role-bar-h: 38px;
+  --dex-role-bar-font: var(--dex-font-display);
+  --dex-role-bar-weight: 400;
+  --dex-role-bar-size: 21px;
+  --dex-role-bar-track: 0.02em;
+  --dex-role-bar-case: none;
+  --dex-role-bar-spine: repeating-linear-gradient(to bottom, transparent 0 5px, var(--dex-ink-soft) 5px 7px) center / 1px 100% no-repeat, #efe6d6;
+  --dex-role-bar-spine-w: 18px;
+  --dex-role-bar-spine-edge: var(--dex-border);
+  --dex-role-bar-tape: repeating-linear-gradient(45deg, #f6d6d9 0 6px, #f9e3e5 6px 12px);
+  --dex-role-bar-tape-show: block;
+  --dex-role-bar-tape-edge: #e8c3c7;
+  --dex-role-bar-tape-clip: none;
+  --dex-role-bar-tape-rot: -2.5deg;
+  --dex-role-bar-stamp-show: none;
+  --dex-role-bar-stamp-ink: var(--dex-accent-2);
+  --dex-role-code-tag-ink: var(--dex-mute);
+  --dex-role-code-tag-edge: var(--dex-ink-faint);
+  --dex-role-cap-btn: transparent;
+  --dex-role-cap-btn-ink: var(--dex-ink);
+  --dex-role-cap-btn-edge: var(--dex-border);
+  --dex-role-cap-btn-hover: var(--dex-accent-wash);
+  --dex-role-cap-btn-close: #f6d6d9;
+  --dex-role-cap-btn-close-ink: var(--dex-focus);
+  --dex-role-cap-btn-radius: 50%;
+  --dex-role-cap-btn-size: 20px;
+  --dex-role-btn: var(--dex-surface);
+  --dex-role-btn-ink: var(--dex-ink);
+  --dex-role-btn-edge: var(--dex-border);
+  --dex-role-btn-hover: var(--dex-accent-wash);
+  --dex-role-btn-active: var(--dex-accent-wash);
+  --dex-role-btn-radius: 2px;
+  --dex-role-btn-font: var(--dex-font);
+  --dex-role-btn-weight: 600;
+  --dex-role-btn-case: uppercase;
+  --dex-role-btn-track: 0.22em;
+  --dex-role-btn-primary: var(--dex-ink);
+  --dex-role-btn-primary-ink: var(--dex-surface);
+  --dex-role-btn-primary-hover: var(--dex-ink-soft);
+  --dex-role-btn-primary-edge: var(--dex-ink);
+  --dex-role-tab: transparent;
+  --dex-role-tab-ink: var(--dex-mute);
+  --dex-role-tab-on: var(--dex-surface);
+  --dex-role-tab-on-ink: var(--dex-ink);
+  --dex-role-tab-edge: transparent;
+  --dex-role-tab-radius: 2px 2px 0 0;
+  --dex-role-cab: var(--dex-surface-2);
+  --dex-role-cab-edge: var(--dex-border-soft);
+  --dex-role-cab-radius: 3px;
+  --dex-role-cab-head: transparent;
+  --dex-role-cab-head-ink: var(--dex-mute);
+  --dex-role-cab-head-font: var(--dex-font-display);
+  --dex-role-cab-tab: var(--dex-surface);
+  --dex-role-cab-tab-on: var(--dex-accent-wash);
+  --dex-role-slip: var(--dex-surface);
+  --dex-role-slip-edge: var(--dex-border-soft);
+  --dex-role-slip-radius: 2px;
+  --dex-role-slip-shadow: 0 1px 0 #d4ccbf;
+  --dex-role-pin-radius: 10px;
+  --dex-role-sub: var(--dex-accent-wash);
+  --dex-role-stamp-bg: transparent;
+  --dex-role-stamp-border: 1.25px solid;
+  --dex-role-stamp-radius: 2px;
+  --dex-role-stamp-rot: -2deg;
+  --dex-role-stamp-font: var(--dex-font-hand);
+}
+
+/* -- menus and the desk (srfmenu 20261120, docs\SHADE_SPEC.md "The Surface") --
+ * The start menu is a notebook page; rom colors are inked at 65%. The desk is a dotted
+ * bullet-journal spread (the dots are the desk texture, so no grid lines). */
+:root {
+  --dex-role-data-mix: 65%;
+  --dex-role-data-ink: var(--dex-ink);
+  --dex-role-desk: var(--dex-role-app);
+  --dex-role-desk-image: radial-gradient(circle at 1px 1px, color-mix(in srgb, var(--dex-ink) 26%, transparent) 1px, transparent 1.6px) 0 0 / 22px 22px;
+  --dex-role-desk-grid: transparent;
+  --dex-role-desk-grid-major: transparent;
+}

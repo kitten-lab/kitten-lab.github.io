@@ -1,0 +1,259 @@
+/* POCKET_WWW.dsc / tokens.css - elle.www
+ * Surface-wide skin of Kitten's handmade Pocket Go WWW chrome
+ * (C:\ALICE_BOX\my-pocket-things\pocket-go\prod\www_sys\www.css),
+ * the same look later worn by GrokXOI (www-chrome.css) and WEBXOI (wxo-chrome.css).
+ *
+ * VERBATIM: every color, bevel, font stack, radius, and border value below is
+ * copied from those source files. Nothing is modernized or "improved."
+ * EXTENSION: the canonical --dex-* token names (so every system-skinned rom can
+ * wear this) and a few shared chrome selectors that the original WWW sheet
+ * never had to paint (Surface desk windows, .dh-cap-btn on other roms, menus).
+ * Those additions reuse her values only. Maker accents are pinned so a maker
+ * tag cannot recolor her navy title bar or gray matte.
+ */
+
+:root {
+  /* --- her WWW values, exposed under the names the system already reads --- */
+  --www-frame: #6e6e6e;
+  --www-fg: #fff;
+  --www-title-a: #0000cd;
+  --www-title-b: #1a3aff;
+  --www-mark-bg: #4a4a4a;
+  --www-mark-hover: #5a5a5a;
+  --www-btn-bg: gray;
+  --www-btn-hover: #c0c0c0;
+  --www-btn-fg: #111;
+  --www-btn-edge: rgba(0, 0, 0, 0.634);
+  --www-hi: #ffffff66;
+  --www-lo: #00000033;
+  --www-field-bg: #d4d0c8;
+  --www-field-fg: #111;
+  --www-field-focus: #ebe6dc;
+  --www-font: "JetBrains Mono", "Courier New", Consolas, monospace;
+  --www-bevel:
+    inset -1px -1px 0 #00000033,
+    inset 1px 1px 0 #ffffff66,
+    1px 1px 0 #ffffff66,
+    -1px -1px 0 #00000066;
+  --www-bevel-in:
+    inset 1px 1px 0 #00000033,
+    inset -1px -1px 0 #ffffff66;
+  --www-btn-bevel:
+    inset 1px 1px 0 #ffffff55,
+    inset -1px -1px 0 #00000033;
+  --www-title-grad: linear-gradient(to top, #0000cd, #1a3aff);
+  --www-shell-border-w: 2px 1px 1px 2px;
+  --www-shell-border-c: #00000066 #ffffff44 #ffffff44 #00000066;
+
+  --dex-cap-h: 36px;
+  --dex-cap-bg: #0000cd;
+  --dex-cap-ink: #fff;
+  --dex-cap-rule: #0000cd;
+  --dex-cap-gem: #4a4a4a;
+  --dex-cap-close: gray;
+  --dex-cap-close-ink: #111;
+  --dex-cap-shadow: 1px 1px 0 #ffffff66, -1px -1px 0 #00000066;
+  --dex-cap-mark-hover: #5a5a5a;
+  --dex-cap-btn-hover: #c0c0c0;
+  --dex-cap-gem-glow: none;
+  --dex-menu-rule: rgba(0, 0, 0, 0.634);
+  --dex-menu-shadow:
+    inset -2px -2px 0 #00000033,
+    inset 2px 2px 0 #ffffff66,
+    1px 1px 0 #ffffff66,
+    -1px -1px 0 #00000066;
+  --dex-menu-sep: #00000055;
+  /* chip (rom code tag in title bars): her WWW mark button (#4a4a4a, white, 1px edge, bevel) */
+  --dex-chip-bg: #4a4a4a;
+  --dex-chip-fg: #fff;
+  --dex-chip-radius: 3px;
+  --dex-chip-bevel: 0 0 0 1px #00000066, inset 1px 1px 0 #ffffff33, inset -1px -1px 0 #00000044;
+  /* shared controls: her chunky gray buttons and #d4d0c8 fields (same values as her roms/*.css) */
+  --dex-btn-bg: #8a8a8a;
+  --dex-btn-ink: #1a1a1a;
+  --dex-btn-rule: #00000066;
+  --dex-btn-hover: #c0c0c0;
+  --dex-btn-radius: 3px;
+  --dex-btn-bevel: inset 1px 1px 0 #ffffff55, inset -1px -1px 0 #00000033;
+  --dex-field-bg: #d4d0c8;
+  --dex-field-ink: #111;
+  --dex-field-rule: #00000066;
+  --dex-field-radius: 3px;
+  --dex-field-focus: #0000cd;
+  /* Deck Host menu (caption.js #deck-host-menu): her #go-rail-menu values */
+  --dex-menu-bg: gray;
+  --dex-menu-ink: #111;
+  --dex-menu-hover: #0000cd;
+  --dex-menu-hover-ink: #fff;
+  --dex-menu-font: "JetBrains Mono", "Courier New", Consolas, monospace;
+  --dex-menu-size: 11px;
+  --dex-hint-ink: #111;
+  --dex-hint-rule: #00000055;
+  --dex-panel: #d4d0c8;
+  --dex-panel-hi: #ebe6dc;
+  --dex-panel-mid: #8a8a8a;
+  --dex-well: #6e6e6e;
+  --dex-hover: #0000cd55;
+  --dex-strip: #6e6e6e;
+  --dex-strip-ink: #111;
+  --dex-strip-rule: #00000044;
+  --dex-strip-soft: #111;
+  --dex-strip-soft-hi: #000;
+  --dex-ghost: #00000014;
+  --dex-ghost-rule: #00000044;
+  --dex-ghost-edge: #00000066;
+  --dex-paper: #ffffff;
+  --dex-paper-deep: #ebe6dc;
+  --dex-paper-deep-a90: #ebe6dce6;
+  --dex-grid: #00000014;
+  --dex-grid-major: #00000022;
+  --dex-ink: #111;
+  --dex-mute: #404040;
+  --dex-mute-hi: #333;
+  --dex-mute-lo: #7a7a7a;
+  --dex-accent: #0000cd;
+  --dex-accent-hi: #1a3aff;
+  --dex-accent-lo: #0000a8;
+  --dex-accent-a07: #0000cd12;
+  --dex-accent-a16: #0000cd29;
+  --dex-accent-a28: #0000cd47;
+  --dex-accent-a45: #0000cd73;
+  --dex-accent-a55: #0000cd8c;
+  --dex-warm: #0a6b1f;
+  --dex-bad: #1a1a1a;
+  --dex-danger-soft: #00000022;
+  --dex-stage-bg: #ffffff;
+  --dex-cap-bg-a22: #0000cd38;
+  --dex-cap-bg-a82: #0000cdd1;
+  --dex-radius: 3px;
+  --dex-strip-h: 40px;
+  --dex-font: "JetBrains Mono", "Courier New", Consolas, monospace;
+  --dex-font-chip: "JetBrains Mono", "Courier New", Consolas, monospace;
+  --dex-font-mono: "JetBrains Mono", "Courier New", Consolas, monospace;
+  --dex-win-shadow: 1px 1px 0 #ffffff66, -1px -1px 0 #00000066;
+  --dex-win-shadow-back: 1px 1px 0 #00000044;
+  --dex-win-shadow-front: 1px 1px 0 #ffffff66, -1px -1px 0 #00000066;
+  --dex-drop-shadow: 1px 1px 0 #00000044;
+  --dex-pop-shadow:
+    inset -2px -2px 0 #00000033,
+    inset 2px 2px 0 #ffffff66,
+    1px 1px 0 #ffffff66,
+    -1px -1px 0 #00000066;
+  --dex-sheet-shadow: inset 1px 1px 0 #00000066, inset -1px -1px 0 #ffffff44;
+  --dex-chip-shadow: inset 1px 1px 0 #ffffff33, inset -1px -1px 0 #00000044;
+  --dex-backdrop: rgba(8, 10, 14, 0.4);
+  --dex-backdrop-lo: #00000040;
+  --dex-chip-ink: #fff;
+  --dex-scroll-size: 8px;
+  --dex-scroll-track: transparent;
+  --dex-scroll-rule: transparent;
+  --dex-scroll-thumb: #8a8a8a;
+  --dex-scroll-thumb-edge: transparent;
+  --dex-scroll-thumb-hover: #0000cd;
+  --dex-accent-wash: #d4d0c8;
+  color-scheme: light;
+}
+
+/* EXTENSION: pin her navy/gray so maker accents (makers.css) cannot recolor the set. */
+:root,
+html[data-maker],
+html[data-maker][data-scheme="light"],
+html[data-maker][data-scheme="dark"] {
+  --dex-hover: #0000cd55;
+  --dex-accent: #0000cd;
+  --dex-accent-hi: #1a3aff;
+  --dex-accent-lo: #0000a8;
+  --dex-accent-a07: #0000cd12;
+  --dex-accent-a16: #0000cd29;
+  --dex-accent-a28: #0000cd47;
+  --dex-accent-a45: #0000cd73;
+  --dex-accent-a55: #0000cd8c;
+  --dex-accent-wash: #d4d0c8;
+  --dex-cap-rule: #0000cd;
+  --dex-cap-bg: #0000cd;
+  --dex-cap-ink: #fff;
+  --dex-strip-rule: #00000044;
+  --dex-scroll-thumb: #8a8a8a;
+  --dex-scroll-thumb-hover: #0000cd;
+  --dex-font: "JetBrains Mono", "Courier New", Consolas, monospace;
+  --dex-font-chip: "JetBrains Mono", "Courier New", Consolas, monospace;
+  --dex-font-mono: "JetBrains Mono", "Courier New", Consolas, monospace;
+}
+
+/* EXTENSION: her caption-button and menu rules, pointed at the system chrome
+ * selectors (original classes were .wwwExplorer_win .dh-cap-btn and #go-rail-menu).
+ * Values are copied verbatim from www.css / www-chrome.css. */
+.dh-cap-btn,
+[data-deck-window-controls] .dh-cap-btn {
+  color: #111;
+  background: gray;
+  border: 1px solid rgba(0, 0, 0, 0.634);
+  font: 11px "JetBrains Mono", "Courier New", Consolas, monospace;
+  box-shadow:
+    inset -1px -1px 0 #00000033,
+    inset 1px 1px 0 #ffffff66,
+    1px 1px 0 #ffffff66,
+    -1px -1px 0 #00000066;
+  border-radius: 0;
+}
+.dh-cap-btn:hover,
+[data-deck-window-controls] .dh-cap-btn:hover {
+  background: #c0c0c0;
+  color: #111;
+  opacity: 1;
+}
+.dh-cap-btn:active,
+[data-deck-window-controls] .dh-cap-btn:active {
+  box-shadow:
+    inset 1px 1px 0 #00000033,
+    inset -1px -1px 0 #ffffff66;
+}
+.dh-cap-btn.close:hover,
+[data-deck-window-controls] .dh-cap-btn.close:hover {
+  background: gray;
+  color: #111;
+}
+.dh-cap-btn svg {
+  stroke: #111;
+}
+
+header[data-deck-chrome],
+[data-deck-chrome].wwwExplorer_windowTitleBar {
+  background-image: linear-gradient(to top, #0000cd, #1a3aff);
+  background-color: #0000cd;
+  border-bottom: 1px solid #0000cd;
+  color: #fff;
+  font-family: "JetBrains Mono", "Courier New", Consolas, monospace;
+  font-weight: 700;
+}
+
+/* her #go-rail-menu look, on system / chip menus */
+.srf-menu-pop,
+.srf-dock-menu,
+.ctx-menu,
+#go-rail-menu,
+.dsc-pick-menu,
+[data-deck-menu-pop] {
+  background: gray;
+  color: #111;
+  font: 11px "JetBrains Mono", "Courier New", Consolas, monospace;
+  border: 1px solid rgba(0, 0, 0, 0.634);
+  border-radius: 0;
+  box-shadow:
+    inset -2px -2px 0 #00000033,
+    inset 2px 2px 0 #ffffff66,
+    1px 1px 0 #ffffff66,
+    -1px -1px 0 #00000066;
+}
+.srf-menu-pop button:hover,
+.srf-dock-menu button:hover,
+.ctx-menu button:hover,
+.ctx-menu button:focus,
+#go-rail-menu button:hover,
+#go-rail-menu button:focus,
+.dsc-pick-menu button:hover,
+[data-deck-menu-pop] button:hover {
+  background: #0000cd;
+  color: #fff;
+  outline: none;
+}

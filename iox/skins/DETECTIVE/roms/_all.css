@@ -1,0 +1,237 @@
+/* DETECTIVE / _all.css — skin-wide extras every rom wears under DETECTIVE (skinunify 20261119).
+ * Loaded by dsc-load.js after tokens.css and before the rom's own roms/<rom>.css.
+ * tokens.css stays as it was; this file adds the shared core tokens DETECTIVE pins
+ * (see Maker_CC\ROM_DECK\skins\docs\SKIN_COMPONENTS.md) and the --det-* case-file palette. */
+:root {
+  /* per-skin choice: maker accents off, the case-file red stays the accent everywhere */
+  --dex-makers: off;
+
+  /* shared core tokens (the rest come from tokens.css through dex-base.css) */
+  --dex-ink-soft: #34405a;
+  --dex-ink-faint: #b2a487;
+  --dex-border-soft: #d9ccb0;
+  --dex-warn: #96672c;
+  --dex-good: #4e6a55;
+  --dex-font-display: var(--dex-font);
+  --dex-font-hand: "AbjHand", "Ink Free", "Segoe Print", "Comic Neue", "Bradley Hand", cursive;
+  /* tag palette for tags without a saved color: the same inks ABUJO's detective look used */
+  --dex-tag-1: #8c2f2f;
+  --dex-tag-2: #8a5a2a;
+  --dex-tag-3: #3d5c45;
+  --dex-tag-4: #2a4a6a;
+  --dex-tag-5: #5c3d6e;
+  --dex-tag-6: #6e4a32;
+  --dex-tag-7: #3d5a62;
+  --dex-tag-8: #8a3d55;
+  /* desk: kraft paper with faint fibres (roms that paint --dex-bg-image under --dex-bg) */
+  --dex-bg-image:
+    repeating-linear-gradient(83deg, color-mix(in srgb, var(--det-light) 3.1%, transparent) 0 1px, transparent 1px 7px),
+    repeating-linear-gradient(-71deg, color-mix(in srgb, var(--dex-shadow-tint) 3.5%, transparent) 0 1px, transparent 1px 11px),
+    radial-gradient(ellipse at 30% 0%, color-mix(in srgb, var(--det-light) 10.2%, transparent), transparent 60%);
+
+  /* --det-* case-file palette (tokens.css already has red, red-soft, manila, manila-hi, kraft, blue, blue-soft, margin) */
+  --det-today: #ead39a;
+  --det-card: #fbf8f0;
+  --det-stock: #fbf6e9;
+  --det-stock-2: #f6eedb;
+  --det-tape: #e9dcb8;
+  --det-tape-edge: #c8b78f;
+  --det-tab: #d9c18a;
+  --det-tab-2: #cbb48a;
+  --det-pencil: #9a8d74;
+  --det-graphite: #6f7884;
+  --det-shadow: #2a1d0e;
+  --det-shadow-deep: #1e140a;
+  --det-light: #fff;
+  --det-rule-2: #d5c6a6;
+  --det-dot: #c9bb9c;
+  --det-rose: #c4685e;
+  --det-kraft-2: #b9a47c;
+  --det-kraft-3: #b39b6a;
+  --det-kraft-edge: #6b543a;
+  --det-brass: #a88750;
+  --det-steel: #8b939d;
+  --det-ruling: #7f9bb6;
+  --det-umber: #3b2e1f;
+  --det-umber-2: #3a2a12;
+  --det-umber-3: #2d2416;
+}
+
+/* ── role answers (skinroles 20261119, docs\SHADE_SPEC.md) ──
+ * DETECTIVE everywhere = ABUJO's case-file look: kraft desk, manila panels, aged index cards,
+ * a taped manila title bar with a stitched kraft spine and a red CASE LOG stamp, round inked
+ * window buttons, typewriter buttons, manila folder tabs, red rubber stamps. */
+:root {
+  /* cabinet houses darkened to read on paper (~4.5:1), same set as DEX LIGHT */
+  --dex-house-io: #335a3c;
+  --dex-house-cu: #7a4d0c;
+  --dex-house-ab: #962f25;
+  --dex-house-dx: #175560;
+  --dex-house-tps: #4c5363;
+  --dex-role-app: var(--dex-well);
+  --dex-role-app-image: var(--dex-bg-image);
+  --dex-role-app-ink: var(--dex-ink);
+  --dex-role-panel: var(--det-manila);
+  --dex-role-panel-ink: var(--dex-ink);
+  --dex-role-panel-head: var(--det-umber);
+  --dex-role-card: var(--dex-paper);
+  --dex-role-card-image: none;
+  --dex-role-card-ink: var(--dex-ink);
+  --dex-role-card-head: var(--dex-ink);
+  --dex-role-card-edge: var(--dex-cap-rule);
+  --dex-role-card-radius: 2px;
+  --dex-role-card-shadow: var(--dex-drop-shadow);
+  --dex-role-mute: var(--dex-mute);
+  --dex-role-faint: var(--det-pencil);
+  --dex-role-link: var(--det-red);
+  --dex-role-field: var(--det-stock);
+  --dex-role-field-ink: var(--dex-ink);
+  --dex-role-field-edge: var(--dex-cap-rule);
+  --dex-role-field-focus: var(--det-red);
+  --dex-role-field-radius: 2px;
+  --dex-role-pop: var(--dex-paper);
+  --dex-role-pop-edge: var(--dex-cap-rule);
+  --dex-role-pop-radius: 2px;
+  --dex-role-hover: var(--dex-cap-mark-hover);
+  --dex-role-select: var(--det-today);
+  --dex-role-select-ink: var(--dex-ink);
+  --dex-role-select-mark: var(--det-red);
+  --dex-role-code: var(--det-stock-2);
+  --dex-role-code-ink: var(--det-umber);
+  --dex-role-edge: var(--dex-cap-rule);
+  --dex-role-edge-soft: var(--det-rule-2);
+  --dex-role-edge-w: 1.25px;
+  --dex-role-radius: 2px;
+  --dex-role-radius-sm: 2px;
+  --dex-role-shadow: var(--dex-drop-shadow);
+  --dex-role-font: var(--dex-font);
+  --dex-role-font-body: var(--dex-font);
+  --dex-role-font-label: var(--dex-font);
+  --dex-role-font-mono: var(--dex-font-mono);
+  --dex-role-label-case: uppercase;
+  --dex-role-label-track: 0.16em;
+  --dex-role-control-size: 9.5px;
+  /* title bar: ABUJO's taped manila band */
+  --dex-role-bar: linear-gradient(180deg, var(--det-manila-hi), var(--det-manila));
+  --dex-role-bar-ink: var(--dex-ink);
+  --dex-role-bar-edge: var(--dex-ink);
+  --dex-role-bar-edge-w: 1.25px;
+  --dex-role-bar-radius: 3px;
+  --dex-role-bar-shadow: 0 1px 0 color-mix(in srgb, var(--dex-shadow-tint) 14.9%, transparent), 0 3px 8px color-mix(in srgb, var(--det-shadow) 14.9%, transparent);
+  --dex-role-bar-margin: 6px 8px 4px;
+  --dex-role-bar-h: 38px;
+  --dex-role-bar-font: var(--dex-font);
+  --dex-role-bar-weight: 700;
+  --dex-role-bar-size: 15px;
+  --dex-role-bar-track: 0.32em;
+  --dex-role-bar-case: uppercase;
+  --dex-role-bar-spine: repeating-linear-gradient(to bottom, transparent 0 5px, var(--det-red) 5px 6px) center / 1px 100% no-repeat, var(--det-kraft);
+  --dex-role-bar-spine-w: 18px;
+  --dex-role-bar-spine-edge: var(--dex-ink);
+  --dex-role-bar-tape: linear-gradient(90deg, color-mix(in srgb, var(--dex-shadow-tint) 3.1%, transparent), transparent 20%, transparent 80%, color-mix(in srgb, var(--dex-shadow-tint) 3.1%, transparent)), color-mix(in srgb, var(--det-tape) 85.1%, transparent);
+  --dex-role-bar-tape-show: block;
+  --dex-role-bar-tape-edge: var(--det-tape-edge);
+  --dex-role-bar-tape-clip: polygon(2% 0, 98% 6%, 100% 50%, 97% 100%, 3% 94%, 0 50%);
+  --dex-role-bar-tape-rot: -3deg;
+  --dex-role-bar-stamp-show: inline-block;
+  --dex-role-bar-stamp-ink: var(--det-red);
+  --dex-role-chip: var(--det-red);
+  --dex-role-chip-ink: var(--dex-paper);
+  --dex-role-chip-edge: var(--det-red);
+  --dex-role-chip-radius: 2px;
+  --dex-role-chip-bevel: none;
+  --dex-role-code-tag-ink: var(--det-kraft-edge);
+  --dex-role-code-tag-edge: var(--det-kraft);
+  /* window buttons: round, inked */
+  --dex-role-cap-btn: transparent;
+  --dex-role-cap-btn-ink: var(--dex-ink);
+  --dex-role-cap-btn-edge: var(--dex-ink);
+  --dex-role-cap-btn-hover: var(--det-manila-hi);
+  --dex-role-cap-btn-close: var(--det-red);
+  --dex-role-cap-btn-close-ink: var(--dex-paper);
+  --dex-role-cap-btn-radius: 50%;
+  --dex-role-cap-btn-bevel: none;
+  --dex-role-cap-btn-size: 20px;
+  /* buttons: manila stock, ink outline, typewriter caps; primary = case-file red */
+  --dex-role-btn: var(--det-manila-hi);
+  --dex-role-btn-ink: var(--dex-ink);
+  --dex-role-btn-edge: var(--dex-ink);
+  --dex-role-btn-hover: var(--det-manila);
+  --dex-role-btn-hover-ink: var(--dex-ink);
+  --dex-role-btn-active: var(--det-tab);
+  --dex-role-btn-bevel: none;
+  --dex-role-btn-bevel-in: inset 1px 1px 0 color-mix(in srgb, var(--det-shadow) 25%, transparent);
+  --dex-role-btn-radius: 2px;
+  --dex-role-btn-font: var(--dex-font);
+  --dex-role-btn-weight: 700;
+  --dex-role-btn-case: uppercase;
+  --dex-role-btn-track: 0.16em;
+  --dex-role-btn-primary: var(--det-red);
+  --dex-role-btn-primary-ink: var(--dex-paper);
+  --dex-role-btn-primary-hover: color-mix(in srgb, var(--det-red) 85%, var(--det-shadow));
+  --dex-role-btn-primary-edge: var(--det-red);
+  /* tabs: manila folder tabs */
+  --dex-role-tab: color-mix(in srgb, var(--det-tab) 80%, transparent);
+  --dex-role-tab-ink: var(--det-umber);
+  --dex-role-tab-on: var(--det-manila-hi);
+  --dex-role-tab-on-ink: var(--dex-ink);
+  --dex-role-tab-edge: color-mix(in srgb, var(--dex-ink) 40%, transparent);
+  --dex-role-tab-radius: 7px 7px 0 0;
+  /* cabinet: a manila folder in a kraft drawer, index-card slips, red stamps */
+  --dex-role-cab: var(--det-manila);
+  --dex-role-cab-image: none;
+  --dex-role-cab-ink: var(--dex-ink);
+  --dex-role-cab-edge: var(--dex-cap-rule);
+  --dex-role-cab-radius: 2px;
+  --dex-role-cab-shadow: var(--dex-drop-shadow);
+  --dex-role-cab-head: var(--det-kraft);
+  --dex-role-cab-head-ink: var(--dex-paper);
+  --dex-role-cab-head-font: var(--dex-font);
+  --dex-role-cab-tab: var(--det-tab);
+  --dex-role-cab-tab-ink: var(--det-umber);
+  --dex-role-cab-tab-on: var(--det-manila-hi);
+  --dex-role-cab-tab-on-ink: var(--dex-ink);
+  --dex-role-cab-label: var(--det-umber);
+  --dex-role-slip: var(--det-card);
+  --dex-role-slip-ink: var(--dex-ink);
+  --dex-role-slip-edge: var(--det-rule-2);
+  --dex-role-slip-radius: 0;
+  --dex-role-slip-shadow: var(--dex-chip-shadow);
+  --dex-role-slip-strip-w: 3px;
+  --dex-role-slip-key-mix: 0%;
+  --dex-role-slip-key-ink: var(--det-red);
+  --dex-role-pin: var(--det-stock);
+  --dex-role-pin-ink: var(--dex-ink);
+  --dex-role-pin-edge: var(--det-rule-2);
+  --dex-role-pin-strip-w: 3px;
+  --dex-role-pin-radius: 2px;
+  --dex-role-sub: var(--det-stock-2);
+  --dex-role-sub-ink: var(--dex-ink-soft);
+  --dex-role-stamp-ink: var(--det-red);
+  --dex-role-stamp-bg: transparent;
+  --dex-role-stamp-border: 1.25px solid;
+  --dex-role-stamp-radius: 2px;
+  --dex-role-stamp-rot: -3deg;
+  --dex-role-stamp-font: var(--dex-font);
+  --dex-role-stamp-shadow: none;
+  /* the page you write on (ROSEDOC MED) keeps a rosedoc's own paper; links are typed ink */
+  --dex-role-page-link: var(--dex-ink);
+}
+
+/* -- menus and the desk (srfmenu 20261120, docs\SHADE_SPEC.md "The Surface") --
+ * The start menu is a manila case folder; rom colors are inked at 60%. The desk is the kraft
+ * desk with its fibres, no grid (Settings > Plain grid brings the blue ruling back). */
+:root {
+  --dex-role-menu: var(--det-manila);
+  --dex-role-menu-image: linear-gradient(180deg, color-mix(in srgb, var(--det-light) 18%, transparent), transparent 30%);
+  --dex-role-menu-ink: var(--dex-ink);
+  --dex-role-menu-edge: var(--dex-cap-rule);
+  --dex-role-menu-radius: 2px;
+  --dex-role-menu-shadow: 4px 6px 0 color-mix(in srgb, var(--det-shadow) 18%, transparent), 0 12px 28px color-mix(in srgb, var(--det-shadow) 35%, transparent);
+  --dex-role-data-mix: 60%;
+  --dex-role-data-ink: var(--dex-ink);
+  --dex-role-desk: var(--dex-role-app);
+  --dex-role-desk-image: var(--dex-bg-image);
+  --dex-role-desk-grid: transparent;
+  --dex-role-desk-grid-major: transparent;
+}

@@ -1,0 +1,224 @@
+/* PHOSPHOR_TERMINAL.dsc / tokens.css - elle.phx, Glass Compost's terminal look as a skin (phxskin 20261120).
+ * Same canonical token list as DEX_DARK. Dark glass, phosphor ink with a soft CRT bloom, faint scanlines,
+ * monospace everywhere. Four colorways (tints), the same four Glass Compost's terminal houses wear:
+ *   green (default) . red . amber . blue (GC's BIOS house).
+ * dsc-load.js reads --dex-tints and puts the picked one on <html data-dsc-tint="...">; each tint below
+ * only swaps the --phx-* palette, everything else is built from it. Faces ship in fonts/ (IBM Plex Mono
+ * and VT323, both under the OFL; licence texts sit beside them).
+ * Accent tokens also sit under html[data-maker] so maker accents don't recolor the set. */
+@font-face { font-family: "IBM Plex Mono"; src: url("fonts/IBMPlexMono-Regular.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "IBM Plex Mono"; src: url("fonts/IBMPlexMono-Medium.woff2") format("woff2"); font-weight: 500 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "VT323"; src: url("fonts/VT323-Regular.woff2") format("woff2"); font-weight: 400 700; font-style: normal; font-display: swap; }
+
+/* the colorways (dsc-load v8 tints; order = the Theme menu's order, first = default) */
+:root {
+  --dex-tints: green red amber blue;
+  --dex-tint-label: "Phosphor";
+}
+
+/* --phx-* palettes. Taken from Glass Compost's terminal houses (app.css data-house blocks); mute is
+ * lifted where GC's own dim falls under ~4.5:1 on the panel (red). bloom = the text glow, glow = GC's
+ * screen haze. */
+:root,
+:root[data-dsc-tint="green"] {
+  --phx-bg: #020802;
+  --phx-desk: #010501;
+  --phx-chrome: #041004;
+  --phx-panel: #061206;
+  --phx-panel2: #0a1a0a;
+  --phx-well: #010401;
+  --phx-line: #1a4a1a;
+  --phx-edge: #2a7a2a;
+  --phx-text: #33ff33;
+  --phx-dim: #1fae1f;
+  --phx-faint: #137013;
+  --phx-accent: #44ff44;
+  --phx-hot: #66ff66;
+  --phx-asst: #2acc2a;
+  --phx-cut: #88ff44;
+  --phx-branch: #3dcc3d;
+  --phx-select: #0d280d;
+  --phx-alert: #ff4a55;
+  --phx-glow: rgba(51, 255, 51, 0.12);
+  --phx-bloom: rgba(51, 255, 51, 0.38);
+  --phx-scan: rgba(51, 255, 51, 0.035);
+  --phx-crt: 1;
+}
+:root[data-dsc-tint="red"] {
+  --phx-bg: #0a0204;
+  --phx-desk: #060102;
+  --phx-chrome: #100408;
+  --phx-panel: #140608;
+  --phx-panel2: #1c0a0e;
+  --phx-well: #050102;
+  --phx-line: #5a1820;
+  --phx-edge: #8a2834;
+  --phx-text: #ff4a55;
+  --phx-dim: #dc4452;
+  --phx-faint: #8a2632;
+  --phx-accent: #ff6a75;
+  --phx-hot: #ff8a90;
+  --phx-asst: #e0404e;
+  --phx-cut: #ffaa66;
+  --phx-branch: #e05060;
+  --phx-select: #2a0c12;
+  --phx-alert: #ffaa66;
+  --phx-glow: rgba(255, 60, 70, 0.14);
+  --phx-bloom: rgba(255, 60, 70, 0.40);
+  --phx-scan: rgba(255, 74, 85, 0.035);
+  --phx-crt: 1;
+}
+:root[data-dsc-tint="amber"] {
+  --phx-bg: #0a0804;
+  --phx-desk: #060402;
+  --phx-chrome: #120e08;
+  --phx-panel: #161208;
+  --phx-panel2: #1e180c;
+  --phx-well: #050402;
+  --phx-line: #5a4220;
+  --phx-edge: #8a6630;
+  --phx-text: #e8b86a;
+  --phx-dim: #a07840;
+  --phx-faint: #6a5028;
+  --phx-accent: #f0c060;
+  --phx-hot: #ffe0a0;
+  --phx-asst: #c09048;
+  --phx-cut: #d4a84a;
+  --phx-branch: #e0b050;
+  --phx-select: #2a2010;
+  --phx-alert: #ff4a55;
+  --phx-glow: rgba(240, 180, 70, 0.16);
+  --phx-bloom: rgba(240, 180, 70, 0.36);
+  --phx-scan: rgba(232, 184, 106, 0.035);
+  --phx-crt: 1;
+}
+/* blue = GC's BIOS house: flat blue glass, no bloom (GC's BIOS has none), the scanlines stay */
+:root[data-dsc-tint="blue"] {
+  --phx-bg: #00005a;
+  --phx-desk: #000048;
+  --phx-chrome: #000048;
+  --phx-panel: #000070;
+  --phx-panel2: #000088;
+  --phx-well: #000040;
+  --phx-line: #4a4a9c;
+  --phx-edge: #7a7ac4;
+  --phx-text: #d0d0e4;
+  --phx-dim: #8888b4;
+  --phx-faint: #5a5a94;
+  --phx-accent: #55d4e8;
+  --phx-hot: #f4f4f4;
+  --phx-asst: #a8a8e0;
+  --phx-cut: #e8e070;
+  --phx-branch: #88c0e0;
+  --phx-select: #0000aa;
+  --phx-alert: #ff4a55;
+  --phx-glow: transparent;
+  --phx-bloom: transparent;
+  --phx-scan: rgba(208, 208, 228, 0.03);
+  --phx-crt: 0;
+}
+
+/* the canonical DEX tokens, built from the palette above */
+:root {
+  --dex-cap-h: 34px;
+  --dex-cap-bg: var(--phx-chrome);
+  --dex-cap-ink: var(--phx-accent);
+  --dex-cap-rule: var(--phx-line);
+  --dex-cap-gem: var(--phx-accent);
+  --dex-cap-close: var(--phx-alert);
+  --dex-cap-close-ink: var(--phx-bg);
+  --dex-cap-shadow: 0 1px 0 color-mix(in srgb, var(--phx-accent) 25%, transparent);
+  --dex-cap-mark-hover: color-mix(in srgb, var(--phx-accent) 14%, transparent);
+  --dex-cap-btn-hover: var(--phx-select);
+  --dex-cap-gem-glow: 0 0 6px var(--phx-bloom);
+  --dex-menu-rule: var(--phx-edge);
+  --dex-menu-shadow: 0 0 0 1px var(--phx-glow), 0 12px 30px rgba(0, 0, 0, 0.6);
+  --dex-menu-sep: var(--phx-line);
+  --dex-hint-ink: var(--phx-dim);
+  --dex-hint-rule: var(--phx-line);
+  --dex-panel: var(--phx-panel);
+  --dex-panel-hi: var(--phx-panel2);
+  --dex-panel-mid: var(--phx-panel2);
+  --dex-well: var(--phx-well);
+  --dex-strip: var(--phx-chrome);
+  --dex-strip-ink: var(--phx-text);
+  --dex-strip-rule: var(--phx-line);
+  --dex-strip-soft: color-mix(in srgb, var(--phx-text) 70%, transparent);
+  --dex-strip-soft-hi: color-mix(in srgb, var(--phx-text) 85%, transparent);
+  --dex-ghost: color-mix(in srgb, var(--phx-text) 5%, transparent);
+  --dex-ghost-rule: var(--phx-line);
+  --dex-ghost-edge: var(--phx-edge);
+  --dex-paper: var(--phx-bg);
+  --dex-paper-deep: var(--phx-desk);
+  --dex-paper-deep-a90: color-mix(in srgb, var(--phx-desk) 90%, transparent);
+  --dex-grid: color-mix(in srgb, var(--phx-text) 6%, transparent);
+  --dex-grid-major: color-mix(in srgb, var(--phx-text) 12%, transparent);
+  --dex-ink: var(--phx-text);
+  --dex-mute: var(--phx-dim);
+  --dex-mute-hi: var(--phx-asst);
+  --dex-mute-lo: var(--phx-faint);
+  --dex-warm: var(--phx-cut);
+  --dex-bad: var(--phx-alert);
+  --dex-danger-soft: color-mix(in srgb, var(--phx-alert) 18%, transparent);
+  --dex-stage-bg: var(--phx-bg);
+  --dex-cap-bg-a22: color-mix(in srgb, var(--phx-chrome) 22%, transparent);
+  --dex-cap-bg-a82: color-mix(in srgb, var(--phx-chrome) 82%, transparent);
+  --dex-radius: 0;
+  --dex-strip-h: 38px;
+  --dex-font: "IBM Plex Mono", Consolas, ui-monospace, monospace;
+  --dex-font-chip: "IBM Plex Mono", Consolas, ui-monospace, monospace;
+  --dex-font-mono: "IBM Plex Mono", Consolas, ui-monospace, monospace;
+  --dex-win-shadow: 0 0 0 1px var(--phx-line), 0 0 18px var(--phx-glow), 0 10px 28px rgba(0, 0, 0, 0.6);
+  --dex-win-shadow-back: 0 0 0 1px var(--phx-line), 0 8px 22px rgba(0, 0, 0, 0.5);
+  --dex-win-shadow-front: 0 0 0 1px var(--phx-edge), 0 0 24px var(--phx-glow), 0 12px 34px rgba(0, 0, 0, 0.65);
+  --dex-drop-shadow: 0 0 0 1px var(--phx-line), 0 2px 8px rgba(0, 0, 0, 0.5);
+  --dex-pop-shadow: 0 0 0 1px var(--phx-glow), 0 0 16px var(--phx-glow), 0 10px 30px rgba(0, 0, 0, 0.6);
+  --dex-sheet-shadow: 0 0 0 1px var(--phx-line), 0 10px 28px rgba(0, 0, 0, 0.55);
+  --dex-chip-shadow: 0 0 6px var(--phx-glow);
+  --dex-backdrop: rgba(0, 0, 0, 0.62);
+  --dex-backdrop-lo: rgba(0, 0, 0, 0.4);
+  --dex-chip-ink: var(--phx-bg);
+  --dex-scroll-size: 8px;
+  --dex-scroll-track: var(--phx-well);
+  --dex-scroll-rule: var(--phx-line);
+  --dex-scroll-thumb: var(--phx-line);
+  --dex-scroll-thumb-edge: var(--phx-well);
+  --dex-scroll-thumb-hover: var(--phx-dim);
+  /* chip (rom code tag in title bars): inverse video */
+  --dex-chip-bg: var(--phx-accent);
+  --dex-chip-fg: var(--dex-chip-ink);
+  --dex-chip-radius: 0;
+  --dex-chip-bevel: none;
+  /* shared controls: outlined terminal keys */
+  --dex-btn-bg: var(--phx-panel2);
+  --dex-btn-ink: var(--phx-accent);
+  --dex-btn-rule: var(--phx-line);
+  --dex-btn-hover: var(--phx-select);
+  --dex-btn-radius: 0;
+  --dex-btn-bevel: none;
+  /* fields: background stays per-rom (it depends on the surface under it) */
+  --dex-field-ink: var(--dex-ink);
+  --dex-field-rule: var(--phx-line);
+  --dex-field-radius: 0;
+  --dex-field-focus: var(--dex-accent);
+  color-scheme: dark;
+}
+:root,
+html[data-maker],
+html[data-maker][data-scheme="dark"],
+html[data-maker][data-scheme="light"] {
+  --dex-hover: color-mix(in srgb, var(--phx-accent) 12%, transparent);
+  --dex-accent: var(--phx-accent);
+  --dex-accent-hi: var(--phx-hot);
+  --dex-accent-lo: var(--phx-dim);
+  --dex-accent-a07: color-mix(in srgb, var(--phx-accent) 7%, transparent);
+  --dex-accent-a16: color-mix(in srgb, var(--phx-accent) 16%, transparent);
+  --dex-accent-a28: color-mix(in srgb, var(--phx-accent) 28%, transparent);
+  --dex-accent-a45: color-mix(in srgb, var(--phx-accent) 45%, transparent);
+  --dex-accent-a55: color-mix(in srgb, var(--phx-accent) 55%, transparent);
+  --dex-accent-wash: var(--phx-select);
+  --dex-cap-rule: var(--phx-line);
+  --dex-strip-rule: var(--phx-line);
+  --dex-scroll-rule: var(--phx-line);
+  --dex-scroll-thumb: var(--phx-line);
+}

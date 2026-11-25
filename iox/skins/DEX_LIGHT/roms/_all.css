@@ -1,0 +1,14 @@
+/* DEX_LIGHT / _all.css - skin-wide answers every rom wears under DEX LIGHT (skinroles 20261119).
+ * The roles themselves follow the core tokens (dex-base.css 2b); light paper only needs the
+ * cabinet house colors darkened so they read on paper (~4.5:1). Before this, each rom carried
+ * its own copy (roms/cc.dbx.css, cc.tfc.css). See docs\SHADE_SPEC.md. */
+:root {
+  --dex-house-io: #335a3c;
+  --dex-house-cu: #7a4d0c;
+  --dex-house-ab: #962f25;
+  --dex-house-dx: #175560;
+  --dex-house-tps: #4c5363;
+  --dex-role-panel: var(--dex-paper-deep);
+  --dex-role-cab: var(--dex-paper-deep);
+  --dex-role-slip: var(--dex-surface);
+}
