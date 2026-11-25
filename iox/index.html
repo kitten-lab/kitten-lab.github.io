@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IOX OS · Dani Leve</title>
+  <meta name="description" content="A shell preview of Dani Leve’s IOX OS portfolio. Sample case files, her skins, and the Kitten Lab worlds.">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="skins/faces.css">
+  <link rel="stylesheet" href="skins/dex-base.css">
+  <link rel="stylesheet" href="skins/dex-shell.css">
+  <script src="skin-boot.js"></script>
+  <link rel="stylesheet" href="shell.css">
+  <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+  <a class="skip" href="#windows">Skip to the desk</a>
+  <div class="os" id="os">
+    <div class="desk" id="desk">
+      <p class="desk-pin">Shell preview · text she still has to write is marked SAMPLE</p>
+      <div class="desk-shelf" id="desk-shelf" aria-label="ROM carts"></div>
+      <div class="windows" id="windows"></div>
+    </div>
+    <footer class="taskbar" id="taskbar">
+      <button type="button" class="home" data-open="who" aria-label="Home, Dani Leve">
+        <span class="code">IOX</span>
+        <span class="who"><b>Dani Leve</b><small>Studio</small></span>
+      </button>
+      <div class="task-scroll" id="task-scroll" role="toolbar" aria-label="Open windows">
+        <button type="button" class="srf-pill is-launcher" id="case-btn" data-open="cse">
+          <span class="srf-pill-code">CSE</span>
+          <span class="srf-pill-name">Case studies</span>
+        </button>
+        <div class="open-chips" id="open-chips"></div>
+      </div>
+      <div class="tools">
+        <div class="pop">
+          <button type="button" class="tool" id="skin-btn" data-menu="skin-menu" aria-haspopup="true" aria-expanded="false">
+            <span class="tool-ico" aria-hidden="true"></span>
+            <span class="tool-label" id="skin-label">Skin</span>
+          </button>
+          <div class="menu" id="skin-menu" hidden role="menu" aria-label="Skins"></div>
+        </div>
+        <div class="pop">
+          <button type="button" class="tool" id="more-btn" data-menu="more-menu" aria-haspopup="true" aria-expanded="false" aria-label="More">
+            <span class="tool-ico" id="more-ico" aria-hidden="true"></span>
+          </button>
+          <div class="menu" id="more-menu" hidden role="menu" aria-label="More">
+            <a href="text.html" role="menuitem">Read as text</a>
+            <a href="Dani_Leve_Resume.pdf" role="menuitem">Resume PDF</a>
+            <a href="../about.html" role="menuitem">About the lab</a>
+            <a href="../index.html" role="menuitem">Kitten Lab site</a>
+            <a href="../anthropic.html" role="menuitem">For the Anthropic team</a>
+          </div>
+        </div>
+        <time class="clock" id="clock" datetime="">00:00</time>
+      </div>
+    </footer>
+  </div>
+  <script src="shell.js"></script>
+</body>
+</html>

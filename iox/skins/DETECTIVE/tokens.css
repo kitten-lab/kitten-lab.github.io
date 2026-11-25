@@ -1,0 +1,114 @@
+/* DETECTIVE.dsc / tokens.css - kronos.det, the ABUJO detective log book set.
+ * Same canonical token list as DEX_DARK. Aged index stock on a kraft desk, ink-blue type,
+ * case-file red, manila tabs. Typewriter faces from the local stack only (no web fonts).
+ * Accent tokens also sit under html[data-maker] so maker accents don't recolor the set. */
+:root {
+  --dex-cap-h: 36px;
+  --dex-cap-bg: #e6d09c;
+  --dex-cap-ink: #1c2433;
+  --dex-cap-rule: rgba(28, 36, 51, 0.55);
+  --dex-cap-gem: linear-gradient(135deg, #a1352a, #8a6a45);
+  --dex-cap-close: #a1352a;
+  --dex-cap-close-ink: #f3ead5;
+  --dex-cap-shadow: 0 1px 0 rgba(0, 0, 0, 0.15), 0 3px 8px rgba(42, 29, 14, 0.15);
+  --dex-cap-mark-hover: rgba(28, 36, 51, 0.08);
+  --dex-cap-btn-hover: #efdfb6;
+  --dex-cap-gem-glow: 0 0 6px rgba(161, 53, 42, 0.35);
+  --dex-menu-rule: rgba(28, 36, 51, 0.55);
+  --dex-menu-shadow: 0 12px 30px rgba(30, 20, 10, 0.25);
+  --dex-menu-sep: rgba(138, 106, 69, 0.35);
+  --dex-hint-ink: rgba(28, 36, 51, 0.75);
+  --dex-hint-rule: rgba(138, 106, 69, 0.35);
+  --dex-panel: #f3ead5;
+  --dex-panel-hi: #efdfb6;
+  --dex-panel-mid: #e6d09c;
+  --dex-well: #9d8462;
+  --dex-strip: #e6d09c;
+  --dex-strip-ink: #1c2433;
+  --dex-strip-rule: rgba(28, 36, 51, 0.55);
+  --dex-strip-soft: rgba(28, 36, 51, 0.7);
+  --dex-strip-soft-hi: rgba(28, 36, 51, 0.8);
+  --dex-ghost: rgba(28, 36, 51, 0.05);
+  --dex-ghost-rule: rgba(28, 36, 51, 0.18);
+  --dex-ghost-edge: rgba(28, 36, 51, 0.3);
+  --dex-paper: #f3ead5;
+  --dex-paper-deep: #ebe0c6;
+  --dex-paper-deep-a90: rgba(235, 224, 198, 0.9);
+  --dex-grid: rgba(127, 155, 182, 0.2);
+  --dex-grid-major: rgba(127, 155, 182, 0.4);
+  --dex-ink: #1c2433;
+  --dex-mute: #7b6d58;
+  --dex-mute-hi: #5e5140;
+  --dex-mute-lo: #8d7f68;
+  --dex-warm: #4e6a55;
+  --dex-bad: #a1352a;
+  --dex-danger-soft: rgba(161, 53, 42, 0.2);
+  --dex-stage-bg: #f3ead5;
+  --dex-cap-bg-a22: rgba(230, 208, 156, 0.22);
+  --dex-cap-bg-a82: rgba(230, 208, 156, 0.82);
+  --dex-radius: 2px;
+  --dex-strip-h: 40px;
+  --dex-font: "Courier Prime", "American Typewriter", "Courier New", Courier, "Nimbus Mono PS", "Liberation Mono", monospace;
+  --dex-font-chip: "Courier Prime", "Special Elite", "Courier New", Courier, monospace;
+  --dex-font-mono: "Courier Prime", "Courier New", Courier, monospace;
+  --dex-win-shadow: 0 10px 26px rgba(30, 20, 10, 0.25), 0 1px 0 #6b543a;
+  --dex-win-shadow-back: 0 8px 22px rgba(30, 20, 10, 0.18), 0 1px 0 #6b543a;
+  --dex-win-shadow-front: 0 12px 32px rgba(30, 20, 10, 0.3), 0 1px 0 #6b543a;
+  --dex-drop-shadow: 1px 2px 0 rgba(0, 0, 0, 0.13);
+  --dex-pop-shadow: 0 12px 30px rgba(30, 20, 10, 0.25);
+  --dex-sheet-shadow: 0 1px 0 #6b543a, 0 10px 26px rgba(30, 20, 10, 0.25);
+  --dex-chip-shadow: 1px 1px 0 rgba(0, 0, 0, 0.13);
+  --dex-backdrop: rgba(42, 29, 14, 0.4);
+  --dex-backdrop-lo: rgba(42, 29, 14, 0.28);
+  --dex-chip-ink: #f3ead5;
+  --dex-scroll-size: 8px;
+  --dex-scroll-track: #e6d09c;
+  --dex-scroll-rule: rgba(138, 106, 69, 0.3);
+  --dex-scroll-thumb: linear-gradient(180deg, #a88a62 0%, #8a6a45 100%);
+  --dex-scroll-thumb-edge: #6b543a;
+  --dex-scroll-thumb-hover: linear-gradient(180deg, #b8463a 0%, #a1352a 100%);
+  /* chip (rom code tag in title bars): skins may restyle it; defaults keep the maker accent */
+  --dex-chip-bg: var(--dex-accent);
+  --dex-chip-fg: var(--dex-chip-ink);
+  --dex-chip-radius: 4px;
+  --dex-chip-bevel: none;
+  /* shared controls: roms read these through var(--dex-btn-*, <their own value>) */
+  --dex-btn-bg: var(--dex-panel-hi);
+  --dex-btn-ink: var(--dex-ink);
+  --dex-btn-rule: var(--dex-cap-rule);
+  --dex-btn-hover: var(--dex-hover);
+  --dex-btn-radius: 2px;
+  --dex-btn-bevel: none;
+  /* fields: background stays per-rom (it depends on the surface under it) */
+  --dex-field-ink: var(--dex-ink);
+  --dex-field-rule: var(--dex-cap-rule);
+  --dex-field-radius: 2px;
+  --dex-field-focus: var(--dex-accent);
+  --det-red: #a1352a;
+  --det-red-soft: rgba(161, 53, 42, 0.2);
+  --det-manila: #e6d09c;
+  --det-manila-hi: #efdfb6;
+  --det-kraft: #8a6a45;
+  --det-blue: rgba(127, 155, 182, 0.4);
+  --det-blue-soft: rgba(127, 155, 182, 0.2);
+  --det-margin: rgba(196, 104, 94, 0.4);
+  color-scheme: light;
+}
+:root,
+html[data-maker],
+html[data-maker][data-scheme="light"] {
+  --dex-hover: rgba(161, 53, 42, 0.12);
+  --dex-accent: #a1352a;
+  --dex-accent-hi: #c4685e;
+  --dex-accent-lo: #7e281f;
+  --dex-accent-a07: rgba(161, 53, 42, 0.07);
+  --dex-accent-a16: rgba(161, 53, 42, 0.16);
+  --dex-accent-a28: rgba(161, 53, 42, 0.28);
+  --dex-accent-a45: rgba(161, 53, 42, 0.45);
+  --dex-accent-a55: rgba(161, 53, 42, 0.55);
+  --dex-accent-wash: #efdfb6;
+  --dex-cap-rule: rgba(28, 36, 51, 0.55);
+  --dex-strip-rule: rgba(28, 36, 51, 0.55);
+  --dex-scroll-rule: rgba(138, 106, 69, 0.3);
+  --dex-scroll-thumb: linear-gradient(180deg, #a88a62 0%, #8a6a45 100%);
+}

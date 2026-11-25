@@ -1,0 +1,175 @@
+/* POCKET_WWW / _all.css - the role answers for Pocket Go WWW (skinroles 20261119).
+ * tokens.css stays verbatim; this file only says WHICH of her WWW shades does WHICH job,
+ * once, so every rom paints the same way (docs\SHADE_SPEC.md). Her rule, from www.css:
+ *   dark gray  #6e6e6e  the frame: app background, bars, rails, the cabinet booth
+ *   light gray #d4d0c8  panels (side columns), fields, dialogs, the selected tab
+ *   mid gray   #8a8a8a  buttons and resting tabs ONLY (hover #9c9c9c, pressed #7a7a7a)
+ *   white      #ffffff  the document: cards, cabinet slips
+ *   navy       #0000cd  title bars (gradient to #1a3aff), selection, the primary button
+ * Square corners on panels, cards and the cabinet; 3px only on buttons, chips and fields.
+ * The cabinet wears the old Pocket Go booth: slatted dark-gray drawer, a navy title strip,
+ * white paper slips with a house-color edge, navy rubber stamps. */
+:root {
+  --dex-role-app: var(--www-frame);
+  --dex-role-app-image: none;
+  --dex-role-app-ink: var(--www-btn-fg);
+  --dex-role-panel: var(--www-field-bg);
+  --dex-role-panel-ink: var(--www-btn-fg);
+  --dex-role-panel-head: var(--dex-mute);
+  --dex-role-card: var(--dex-paper);
+  --dex-role-card-image: none;
+  --dex-role-card-ink: var(--www-btn-fg);
+  --dex-role-card-head: var(--dex-ink);
+  --dex-role-card-edge: var(--www-btn-edge);
+  --dex-role-card-radius: 0;
+  --dex-role-card-shadow: var(--www-bevel-in);
+  --dex-role-ink: var(--dex-ink);
+  --dex-role-mute: var(--dex-mute);
+  --dex-role-faint: var(--dex-mute-lo);
+  --dex-role-link: var(--www-title-a);
+  --dex-role-field: var(--www-field-bg);
+  --dex-role-field-ink: var(--www-field-fg);
+  --dex-role-field-edge: var(--dex-btn-rule);
+  --dex-role-field-focus: var(--www-title-a);
+  --dex-role-field-bevel: var(--www-bevel-in);
+  --dex-role-field-radius: 3px;
+  --dex-role-pop: var(--www-field-bg);
+  --dex-role-pop-ink: var(--www-field-fg);
+  --dex-role-pop-edge: var(--www-btn-edge);
+  --dex-role-pop-radius: 0;
+  --dex-role-pop-shadow: var(--dex-pop-shadow);
+  --dex-role-hover: var(--dex-accent-a16);
+  --dex-role-select: var(--www-title-a);
+  --dex-role-select-ink: var(--www-fg);
+  --dex-role-select-mark: var(--www-title-a);
+  --dex-role-code: var(--dex-panel-hi);
+  --dex-role-code-ink: var(--www-btn-fg);
+  --dex-role-edge: var(--www-btn-edge);
+  --dex-role-edge-soft: var(--dex-ghost-rule);
+  --dex-role-edge-w: 1px;
+  --dex-role-radius: 0;
+  --dex-role-radius-sm: 3px;
+  --dex-role-shadow: var(--www-bevel);
+  --dex-role-font: var(--www-font);
+  --dex-role-font-body: var(--www-font);
+  --dex-role-font-label: var(--www-font);
+  --dex-role-font-mono: var(--www-font);
+  --dex-role-label-case: uppercase;
+  --dex-role-label-track: 0.04em;
+  /* title bar: her navy WWW title, white bold mono */
+  --dex-role-bar: var(--www-title-grad);
+  --dex-role-bar-ink: var(--www-fg);
+  --dex-role-bar-edge: var(--www-title-a);
+  --dex-role-bar-edge-w: 0 0 1px 0;
+  --dex-role-bar-radius: 0;
+  --dex-role-bar-shadow: none;
+  --dex-role-bar-font: var(--www-font);
+  --dex-role-bar-weight: 700;
+  --dex-role-bar-size: 13px;
+  --dex-role-bar-track: 0.02em;
+  --dex-role-bar-stamp-ink: var(--www-btn-hover);
+  --dex-role-chip: var(--www-mark-bg);
+  --dex-role-chip-ink: var(--www-fg);
+  --dex-role-chip-edge: var(--www-btn-edge);
+  --dex-role-chip-radius: 3px;
+  --dex-role-chip-bevel: var(--dex-chip-bevel);
+  --dex-role-code-tag-ink: var(--www-fg);
+  --dex-role-code-tag-edge: var(--www-hi);
+  --dex-role-cap-btn: var(--www-btn-bg);
+  --dex-role-cap-btn-ink: var(--www-btn-fg);
+  --dex-role-cap-btn-edge: var(--www-btn-edge);
+  --dex-role-cap-btn-hover: var(--www-btn-hover);
+  --dex-role-cap-btn-close: var(--www-btn-bg);
+  --dex-role-cap-btn-close-ink: var(--www-btn-fg);
+  --dex-role-cap-btn-radius: 0;
+  --dex-role-cap-btn-bevel: var(--www-bevel);
+  --dex-role-cap-btn-size: 22px;
+  /* buttons: mid gray, bevel out; pressed bevel in; primary navy like her GO */
+  --dex-role-btn: var(--dex-btn-bg);
+  --dex-role-btn-ink: var(--dex-btn-ink);
+  --dex-role-btn-edge: var(--dex-btn-rule);
+  --dex-role-btn-hover: #9c9c9c;
+  --dex-role-btn-hover-ink: var(--dex-btn-ink);
+  --dex-role-btn-active: #7a7a7a;
+  --dex-role-btn-bevel: var(--www-btn-bevel);
+  --dex-role-btn-bevel-in: var(--www-bevel-in);
+  --dex-role-btn-radius: 3px;
+  --dex-role-btn-font: var(--www-font);
+  --dex-role-btn-weight: 700;
+  --dex-role-btn-case: none;
+  --dex-role-btn-track: 0.02em;
+  --dex-role-btn-primary: var(--www-title-a);
+  --dex-role-btn-primary-ink: var(--www-fg);
+  --dex-role-btn-primary-hover: var(--www-title-b);
+  --dex-role-btn-primary-edge: var(--dex-accent-lo);
+  /* tabs: her work tabs (#8a8a8a resting, #d4d0c8 picked) */
+  --dex-role-tab: var(--dex-btn-bg);
+  --dex-role-tab-ink: var(--dex-btn-ink);
+  --dex-role-tab-on: var(--www-field-bg);
+  --dex-role-tab-on-ink: var(--www-field-fg);
+  --dex-role-tab-edge: var(--dex-btn-rule);
+  --dex-role-tab-radius: 5px 5px 0 0;
+  /* cabinet: the Pocket Go booth, in her WWW grays */
+  --dex-role-cab: var(--www-frame);
+  --dex-role-cab-image: repeating-linear-gradient(90deg, transparent 0 11px, var(--www-lo) 11px 12px);
+  --dex-role-cab-ink: var(--www-fg);
+  --dex-role-cab-edge: var(--www-btn-edge);
+  --dex-role-cab-radius: 0;
+  --dex-role-cab-shadow: var(--www-bevel);
+  --dex-role-cab-head: var(--www-title-grad);
+  --dex-role-cab-head-ink: var(--www-fg);
+  --dex-role-cab-head-font: var(--www-font);
+  --dex-role-cab-tab: var(--dex-btn-bg);
+  --dex-role-cab-tab-ink: var(--dex-btn-ink);
+  --dex-role-cab-tab-on: var(--www-field-bg);
+  --dex-role-cab-tab-on-ink: var(--www-field-fg);
+  --dex-role-cab-label: var(--www-field-focus);
+  --dex-role-slip: var(--dex-paper);
+  --dex-role-slip-ink: var(--www-btn-fg);
+  --dex-role-slip-edge: var(--www-btn-edge);
+  --dex-role-slip-radius: 0;
+  --dex-role-slip-shadow: var(--www-bevel-in);
+  --dex-role-slip-strip-w: 4px;
+  --dex-role-slip-key-mix: 0%;
+  --dex-role-slip-key-ink: var(--www-btn-fg);
+  --dex-role-pin: var(--www-field-bg);
+  --dex-role-pin-ink: var(--www-field-fg);
+  --dex-role-pin-edge: var(--www-btn-edge);
+  --dex-role-pin-strip-w: 3px;
+  --dex-role-pin-radius: 3px;
+  --dex-role-sub: var(--www-field-bg);
+  --dex-role-sub-ink: var(--www-field-fg);
+  --dex-role-stamp-ink: var(--www-title-a);
+  --dex-role-stamp-bg: var(--dex-paper);
+  --dex-role-stamp-border: 3px double;
+  --dex-role-stamp-radius: 0;
+  --dex-role-stamp-rot: -1.5deg;
+  --dex-role-stamp-font: var(--www-font);
+  --dex-role-stamp-shadow: var(--www-bevel);
+  /* houses darkened to hold ~4.5:1 on white slips (were in roms/cc.dbx.css) */
+  --dex-house-io: #335a3c;
+  --dex-house-cu: #7a4d0c;
+  --dex-house-ab: #962f25;
+  --dex-house-dx: #175560;
+  --dex-house-tps: #4a4a4a;
+  /* the page you write on (ROSEDOC MED): white paper, black ink, her mono even over Decorate */
+  --dex-role-page: #ffffff;
+  --dex-role-page-ink: #000000;
+  --dex-role-page-link: var(--www-title-a);
+  --dex-role-page-font: var(--dex-font);
+  --dex-role-page-font-mono: var(--dex-font-mono);
+  --dex-role-page-font-lock: var(--dex-font);
+}
+
+/* -- menus and the desk (srfmenu 20261120, docs\SHADE_SPEC.md "The Surface") --
+ * The start menu is a #d4d0c8 Pocket Go window; rom colors stay full strength. The desk is
+ * her gray #6e6e6e frame with the dark grid (same values roms\cc.srf.css gave the Surface). */
+:root {
+  --dex-role-menu-shadow: var(--www-bevel), 2px 2px 0 #00000066;
+  --dex-role-data-mix: 100%;
+  --dex-role-data-ink: var(--www-btn-fg);
+  --dex-role-desk: var(--www-frame);
+  --dex-role-desk-image: none;
+  --dex-role-desk-grid: #00000028;
+  --dex-role-desk-grid-major: #00000044;
+}

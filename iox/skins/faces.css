@@ -1,0 +1,10 @@
+/* Faces a skin names but does not ship beside its own tokens.
+   Special Elite is in the ARCHIVIST pack (Apache-2.0). DEX DARK / DEX LIGHT
+   reference it as a local face for chips. */
+@font-face {
+  font-family: "Special Elite";
+  src: url("ARCHIVIST/fonts/SpecialElite-Regular.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}

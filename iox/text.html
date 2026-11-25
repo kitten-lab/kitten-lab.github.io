@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dani Leve — resume, text</title>
+  <meta name="description" content="Plain text resume for Dani Leve. Product leader, Betsoft Gaming, Kitten Lab.">
+  <style>
+    body { margin: 0; background: #fff; color: #111; font: 16px/1.5 Georgia, "Times New Roman", serif; }
+    main { max-width: 42rem; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+    h1 { font-size: 1.8rem; line-height: 1.15; margin: 0 0 0.25rem; }
+    h2 { font-size: 1.15rem; margin: 1.6rem 0 0.4rem; }
+    p, li { margin: 0 0 0.55rem; }
+    ul { padding-left: 1.2rem; }
+    .nav { font-family: ui-monospace, "Courier New", monospace; font-size: 0.85rem; margin-bottom: 1.2rem; }
+    .nav a { margin-right: 1rem; }
+    a { color: #122a8a; }
+  </style>
+</head>
+<body>
+<main>
+  <p class="nav"><a href="index.html">IOX OS</a><a href="Dani_Leve_Resume.pdf">Resume PDF</a></p>
+  <h1>Dani Leve</h1>
+  <p>Norwich, Connecticut · <a href="mailto:the.danibobby@gmail.com">the.danibobby@gmail.com</a> · 860-908-9785 · <a href="https://linkedin.com/in/danielle-leve">linkedin.com/in/danielle-leve</a> · Portfolio: <a href="https://kitten-lab.github.io">kitten-lab.github.io</a></p>
+  <p>Product leader with 25 years shipping consumer games, now building and testing AI-assisted software every day.</p>
+  <p>I make complicated systems easy to understand, then ship them. At Betsoft I ran the product line for 25 years, including six as Head of Product, and I now lead marketing art. In early 2026 I went back to building: I learned Python and PHP by hand, then started working daily with AI coding agents. That work has produced about 40 small apps, 20 past prototype, including a working operating system of about 20 apps.</p>
+
+  <h2>What I do</h2>
+  <ul>
+    <li>Turn fuzzy needs into shipped products. Ambiguous player and business needs in; games, engines and pipelines out.</li>
+    <li>Write specs that carry the intent. For dev teams, math models and AI agents alike, so the work comes back right.</li>
+    <li>Narrativize complex systems. Give a system a story so the team building it and the players using it both understand it.</li>
+    <li>Direct people and AI agents. About 40 artists plus a dev team; now scoped, task-specific coding agents.</li>
+  </ul>
+
+  <h2>Experience · Betsoft Gaming</h2>
+  <p>Online casino games · Remote (company based in Cyprus) · 2001–present</p>
+  <p>Managed the full product line from the start, through Diamond Games and Diamond Digital Systems and the acquisition by Betsoft, with the product line and team kept intact.</p>
+  <ul>
+    <li>Head of Marketing Art, current</li>
+    <li>Head of Product, 2019–2025</li>
+    <li>Product PM Lead, before 2019</li>
+  </ul>
+  <p>Earlier: banner design, art direction, game design, product management, product lead.</p>
+  <ul>
+    <li>Scaled production from one game every six months to 32 games a year by designing and owning the production pipeline.</li>
+    <li>Saved a failing roadmap by building Take the Bank and Coins of Ra from unused assets. Both became top performers.</li>
+    <li>Lifted average rounds per session from about 60 to 100–120 on titles I designed, at a time when the line as a whole has only recently held above 100.</li>
+    <li>Wrote the full product spec for a new responsive game engine (around 2020) and owned it through delivery. One design replaced separate mobile and desktop codebases, scaling from desktop down to a mini mode; after years of backporting, nearly all of Betsoft’s games now run on it.</li>
+    <li>Led about 40 artists plus the dev team through one point of contact, running team management and cross-department communication.</li>
+    <li>Led original concept titles including Sugarpop, Whospunit and Towers of Fortuna, and learned where a strong concept needs the math model to carry it.</li>
+    <li>Worked every role in the slot pipeline except writing code and math models, and wrote the specs for both.</li>
+  </ul>
+
+  <h2>Built and tested work</h2>
+  <p>March 2026–present · self-taught</p>
+  <ul>
+    <li>ROM operating system: about 20 working apps in about eight months. Each runs its own Python server and works alone, as a website, or inside a full-screen surface with inter-app APIs (file cabinet, IDE, word processor, search). A super search reads metadata across every app.</li>
+    <li>DXE Data Exchange Envelope: a provenance-aware container for shared and remixed content, with a passing 49-test suite covering writing and sealing.</li>
+    <li>RoseDoc: a bundle format, like docx, that keeps metadata with the document.</li>
+    <li>Glass Compost: a method and app that breaks long chat logs into titled, deep-tagged, value-rated fragments, tracking order so newer beliefs supersede older ones.</li>
+    <li>Pocket Go: Markdown with a small token set and front matter that loads a CSS environment, so each document becomes its own mini website.</li>
+    <li>be.imported.to: a web builder and host, newly launched; my portfolio runs on it.</li>
+    <li>Also past prototype: The Great Road Map (roadmaps from step durations, dependencies and a release date, with Kanban, list, Gantt and team views), Reqrep (long-running task tracking for solo devs and AI agents), Abujo (a day planner the AI manages), Mira IDE for my own DSL, and FIND, search across every document in the network.</li>
+  </ul>
+
+  <h2>Model behavior observations</h2>
+  <p>Patterns I logged from daily work with AI coding assistants on unconventional architecture, and what I changed in response.</p>
+  <ul>
+    <li>Context rot. A sprawling, contradictory working environment degraded the agents’ work. I scoped my dev agent to the codebase only, with no access to documentation, had it migrate and rename old pieces so the work became its own, and moved to individuated agents that each return to one narrow lane.</li>
+    <li>Scattered metadata. Agents made too many jumps across metadata stored in separate folders and missed data. I built RoseDoc, a bundle format that keeps metadata with the document.</li>
+    <li>Spec drift and handoff loss. Stated architectural principles were quietly overwritten despite long upfront context: composable pieces collapsed into one hard-styled object, deliberate unconventional code was read as error, and meaning dropped between the conversational model and the one executing the work. I treat the spec as the carrier of intent, written for a team that doesn’t ask questions, and keep each agent close to the code it owns.</li>
+    <li>Stale memory over live instruction. Agents trusted an old README over my direct instruction and wrote memory notes of in-the-moment inference that compounded. Glass Compost tracks order so newer beliefs supersede older ones, and I’m working on data organization for cleaner long-term recall and for tracking how decisions change over time.</li>
+  </ul>
+
+  <h2>Research and skills</h2>
+  <ul>
+    <li>Product and creative craft: product management, product specs, game design, art direction, banner design, production pipelines, team leadership.</li>
+    <li>Languages and tools: Python and PHP (both self-taught in about eight weeks), JavaScript; hand-coded websites in the late 1990s and early 2000s. Daily work with Claude and Grok as coding agents through CLI tools, Cursor and bot-style harnesses, building data structures, Python and web applications, and game engines; ChatGPT for coding and long-form conversation. I test new assistants side by side as they come out.</li>
+    <li>Hands-on model behavior work: about two years of intensive daily work with LLMs from the user side. I design, instruct and evaluate task-specific agents, such as a dev agent scoped to one codebase and an archive agent that searches, splits and headlines a large chat-log archive. I steer behavior through instructions, scope and context, not training.</li>
+    <li>Independent research on consciousness, memory and persistence (since 2019): how context limits, compaction and storage format change what meaning survives.</li>
+    <li>Also: Biblical Hebrew translation.</li>
+  </ul>
+</main>
+</body>
+</html>

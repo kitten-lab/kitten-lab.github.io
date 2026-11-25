@@ -1,0 +1,252 @@
+/* ARCHIVIST / _all.css - skin-wide extras every rom wears under ARCHIVIST (skinroles2 20261119).
+ * Loaded by dsc-load.js after tokens.css and before the rom's own roms/<rom>.css.
+ * The shared core tokens ARCHIVIST pins (see Maker_CC\ROM_DECK\skins\docs\SKIN_COMPONENTS.md),
+ * then an answer for every --dex-role-* (docs\SHADE_SPEC.md). */
+:root {
+  /* per-skin choice: maker accents off, the oxblood stays the accent everywhere */
+  --dex-makers: off;
+
+  /* shared core tokens (the rest come from tokens.css through dex-base.css) */
+  --dex-ink-soft: #3d342c;
+  --dex-ink-faint: #a8977c;
+  --dex-border-soft: #c4b49a;
+  --dex-warn: #8a6820;
+  --dex-good: #2f6b4f;
+  --dex-font-display: "Special Elite", "Courier New", monospace;
+  --dex-font-hand: "Special Elite", "Ink Free", "Segoe Print", cursive;
+  /* tag palette for tags without a saved color: EMS's note-mark inks */
+  --dex-tag-1: #8a2818;
+  --dex-tag-2: #6b4a2a;
+  --dex-tag-3: #2f6b4f;
+  --dex-tag-4: #3d4f6f;
+  --dex-tag-5: #6b3d5a;
+  --dex-tag-6: #8a5a12;
+  --dex-tag-7: #3d5a62;
+  --dex-tag-8: #6b645c;
+  /* the desk: an oak desk top, a lamp pool at the top, long grain */
+  --dex-bg-image:
+    radial-gradient(ellipse 120% 80% at 50% 0%, color-mix(in srgb, var(--arc-slip) 22%, transparent), transparent 55%),
+    repeating-linear-gradient(91deg, transparent 0 7px, var(--arc-oak-grain) 7px 8px, transparent 8px 19px),
+    linear-gradient(180deg, var(--arc-oak-desk-hi) 0%, var(--arc-oak-desk) 45%, var(--arc-oak-desk-lo) 100%);
+  /* the baize blotter EMS and the Surface sit on */
+  --arc-felt-image:
+    radial-gradient(ellipse 120% 80% at 50% 0%, var(--arc-felt-light), transparent 55%),
+    repeating-linear-gradient(90deg, transparent, transparent 3px, var(--arc-felt-grain) 3px, var(--arc-felt-grain) 4px),
+    linear-gradient(180deg, var(--arc-felt-top) 0%, var(--arc-felt) 40%, var(--arc-felt-deep) 100%);
+  /* printed paper: a lamp shine and the faintest ruling */
+  --arc-paper-image:
+    linear-gradient(180deg, var(--arc-shine), transparent 40%),
+    repeating-linear-gradient(180deg, transparent 0 23px, var(--arc-ruling) 23px 24px);
+  /* catalogue drawer: light oak with grain */
+  --arc-oak-image:
+    repeating-linear-gradient(92deg, transparent 0 5px, var(--arc-oak-grain) 5px 6px, transparent 6px 13px),
+    linear-gradient(180deg, var(--arc-oak-hi), var(--arc-oak));
+  /* bars: dark oak */
+  --arc-wood-image: linear-gradient(180deg, var(--arc-wood-hi), var(--arc-wood));
+}
+
+/* -- role answers (skinroles2 20261119, docs\SHADE_SPEC.md) --
+ * ARCHIVIST everywhere = EMS's archivist desk: an oak desk, dark oak title bar with brass type,
+ * a leather book spine with brass bands, a typed catalogue slip pinned to the bar, an oxblood
+ * ON FILE stamp; card-stock buttons; paper panels and cards; index-card slips in a light oak drawer;
+ * oxblood librarian date stamps. */
+:root {
+  /* cabinet houses darkened to read on paper (~4.5:1), same set as DEX LIGHT */
+  --dex-house-io: #335a3c;
+  --dex-house-cu: #7a4d0c;
+  --dex-house-ab: #962f25;
+  --dex-house-dx: #175560;
+  --dex-house-tps: #4c5363;
+  /* surfaces */
+  --dex-role-app: var(--arc-oak-desk);
+  --dex-role-app-image: var(--dex-bg-image);
+  --dex-role-app-ink: var(--dex-ink);
+  --dex-role-ink: var(--dex-ink);
+  --dex-role-panel: var(--arc-paper-lo);
+  --dex-role-panel-ink: var(--dex-ink);
+  --dex-role-panel-head: var(--arc-spine);
+  --dex-role-card: var(--arc-paper);
+  --dex-role-card-image: var(--arc-paper-image);
+  --dex-role-card-ink: var(--dex-ink);
+  --dex-role-card-head: var(--dex-ink);
+  --dex-role-card-edge: var(--arc-edge);
+  --dex-role-card-radius: 2px;
+  --dex-role-card-shadow: 0 2px 6px color-mix(in srgb, var(--arc-shadow) 30%, transparent);
+  --dex-role-mute: var(--dex-mute);
+  --dex-role-faint: var(--dex-ink-faint);
+  --dex-role-link: var(--arc-ox);
+  --dex-role-field: var(--arc-field);
+  --dex-role-field-ink: var(--dex-ink);
+  --dex-role-field-edge: var(--dex-field-rule);
+  --dex-role-field-focus: var(--arc-ox);
+  --dex-role-field-radius: 2px;
+  --dex-role-field-bevel: inset 0 1px 2px color-mix(in srgb, var(--arc-shadow-warm) 12%, transparent);
+  --dex-role-pop: var(--arc-slip);
+  --dex-role-pop-ink: var(--dex-ink);
+  --dex-role-pop-edge: var(--arc-edge-deep);
+  --dex-role-pop-radius: 2px;
+  --dex-role-pop-shadow: var(--dex-pop-shadow);
+  --dex-role-scrim: var(--dex-backdrop);
+  --dex-role-hover: var(--dex-hover);
+  --dex-role-select: var(--arc-current);
+  --dex-role-select-ink: var(--arc-paper-hi);
+  --dex-role-select-mark: var(--arc-brass);
+  --dex-role-code: var(--arc-page);
+  --dex-role-code-ink: var(--arc-ink-soft);
+  /* lines, shape, type */
+  --dex-role-edge: var(--arc-edge-deep);
+  --dex-role-edge-soft: var(--arc-line);
+  --dex-role-edge-w: 1px;
+  --dex-role-radius: 2px;
+  --dex-role-radius-sm: 3px;
+  --dex-role-shadow: var(--dex-drop-shadow);
+  --dex-role-font: var(--dex-font);
+  --dex-role-font-body: "Libre Baskerville", Georgia, serif;
+  --dex-role-font-label: var(--dex-font-chip);
+  --dex-role-font-mono: var(--dex-font-mono);
+  --dex-role-label-case: uppercase;
+  --dex-role-label-track: 0.12em;
+  --dex-role-control-size: 10px;
+  /* title bar: the bench's dark oak bar, brass type */
+  --dex-role-bar: var(--arc-wood-image), var(--arc-wood);
+  --dex-role-bar-ink: var(--arc-brass-hi);
+  --dex-role-bar-edge: var(--arc-wood-edge);
+  --dex-role-bar-edge-w: 0 0 1px 0;
+  --dex-role-bar-radius: 0;
+  --dex-role-bar-shadow: 0 2px 6px color-mix(in srgb, var(--arc-shadow) 35%, transparent);
+  --dex-role-bar-margin: 0;
+  --dex-role-bar-h: 38px;
+  --dex-role-bar-font: var(--dex-font-chip);
+  --dex-role-bar-weight: 400;
+  --dex-role-bar-size: 15px;
+  --dex-role-bar-track: 0.22em;
+  --dex-role-bar-case: uppercase;
+  /* spine: a leather book spine with two brass bands */
+  --dex-role-bar-spine:
+    linear-gradient(to bottom, transparent 0 20%, var(--arc-brass) 20% 25%, transparent 25% 75%, var(--arc-brass) 75% 80%, transparent 80%),
+    linear-gradient(90deg, color-mix(in srgb, var(--arc-shadow) 30%, transparent), transparent 40%, color-mix(in srgb, var(--arc-shadow) 30%, transparent)),
+    var(--arc-spine);
+  --dex-role-bar-spine-w: 16px;
+  --dex-role-bar-spine-edge: var(--arc-wood);
+  /* tape: a typed catalogue slip pinned to the bar (red head rule, faint ruling) */
+  --dex-role-bar-tape:
+    linear-gradient(180deg, transparent 0 22%, var(--arc-rule-red) 22% 27%, transparent 27%),
+    repeating-linear-gradient(180deg, transparent 0 5px, var(--arc-ruling) 5px 6px),
+    var(--arc-slip);
+  --dex-role-bar-tape-show: block;
+  --dex-role-bar-tape-edge: var(--arc-line);
+  --dex-role-bar-tape-clip: polygon(0 4%, 100% 0, 99% 96%, 1% 100%);
+  --dex-role-bar-tape-rot: -2deg;
+  /* stamp after the title: the oxblood ON FILE stamp, brightened to read on oak */
+  --dex-role-bar-stamp-show: inline-block;
+  --dex-role-bar-stamp-ink: var(--arc-ox-bright);
+  /* chip: a brass label holder */
+  --dex-role-chip: var(--arc-brass);
+  --dex-role-chip-ink: var(--arc-wood);
+  --dex-role-chip-edge: var(--arc-brass-lo);
+  --dex-role-chip-radius: 3px;
+  --dex-role-chip-bevel: inset 0 1px 0 color-mix(in srgb, var(--arc-slip) 45%, transparent);
+  --dex-role-code-tag-ink: var(--arc-edge-deep);
+  --dex-role-code-tag-edge: var(--arc-edge);
+  /* window buttons: small oak blocks; close oxblood */
+  --dex-role-cap-btn: var(--arc-wood-btn);
+  --dex-role-cap-btn-ink: var(--arc-wood-ink);
+  --dex-role-cap-btn-edge: var(--arc-wood-edge);
+  --dex-role-cap-btn-hover: var(--arc-wood-hover);
+  --dex-role-cap-btn-close: var(--arc-ox);
+  --dex-role-cap-btn-close-ink: var(--arc-paper-hi);
+  --dex-role-cap-btn-radius: 3px;
+  --dex-role-cap-btn-bevel: inset 0 1px 0 color-mix(in srgb, var(--arc-wood-ink) 10%, transparent);
+  --dex-role-cap-btn-size: 22px;
+  /* buttons: card stock with an oak edge, a brass wash on hover; primary = oxblood */
+  --dex-role-btn: var(--arc-paper-hi);
+  --dex-role-btn-ink: var(--dex-ink);
+  --dex-role-btn-edge: var(--arc-edge-deep);
+  --dex-role-btn-hover: var(--arc-brass-wash);
+  --dex-role-btn-hover-ink: var(--dex-ink);
+  --dex-role-btn-active: var(--arc-paper-lo);
+  --dex-role-btn-bevel: 0 1px 0 color-mix(in srgb, var(--arc-shadow-warm) 25%, transparent);
+  --dex-role-btn-bevel-in: inset 0 1px 3px color-mix(in srgb, var(--arc-shadow) 50%, transparent);
+  --dex-role-btn-radius: 3px;
+  --dex-role-btn-font: var(--dex-font);
+  --dex-role-btn-weight: 500;
+  --dex-role-btn-case: none;
+  --dex-role-btn-track: 0.02em;
+  --dex-role-btn-primary: var(--arc-ox);
+  --dex-role-btn-primary-ink: var(--arc-paper-hi);
+  --dex-role-btn-primary-hover: var(--arc-ox-hi);
+  --dex-role-btn-primary-edge: var(--arc-spine);
+  /* tabs: index-card tabs */
+  --dex-role-tab: var(--arc-paper-lo);
+  --dex-role-tab-ink: var(--dex-mute);
+  --dex-role-tab-on: var(--arc-slip);
+  --dex-role-tab-on-ink: var(--dex-ink);
+  --dex-role-tab-edge: var(--arc-line);
+  --dex-role-tab-radius: 5px 5px 0 0;
+  /* cabinet: a light oak card-catalogue drawer, a dark oak head with a brass label,
+   * index-card slips, oxblood date-due stamps */
+  --dex-role-cab: var(--arc-oak);
+  --dex-role-cab-image: var(--arc-oak-image);
+  --dex-role-cab-ink: var(--dex-ink);
+  --dex-role-cab-edge: var(--arc-edge-deep);
+  --dex-role-cab-radius: 2px;
+  --dex-role-cab-shadow: inset 0 1px 0 color-mix(in srgb, var(--arc-slip) 30%, transparent), 0 2px 6px color-mix(in srgb, var(--arc-shadow) 30%, transparent);
+  --dex-role-cab-head: var(--arc-wood-image), var(--arc-wood);
+  --dex-role-cab-head-ink: var(--arc-brass-hi);
+  --dex-role-cab-head-font: var(--dex-font-chip);
+  --dex-role-cab-tab: var(--arc-paper-lo);
+  --dex-role-cab-tab-ink: var(--arc-ink-soft);
+  --dex-role-cab-tab-on: var(--arc-slip);
+  --dex-role-cab-tab-on-ink: var(--dex-ink);
+  --dex-role-cab-label: var(--arc-ink-soft);
+  --dex-role-slip: var(--arc-slip);
+  --dex-role-slip-ink: var(--dex-ink);
+  --dex-role-slip-edge: var(--arc-line);
+  --dex-role-slip-radius: 1px;
+  --dex-role-slip-shadow: 1px 2px 4px color-mix(in srgb, var(--arc-shadow-warm) 22%, transparent);
+  --dex-role-slip-strip-w: 3px;
+  --dex-role-slip-key-mix: 0%;
+  --dex-role-slip-key-ink: var(--arc-ox);
+  --dex-role-pin: var(--arc-slip);
+  --dex-role-pin-ink: var(--dex-ink);
+  --dex-role-pin-edge: var(--arc-line);
+  --dex-role-pin-mix: 0%;
+  --dex-role-pin-strip-w: 3px;
+  --dex-role-pin-radius: 2px;
+  --dex-role-sub: var(--arc-page);
+  --dex-role-sub-ink: var(--arc-ink-soft);
+  --dex-role-stamp-ink: var(--arc-ox);
+  --dex-role-stamp-bg: transparent;
+  --dex-role-stamp-border: 1.5px solid;
+  --dex-role-stamp-radius: 3px;
+  --dex-role-stamp-rot: -2.5deg;
+  --dex-role-stamp-font: var(--dex-font-chip);
+  --dex-role-stamp-shadow: none;
+  /* the page you write on (ROSEDOC MED): archive paper, Baskerville, oxblood links */
+  --dex-role-page: var(--arc-paper-hi);
+  --dex-role-page-ink: var(--dex-ink);
+  --dex-role-page-mute: var(--dex-mute);
+  --dex-role-page-rule: var(--arc-line);
+  --dex-role-page-code: var(--arc-page);
+  --dex-role-page-link: var(--arc-ox);
+  --dex-role-page-font: "Libre Baskerville", Georgia, serif;
+  --dex-role-page-font-mono: var(--dex-font-mono);
+}
+
+/* -- menus and the desk (srfmenu 20261120, docs\SHADE_SPEC.md "The Surface") --
+ * The start menu is the card-catalogue drawer: light oak with grain, an oak edge. Rom colors are
+ * inked onto card stock at 55%, dark oak ink on them. The desk is EMS's green baize blotter. */
+:root {
+  --dex-role-menu: var(--arc-oak);
+  --dex-role-menu-image: var(--arc-oak-image);
+  --dex-role-menu-ink: var(--dex-ink);
+  --dex-role-menu-edge: var(--arc-edge-deep);
+  --dex-role-menu-radius: 3px;
+  --dex-role-menu-shadow: inset 0 1px 0 color-mix(in srgb, var(--arc-slip) 35%, transparent), 0 14px 34px color-mix(in srgb, var(--arc-shadow) 55%, transparent), 0 2px 6px color-mix(in srgb, var(--arc-shadow) 35%, transparent);
+  --dex-role-data-mix: 55%;
+  --dex-role-data-ink: var(--arc-wood);
+  --dex-role-desk: var(--arc-felt);
+  --dex-role-desk-image: var(--arc-felt-image);
+  --dex-role-desk-grid: color-mix(in srgb, var(--arc-shadow) 14%, transparent);
+  --dex-role-desk-grid-major: var(--dex-grid-major);
+}

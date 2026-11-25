@@ -1,0 +1,156 @@
+/* ARCHIVIST.dsc / tokens.css - edde.arc, the EMS TECH BENCH archivist desk set (skinroles2 20261119).
+ * Same canonical token list as DEX_DARK. An oak desk (green baize under EMS and the Surface), dark oak
+ * bars with brass type, printed paper and index-card slips, oxblood librarian stamps. Faces ship in fonts/ (Libre Baskerville and
+ * IBM Plex Mono under the OFL, Special Elite under Apache 2.0; licence texts sit beside them).
+ * Accent tokens also sit under html[data-maker] so maker accents don't recolor the set. */
+@font-face { font-family: "Libre Baskerville"; src: url("fonts/LibreBaskerville-Regular.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Libre Baskerville"; src: url("fonts/LibreBaskerville-Italic.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Libre Baskerville"; src: url("fonts/LibreBaskerville-Bold.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "IBM Plex Mono"; src: url("fonts/IBMPlexMono-Regular.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "IBM Plex Mono"; src: url("fonts/IBMPlexMono-Medium.woff2") format("woff2"); font-weight: 500 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Special Elite"; src: url("fonts/SpecialElite-Regular.woff2") format("woff2"); font-weight: 400 700; font-style: normal; font-display: swap; }
+:root {
+  --dex-cap-h: 36px;
+  --dex-cap-bg: #14100c;
+  --dex-cap-ink: #e8cf8a;
+  --dex-cap-rule: #4a3828;
+  --dex-cap-gem: linear-gradient(135deg, #e8cf8a, #b8954a);
+  --dex-cap-close: #8a2818;
+  --dex-cap-close-ink: #f3e8d2;
+  --dex-cap-shadow: 0 1px 0 rgba(0, 0, 0, 0.35), 0 3px 10px rgba(0, 0, 0, 0.3);
+  --dex-cap-mark-hover: rgba(184, 149, 74, 0.16);
+  --dex-cap-btn-hover: #3a2c20;
+  --dex-cap-gem-glow: 0 0 6px rgba(184, 149, 74, 0.45);
+  --dex-menu-rule: #8a7048;
+  --dex-menu-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  --dex-menu-sep: rgba(90, 64, 48, 0.3);
+  --dex-hint-ink: rgba(26, 20, 16, 0.75);
+  --dex-hint-rule: rgba(90, 64, 48, 0.3);
+  --dex-panel: #dcc8a8;
+  --dex-panel-hi: #f3e8d2;
+  --dex-panel-mid: #e2d2b0;
+  --dex-well: #c9ad80;
+  --dex-strip: #14100c;
+  --dex-strip-ink: #e0d0b0;
+  --dex-strip-rule: #4a3828;
+  --dex-strip-soft: rgba(224, 208, 176, 0.7);
+  --dex-strip-soft-hi: rgba(224, 208, 176, 0.85);
+  --dex-ghost: rgba(90, 64, 48, 0.06);
+  --dex-ghost-rule: rgba(90, 64, 48, 0.2);
+  --dex-ghost-edge: rgba(90, 64, 48, 0.32);
+  --dex-paper: #e8dcc4;
+  --dex-paper-deep: #dcc8a8;
+  --dex-paper-deep-a90: rgba(220, 200, 168, 0.9);
+  --dex-grid: rgba(80, 140, 90, 0.14);
+  --dex-grid-major: rgba(80, 140, 90, 0.26);
+  --dex-ink: #1a1410;
+  --dex-mute: #5a4a3c;
+  --dex-mute-hi: #4e4034;
+  --dex-mute-lo: #8a7658;
+  --dex-warm: #2f6b4f;
+  --dex-bad: #a32020;
+  --dex-danger-soft: rgba(163, 32, 32, 0.18);
+  --dex-stage-bg: #e8dcc4;
+  --dex-cap-bg-a22: rgba(20, 16, 12, 0.22);
+  --dex-cap-bg-a82: rgba(20, 16, 12, 0.82);
+  --dex-radius: 2px;
+  --dex-strip-h: 40px;
+  --dex-font: "IBM Plex Mono", Consolas, ui-monospace, monospace;
+  --dex-font-chip: "Special Elite", "Courier New", monospace;
+  --dex-font-mono: "IBM Plex Mono", Consolas, ui-monospace, monospace;
+  --dex-win-shadow: 0 10px 28px rgba(0, 0, 0, 0.45), 0 1px 0 #4a3828;
+  --dex-win-shadow-back: 0 8px 22px rgba(0, 0, 0, 0.35), 0 1px 0 #4a3828;
+  --dex-win-shadow-front: 0 12px 34px rgba(0, 0, 0, 0.5), 0 1px 0 #4a3828;
+  --dex-drop-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  --dex-pop-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
+  --dex-sheet-shadow: 0 1px 0 #4a3828, 0 10px 28px rgba(0, 0, 0, 0.4);
+  --dex-chip-shadow: 1px 2px 4px rgba(60, 40, 20, 0.14);
+  --dex-backdrop: rgba(10, 8, 6, 0.5);
+  --dex-backdrop-lo: rgba(10, 8, 6, 0.32);
+  --dex-chip-ink: #14100c;
+  --dex-scroll-size: 8px;
+  --dex-scroll-track: #dcc8a8;
+  --dex-scroll-rule: rgba(90, 64, 48, 0.3);
+  --dex-scroll-thumb: linear-gradient(180deg, #4a3828 0%, #2a2018 100%);
+  --dex-scroll-thumb-edge: #14100c;
+  --dex-scroll-thumb-hover: linear-gradient(180deg, #a03020 0%, #8a2818 100%);
+  /* chip (rom code tag in title bars): a brass label */
+  --dex-chip-bg: #b8954a;
+  --dex-chip-fg: var(--dex-chip-ink);
+  --dex-chip-radius: 4px;
+  --dex-chip-bevel: none;
+  /* shared controls: card-stock buttons with an oak edge */
+  --dex-btn-bg: #f3e8d2;
+  --dex-btn-ink: #1a1410;
+  --dex-btn-rule: #8a7048;
+  --dex-btn-hover: #ead9b0;
+  --dex-btn-radius: 3px;
+  --dex-btn-bevel: none;
+  /* fields: background stays per-rom (it depends on the surface under it) */
+  --dex-field-ink: var(--dex-ink);
+  --dex-field-rule: rgba(90, 64, 48, 0.45);
+  --dex-field-radius: 2px;
+  --dex-field-focus: var(--dex-accent);
+  /* --arc-* archivist palette (the EMS desk) */
+  --arc-felt: #1a3a28;
+  --arc-felt-top: #1e4230;
+  --arc-felt-deep: #0f2418;
+  --arc-felt-grain: rgba(0, 0, 0, 0.18);
+  --arc-felt-light: rgba(80, 140, 90, 0.12);
+  --arc-wood: #14100c;
+  --arc-wood-hi: #241c14;
+  --arc-wood-btn: #2a2018;
+  --arc-wood-hover: #3a2c20;
+  --arc-wood-edge: #4a3828;
+  --arc-wood-ink: #e0d0b0;
+  --arc-wood-mute: #8a7658;
+  --arc-oak: #c9ad80;
+  --arc-oak-hi: #d6be94;
+  --arc-oak-grain: rgba(90, 60, 30, 0.10);
+  --arc-oak-desk: #c9ad80;
+  --arc-oak-desk-hi: #d3b98e;
+  --arc-oak-desk-lo: #bc9f72;
+  --arc-brass-wash: #ead9b0;
+  --arc-brass: #b8954a;
+  --arc-brass-hi: #e8cf8a;
+  --arc-brass-lo: #8a6a2a;
+  --arc-paper: #e8dcc4;
+  --arc-paper-hi: #f3e8d2;
+  --arc-paper-lo: #dcc8a8;
+  --arc-page: #f0e4cc;
+  --arc-slip: #fbf4e4;
+  --arc-field: #fdf8ec;
+  --arc-line: #c4b49a;
+  --arc-edge: #c4a878;
+  --arc-edge-deep: #8a7048;
+  --arc-ink-soft: #3d342c;
+  --arc-ox: #8a2818;
+  --arc-ox-hi: #a03020;
+  --arc-ox-bright: #d0604a;
+  --arc-current: #3a2414;
+  --arc-spine: #4a2010;
+  --arc-ruling: rgba(80, 50, 30, 0.07);
+  --arc-rule-red: rgba(160, 48, 32, 0.45);
+  --arc-shine: rgba(255, 255, 255, 0.10);
+  --arc-shadow: #000;
+  --arc-shadow-warm: #3c2814;
+  color-scheme: light;
+}
+:root,
+html[data-maker],
+html[data-maker][data-scheme="light"] {
+  --dex-hover: rgba(184, 149, 74, 0.18);
+  --dex-accent: #8a2818;
+  --dex-accent-hi: #a03020;
+  --dex-accent-lo: #6a1e12;
+  --dex-accent-a07: rgba(138, 40, 24, 0.07);
+  --dex-accent-a16: rgba(138, 40, 24, 0.16);
+  --dex-accent-a28: rgba(138, 40, 24, 0.28);
+  --dex-accent-a45: rgba(138, 40, 24, 0.45);
+  --dex-accent-a55: rgba(138, 40, 24, 0.55);
+  --dex-accent-wash: #efe0c0;
+  --dex-cap-rule: #4a3828;
+  --dex-strip-rule: #4a3828;
+  --dex-scroll-rule: rgba(90, 64, 48, 0.3);
+  --dex-scroll-thumb: linear-gradient(180deg, #4a3828 0%, #2a2018 100%);
+}

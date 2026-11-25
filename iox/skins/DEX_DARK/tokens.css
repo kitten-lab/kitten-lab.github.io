@@ -1,0 +1,97 @@
+/* DEX_DARK.dsc / tokens.css - cc.dex, the built-in default skin.
+ * The canonical token list: every .dsc tokens.css defines ALL of these in :root.
+ * Roms read only var(--dex-*); a rom may add its own local tokens and a skin may
+ * reach them with roms/<romcode>.css. */
+:root {
+  --dex-cap-h: 36px;
+  --dex-cap-bg: #0a0c12;
+  --dex-cap-ink: #d8dee8;
+  --dex-cap-rule: rgba(120, 140, 200, 0.35);
+  --dex-cap-gem: linear-gradient(135deg, #6a8cff, #a070ff);
+  --dex-cap-close: #c42b1c;
+  --dex-cap-close-ink: #fff;
+  --dex-cap-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
+  --dex-cap-mark-hover: rgba(255, 255, 255, 0.08);
+  --dex-cap-btn-hover: rgba(255, 255, 255, 0.1);
+  --dex-cap-gem-glow: 0 0 10px rgba(100, 130, 255, 0.5);
+  --dex-menu-rule: rgba(120, 140, 200, 0.3);
+  --dex-menu-shadow: 0 12px 32px rgba(0, 0, 0, 0.55);
+  --dex-menu-sep: rgba(120, 140, 200, 0.2);
+  --dex-hint-ink: rgba(220, 230, 240, 0.75);
+  --dex-hint-rule: rgba(120, 140, 200, 0.25);
+  --dex-panel: #12151e;
+  --dex-panel-hi: #1c2030;
+  --dex-panel-mid: #1a2030;
+  --dex-well: #0e1016;
+  --dex-hover: rgba(106, 140, 255, 0.18);
+  --dex-strip: #0a0c12;
+  --dex-strip-ink: #d8dee8;
+  --dex-strip-rule: rgba(120, 140, 200, 0.35);
+  --dex-strip-soft: rgba(216, 222, 232, 0.7);
+  --dex-strip-soft-hi: rgba(216, 222, 232, 0.75);
+  --dex-ghost: rgba(216, 222, 232, 0.08);
+  --dex-ghost-rule: rgba(216, 222, 232, 0.18);
+  --dex-ghost-edge: rgba(216, 222, 232, 0.28);
+  --dex-paper: #12151e;
+  --dex-paper-deep: #1a1e2a;
+  --dex-paper-deep-a90: rgba(26, 30, 42, 0.9);
+  --dex-grid: rgba(106, 140, 255, 0.08);
+  --dex-grid-major: rgba(106, 140, 255, 0.16);
+  --dex-ink: #e4e8f0;
+  --dex-mute: #8b93a7;
+  --dex-mute-hi: #9aa3b8;
+  --dex-mute-lo: #6d7588;
+  --dex-accent: #6a8cff;
+  --dex-accent-hi: #a070ff;
+  --dex-accent-lo: #4a6ad4;
+  --dex-accent-a07: rgba(106, 140, 255, 0.07);
+  --dex-accent-a16: rgba(106, 140, 255, 0.16);
+  --dex-accent-a28: rgba(106, 140, 255, 0.28);
+  --dex-accent-a45: rgba(106, 140, 255, 0.45);
+  --dex-accent-a55: rgba(106, 140, 255, 0.55);
+  --dex-warm: #6bbf7a;
+  --dex-bad: #e07a7a;
+  --dex-danger-soft: rgba(196, 32, 42, 0.35);
+  --dex-stage-bg: #fff;
+  --dex-cap-bg-a22: rgba(10, 12, 18, 0.22);
+  --dex-cap-bg-a82: rgba(10, 12, 18, 0.82);
+  --dex-radius: 10px;
+  --dex-strip-h: 40px;
+  --dex-font: "Segoe UI", system-ui, sans-serif;
+  --dex-font-chip: "Special Elite", "Courier New", monospace;
+  --dex-font-mono: ui-monospace, Consolas, monospace;
+  --dex-win-shadow: 0 10px 34px rgba(0, 0, 0, 0.55), 0 2px 6px rgba(0, 0, 0, 0.35);
+  --dex-win-shadow-back: 0 8px 28px rgba(0, 0, 0, 0.45), 0 1px 4px rgba(0, 0, 0, 0.3);
+  --dex-win-shadow-front: 0 12px 38px rgba(0, 0, 0, 0.55), 0 2px 6px rgba(0, 0, 0, 0.35);
+  --dex-drop-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+  --dex-pop-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  --dex-sheet-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+  --dex-chip-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 1px 2px rgba(0, 0, 0, 0.45);
+  --dex-backdrop: rgba(0, 0, 0, 0.55);
+  --dex-backdrop-lo: rgba(0, 0, 0, 0.45);
+  --dex-chip-ink: #0a0c12;
+  --dex-scroll-size: 8px;
+  --dex-scroll-track: #0a0c12;
+  --dex-scroll-rule: rgba(120, 140, 200, 0.18);
+  --dex-scroll-thumb: linear-gradient(180deg, #4a5a88 0%, #2a3458 100%);
+  --dex-scroll-thumb-edge: #1a2038;
+  --dex-scroll-thumb-hover: linear-gradient(180deg, #6a8cff 0%, #3a4a88 100%);
+  /* chip (rom code tag in title bars): skins may restyle it; defaults keep the maker accent */
+  --dex-chip-bg: var(--dex-accent);
+  --dex-chip-fg: var(--dex-chip-ink);
+  --dex-chip-radius: 4px;
+  --dex-chip-bevel: none;
+  /* shared controls: roms read these through var(--dex-btn-*, <their own value>) */
+  --dex-btn-bg: var(--dex-panel-hi);
+  --dex-btn-ink: var(--dex-ink);
+  --dex-btn-rule: var(--dex-cap-rule);
+  --dex-btn-hover: var(--dex-hover);
+  --dex-btn-radius: 4px;
+  --dex-btn-bevel: none;
+  /* fields: background stays per-rom (it depends on the surface under it) */
+  --dex-field-ink: var(--dex-ink);
+  --dex-field-rule: var(--dex-cap-rule);
+  --dex-field-radius: 4px;
+  --dex-field-focus: var(--dex-accent);
+  color-scheme: dark;
+}

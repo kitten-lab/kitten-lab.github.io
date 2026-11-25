@@ -1,0 +1,433 @@
+/* dex-base.css - the shared skin base (skinunify phase 0, 20261119).
+ * Served as /skins/cc.dex/dex-base.css. dsc-load.js links it FIRST whenever a skin is
+ * painted (not under "Rom's own look"). Guide: ROM_DECK\skins\docs\SKIN_COMPONENTS.md
+ *
+ * Four parts:
+ *   1. CORE: 42 tokens a person edits (+ color-scheme). New code reads these.
+ *   2. DERIVED: the 87 existing --dex-* names with DEX_DARK defaults. Every skin's
+ *      tokens.css already sets all 87, so these are only a safety net.
+ *   2b. ROLES: --dex-role-* = which shade does which job (docs\SHADE_SPEC.md). Rom CSS
+ *      paints with these; a skin answers each role once.
+ *   3. COMPONENTS: shared classes (dex-btn, dex-field, dex-titlebar, dex-panel, dex-list,
+ *      dex-tag, dex-status, dex-cab-*) built only from tokens.
+ *
+ * Every token block is :where(:root): zero specificity, so a skin's tokens.css, a skin's
+ * roms/_all.css and a rom's own :root always win. That is what keeps this file from
+ * changing any rom that does not use it.
+ * Core tokens that name an existing derived token read it first (var(--dex-panel, ...)),
+ * so all existing skins (DEX_DARK, DEX_LIGHT, DETECTIVE, POCKET_WWW) fill the core set
+ * with no edit to their tokens.css. A new skin may set core tokens directly. */
+
+/* ---------- 1. CORE (42) ---------- */
+:where(:root) {
+  /* surfaces */
+  --dex-bg: var(--dex-well, #0e1016);              /* desk / app background */
+  --dex-surface: var(--dex-panel, #12151e);        /* main panel, page, paper */
+  --dex-surface-2: var(--dex-panel-hi, #1c2030);   /* raised panel, buttons, hover cards */
+  --dex-surface-sunk: var(--dex-well, #0e1016);    /* wells, inputs, code areas */
+  --dex-chrome: var(--dex-cap-bg, #0a0c12);        /* title bars, strips, menus */
+  --dex-chrome-ink: var(--dex-cap-ink, #d8dee8);   /* text on chrome */
+  /* ink (--dex-ink, --dex-mute come from the skin) */
+  --dex-ink-soft: var(--dex-mute-hi, #9aa3b8);     /* secondary text */
+  --dex-ink-faint: var(--dex-mute-lo, #6d7588);    /* disabled, placeholders */
+  /* lines (--dex-grid comes from the skin) */
+  --dex-border: var(--dex-cap-rule, rgba(120, 140, 200, 0.35));      /* borders, dividers */
+  --dex-border-soft: var(--dex-ghost-rule, rgba(216, 222, 232, 0.18)); /* quiet rules, ruled paper */
+  /* accent (--dex-accent comes from the skin) */
+  --dex-accent-2: var(--dex-accent-hi, #a070ff);   /* second accent, gradient end */
+  --dex-accent-ink: var(--dex-chip-ink, #0a0c12);  /* text on accent fills */
+  --dex-accent-wash: var(--dex-accent-a16, rgba(106, 140, 255, 0.16)); /* soft highlight (makers.css / skin may set it) */
+  --dex-focus: var(--dex-field-focus, var(--dex-accent, #6a8cff));    /* focus ring */
+  /* status (--dex-bad comes from the skin) */
+  --dex-good: var(--dex-warm, #6bbf7a);
+  --dex-warn: #d9a75a;
+  --dex-info: var(--dex-accent, #6a8cff);
+  /* tags: categorical colors for labels, houses, palettes */
+  --dex-tag-1: #e07a7a;
+  --dex-tag-2: #d9a75a;
+  --dex-tag-3: #6bbf7a;
+  --dex-tag-4: #6a8cff;
+  --dex-tag-5: #a070ff;
+  --dex-tag-6: #c98a5a;
+  --dex-tag-7: #5fb3b3;
+  --dex-tag-8: #d97aa8;
+  /* type (--dex-font, --dex-font-mono, --dex-font-chip come from the skin) */
+  --dex-font-display: var(--dex-font, "Segoe UI", system-ui, sans-serif); /* titles, mastheads */
+  --dex-font-hand: var(--dex-font, "Segoe UI", system-ui, sans-serif);    /* note / body voice */
+  /* shape (--dex-radius comes from the skin) */
+  --dex-radius-sm: var(--dex-btn-radius, 4px);
+  --dex-border-w: 1px;
+  /* depth (--dex-backdrop comes from the skin) */
+  --dex-shadow-tint: #000;
+  /* texture: a CSS gradient or a pack image; none by default */
+  --dex-bg-image: none;
+  --dex-surface-image: none;
+  /* cabinet houses (shared data identity; TFC / DATBOX values) */
+  --dex-house-io: #3d6b48;
+  --dex-house-cu: #c9892d;
+  --dex-house-ab: #c4202a;
+  --dex-house-dx: #55ffff;
+  --dex-house-tps: #9aa0ab;
+}
+
+/* ---------- 2. DERIVED (87, DEX_DARK defaults) ---------- */
+:where(:root) {
+  --dex-cap-h: 36px;
+  --dex-cap-bg: #0a0c12;
+  --dex-cap-ink: #d8dee8;
+  --dex-cap-rule: rgba(120, 140, 200, 0.35);
+  --dex-cap-gem: linear-gradient(135deg, #6a8cff, #a070ff);
+  --dex-cap-close: #c42b1c;
+  --dex-cap-close-ink: #fff;
+  --dex-cap-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
+  --dex-cap-mark-hover: rgba(255, 255, 255, 0.08);
+  --dex-cap-btn-hover: rgba(255, 255, 255, 0.1);
+  --dex-cap-gem-glow: 0 0 10px rgba(100, 130, 255, 0.5);
+  --dex-menu-rule: rgba(120, 140, 200, 0.3);
+  --dex-menu-shadow: 0 12px 32px rgba(0, 0, 0, 0.55);
+  --dex-menu-sep: rgba(120, 140, 200, 0.2);
+  --dex-hint-ink: rgba(220, 230, 240, 0.75);
+  --dex-hint-rule: rgba(120, 140, 200, 0.25);
+  --dex-panel: #12151e;
+  --dex-panel-hi: #1c2030;
+  --dex-panel-mid: #1a2030;
+  --dex-well: #0e1016;
+  --dex-hover: rgba(106, 140, 255, 0.18);
+  --dex-strip: #0a0c12;
+  --dex-strip-ink: #d8dee8;
+  --dex-strip-rule: rgba(120, 140, 200, 0.35);
+  --dex-strip-soft: rgba(216, 222, 232, 0.7);
+  --dex-strip-soft-hi: rgba(216, 222, 232, 0.75);
+  --dex-ghost: rgba(216, 222, 232, 0.08);
+  --dex-ghost-rule: rgba(216, 222, 232, 0.18);
+  --dex-ghost-edge: rgba(216, 222, 232, 0.28);
+  --dex-paper: #12151e;
+  --dex-paper-deep: #1a1e2a;
+  --dex-paper-deep-a90: rgba(26, 30, 42, 0.9);
+  --dex-grid: rgba(106, 140, 255, 0.08);
+  --dex-grid-major: rgba(106, 140, 255, 0.16);
+  --dex-ink: #e4e8f0;
+  --dex-mute: #8b93a7;
+  --dex-mute-hi: #9aa3b8;
+  --dex-mute-lo: #6d7588;
+  --dex-accent: #6a8cff;
+  --dex-accent-hi: #a070ff;
+  --dex-accent-lo: #4a6ad4;
+  --dex-accent-a07: rgba(106, 140, 255, 0.07);
+  --dex-accent-a16: rgba(106, 140, 255, 0.16);
+  --dex-accent-a28: rgba(106, 140, 255, 0.28);
+  --dex-accent-a45: rgba(106, 140, 255, 0.45);
+  --dex-accent-a55: rgba(106, 140, 255, 0.55);
+  --dex-warm: #6bbf7a;
+  --dex-bad: #e07a7a;
+  --dex-danger-soft: rgba(196, 32, 42, 0.35);
+  --dex-stage-bg: #fff;
+  --dex-cap-bg-a22: rgba(10, 12, 18, 0.22);
+  --dex-cap-bg-a82: rgba(10, 12, 18, 0.82);
+  --dex-radius: 10px;
+  --dex-strip-h: 40px;
+  --dex-font: "Segoe UI", system-ui, sans-serif;
+  --dex-font-chip: "Special Elite", "Courier New", monospace;
+  --dex-font-mono: ui-monospace, Consolas, monospace;
+  --dex-win-shadow: 0 10px 34px rgba(0, 0, 0, 0.55), 0 2px 6px rgba(0, 0, 0, 0.35);
+  --dex-win-shadow-back: 0 8px 28px rgba(0, 0, 0, 0.45), 0 1px 4px rgba(0, 0, 0, 0.3);
+  --dex-win-shadow-front: 0 12px 38px rgba(0, 0, 0, 0.55), 0 2px 6px rgba(0, 0, 0, 0.35);
+  --dex-drop-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+  --dex-pop-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  --dex-sheet-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+  --dex-chip-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 1px 2px rgba(0, 0, 0, 0.45);
+  --dex-backdrop: rgba(0, 0, 0, 0.55);
+  --dex-backdrop-lo: rgba(0, 0, 0, 0.45);
+  --dex-chip-ink: #0a0c12;
+  --dex-scroll-size: 8px;
+  --dex-scroll-track: #0a0c12;
+  --dex-scroll-rule: rgba(120, 140, 200, 0.18);
+  --dex-scroll-thumb: linear-gradient(180deg, #4a5a88 0%, #2a3458 100%);
+  --dex-scroll-thumb-edge: #1a2038;
+  --dex-scroll-thumb-hover: linear-gradient(180deg, #6a8cff 0%, #3a4a88 100%);
+  --dex-chip-bg: var(--dex-accent);
+  --dex-chip-fg: var(--dex-chip-ink);
+  --dex-chip-radius: 4px;
+  --dex-chip-bevel: none;
+  --dex-btn-bg: var(--dex-panel-hi);
+  --dex-btn-ink: var(--dex-ink);
+  --dex-btn-rule: var(--dex-cap-rule);
+  --dex-btn-hover: var(--dex-hover);
+  --dex-btn-radius: 4px;
+  --dex-btn-bevel: none;
+  --dex-field-ink: var(--dex-ink);
+  --dex-field-rule: var(--dex-cap-rule);
+  --dex-field-radius: 4px;
+  --dex-field-focus: var(--dex-accent);
+}
+
+/* ---------- 2b. ROLES (skinroles 20261119, see docs\SHADE_SPEC.md) ----------
+ * One answer per job. Rom CSS paints with --dex-role-* only, so a skin decides, in ONE place,
+ * which shade fills the app, a panel, a card, a field, the title bar, a button, a cabinet drawer,
+ * a cabinet slip and a stamp. The defaults below map every role from the core tokens, which is
+ * the DEX DARK / DEX LIGHT answer. A skin overrides any role in its own :root (a new skin: in
+ * tokens.css; the protected older packs: in roms/_all.css). Zero specificity: any skin wins. */
+:where(:root) {
+  /* surfaces: app > panel > card > slip, plus fields, pop-ups and selection */
+  --dex-role-app: var(--dex-bg);
+  --dex-role-app-image: var(--dex-bg-image);
+  --dex-role-app-ink: var(--dex-ink);
+  --dex-role-panel: var(--dex-surface);
+  --dex-role-panel-ink: var(--dex-ink);
+  --dex-role-panel-head: var(--dex-mute);
+  --dex-role-card: var(--dex-surface-2);
+  --dex-role-card-image: var(--dex-surface-image);
+  --dex-role-card-ink: var(--dex-ink);
+  --dex-role-card-head: var(--dex-ink);
+  --dex-role-card-edge: var(--dex-border);
+  --dex-role-card-radius: var(--dex-radius);
+  --dex-role-card-shadow: none;
+  --dex-role-ink: var(--dex-ink);
+  --dex-role-mute: var(--dex-mute);
+  --dex-role-faint: var(--dex-ink-faint);
+  --dex-role-link: var(--dex-accent);
+  --dex-role-field: var(--dex-surface-sunk);
+  --dex-role-field-ink: var(--dex-ink);
+  --dex-role-field-edge: var(--dex-border);
+  --dex-role-field-focus: var(--dex-focus);
+  --dex-role-field-bevel: none;
+  --dex-role-field-radius: var(--dex-radius-sm);
+  --dex-role-pop: var(--dex-surface-2);
+  --dex-role-pop-ink: var(--dex-ink);
+  --dex-role-pop-edge: var(--dex-border);
+  --dex-role-pop-radius: var(--dex-radius);
+  --dex-role-pop-shadow: var(--dex-pop-shadow);
+  --dex-role-scrim: var(--dex-backdrop);
+  --dex-role-hover: var(--dex-hover);
+  --dex-role-select: var(--dex-accent-wash);
+  --dex-role-select-ink: var(--dex-ink);
+  --dex-role-select-mark: var(--dex-accent);
+  --dex-role-code: var(--dex-surface-sunk);
+  --dex-role-code-ink: var(--dex-ink-soft);
+  /* lines and shape */
+  --dex-role-edge: var(--dex-border);
+  --dex-role-edge-soft: var(--dex-border-soft);
+  --dex-role-edge-w: var(--dex-border-w);
+  --dex-role-radius: var(--dex-radius);
+  --dex-role-radius-sm: var(--dex-radius-sm);
+  --dex-role-shadow: var(--dex-drop-shadow);
+  /* glow (phxskin 20261120): the color a lit screen bleeds around its ink; roms put it in their own
+   * text / focus shadows (0 0 8px var(--dex-role-glow)). Transparent = no glow (every skin but PHOSPHOR). */
+  --dex-role-glow: transparent;
+  /* type */
+  --dex-role-font: var(--dex-font);
+  --dex-role-font-body: var(--dex-font);
+  --dex-role-font-label: var(--dex-font-chip);
+  --dex-role-font-mono: var(--dex-font-mono);
+  --dex-role-label-case: uppercase;
+  --dex-role-label-track: 0.08em;
+  --dex-role-control-size: 11px;
+  /* title bar (the shared shell, dex-shell.css) */
+  --dex-role-bar: var(--dex-chrome);
+  --dex-role-bar-ink: var(--dex-chrome-ink);
+  --dex-role-bar-edge: var(--dex-border);
+  --dex-role-bar-edge-w: 0 0 var(--dex-border-w) 0;
+  --dex-role-bar-radius: 0;
+  --dex-role-bar-shadow: none;
+  --dex-role-bar-margin: 0;
+  --dex-role-bar-h: var(--dex-cap-h);
+  --dex-role-bar-font: var(--dex-font-display);
+  --dex-role-bar-weight: 600;
+  --dex-role-bar-size: 13px;
+  --dex-role-bar-track: 0.02em;
+  --dex-role-bar-case: none;
+  --dex-role-bar-spine: none;
+  --dex-role-bar-spine-w: 0px;
+  --dex-role-bar-spine-edge: transparent;
+  --dex-role-bar-tape: none;
+  --dex-role-bar-tape-show: none;
+  --dex-role-bar-tape-edge: transparent;
+  --dex-role-bar-tape-clip: none;
+  --dex-role-bar-tape-rot: -2.5deg;
+  --dex-role-bar-stamp-show: none;
+  --dex-role-bar-stamp-ink: var(--dex-accent);
+  --dex-role-chip: var(--dex-chip-bg);
+  --dex-role-chip-ink: var(--dex-chip-fg);
+  --dex-role-chip-edge: transparent;
+  --dex-role-chip-radius: var(--dex-chip-radius);
+  --dex-role-chip-bevel: var(--dex-chip-bevel);
+  --dex-role-code-tag-ink: var(--dex-mute);
+  --dex-role-code-tag-edge: var(--dex-border-soft);
+  /* window buttons (min / max / close in the bar) */
+  --dex-role-cap-btn: transparent;
+  --dex-role-cap-btn-ink: var(--dex-chrome-ink);
+  --dex-role-cap-btn-edge: transparent;
+  --dex-role-cap-btn-hover: var(--dex-cap-btn-hover);
+  --dex-role-cap-btn-close: var(--dex-cap-close);
+  --dex-role-cap-btn-close-ink: var(--dex-cap-close-ink);
+  --dex-role-cap-btn-radius: var(--dex-radius-sm);
+  --dex-role-cap-btn-bevel: none;
+  --dex-role-cap-btn-size: 28px;
+  /* buttons */
+  --dex-role-btn: var(--dex-btn-bg);
+  --dex-role-btn-ink: var(--dex-btn-ink);
+  --dex-role-btn-edge: var(--dex-btn-rule);
+  --dex-role-btn-hover: var(--dex-btn-hover);
+  --dex-role-btn-hover-ink: var(--dex-btn-ink);
+  --dex-role-btn-active: var(--dex-accent-wash);
+  --dex-role-btn-bevel: var(--dex-btn-bevel);
+  --dex-role-btn-bevel-in: none;
+  --dex-role-btn-radius: var(--dex-btn-radius);
+  --dex-role-btn-font: var(--dex-font);
+  --dex-role-btn-weight: 400;
+  --dex-role-btn-case: none;
+  --dex-role-btn-track: 0;
+  --dex-role-btn-primary: var(--dex-accent);
+  --dex-role-btn-primary-ink: var(--dex-accent-ink);
+  --dex-role-btn-primary-hover: var(--dex-accent-2);
+  --dex-role-btn-primary-edge: var(--dex-accent);
+  --dex-role-tab: transparent;
+  --dex-role-tab-ink: var(--dex-mute);
+  --dex-role-tab-on: var(--dex-surface-2);
+  --dex-role-tab-on-ink: var(--dex-ink);
+  --dex-role-tab-edge: var(--dex-border-soft);
+  --dex-role-tab-radius: var(--dex-radius-sm) var(--dex-radius-sm) 0 0;
+  /* cabinet: drawer (the whole strip), its head and tabs, slips (fields / notes), chips, stamps.
+   * --cab is the house color of the row (io / cu / ab / dx / tps), set by the rom per row.
+   * Optional, unset here on purpose so they fall back to the row's house color:
+   *   --dex-role-slip-key-ink (field key text), --dex-role-stamp-ink (TPS / time stamps),
+   *   --dex-role-pin / -pin-ink / -pin-edge (pinned value chips: default = a wash of --cab).
+   * A skin sets them when every key, pin or stamp should wear one ink (DETECTIVE: case-file red). */
+  --dex-role-cab: var(--dex-surface-sunk);
+  --dex-role-cab-image: none;
+  --dex-role-cab-ink: var(--dex-ink);
+  --dex-role-cab-edge: var(--dex-border-soft);
+  --dex-role-cab-radius: var(--dex-radius);
+  --dex-role-cab-shadow: none;
+  --dex-role-cab-head: transparent;
+  --dex-role-cab-head-ink: var(--dex-mute);
+  --dex-role-cab-head-font: var(--dex-font);
+  --dex-role-cab-tab: var(--dex-surface);
+  --dex-role-cab-tab-ink: var(--dex-mute);
+  --dex-role-cab-tab-on: var(--dex-surface-2);
+  --dex-role-cab-tab-on-ink: var(--dex-ink);
+  --dex-role-cab-label: var(--dex-mute);
+  --dex-role-slip: var(--dex-surface);
+  --dex-role-slip-ink: var(--dex-ink);
+  --dex-role-slip-edge: var(--dex-border-soft);
+  --dex-role-slip-radius: var(--dex-radius-sm);
+  --dex-role-slip-shadow: none;
+  --dex-role-slip-strip-w: 3px;
+  --dex-role-slip-key-mix: 13%;
+  --dex-role-pin-radius: 999px;
+  --dex-role-pin-mix: 14%;
+  --dex-role-pin-strip-w: 1px;
+  --dex-role-sub: var(--dex-accent-wash);
+  --dex-role-sub-ink: var(--dex-ink-soft);
+  --dex-role-stamp-bg: transparent;
+  --dex-role-stamp-border: 3px double;
+  --dex-role-stamp-radius: 4px;
+  --dex-role-stamp-rot: -1.5deg;
+  --dex-role-stamp-font: var(--dex-font-chip);
+  --dex-role-stamp-shadow: none;
+  /* the page (skinroles2 20261119): the sheet you write on in a word processor (ROSEDOC MED).
+   * It is paper in every skin unless the skin says otherwise; these are a rosedoc's own defaults.
+   * Optional: --dex-role-page-font-lock keeps the page in one face even over Decorate. */
+  --dex-role-page: #f4efe4;
+  --dex-role-page-ink: #1c160f;
+  --dex-role-page-mute: #8a7b68;
+  --dex-role-page-rule: #e0d3c0;
+  --dex-role-page-code: #ebe3d4;
+  --dex-role-page-link: #1a3f8a;
+  --dex-role-page-font: Georgia, "Palatino Linotype", Palatino, serif;
+  --dex-role-page-font-mono: "Courier New", monospace;
+  /* menus and the desk (srfmenu 20261120, the Surface): a launcher / start menu is a pop-up
+   * unless the skin dresses it (ARCHIVIST: the card-catalogue drawer). Data colors (a rom's
+   * maker color) show at --dex-role-data-mix over the card, with --dex-role-data-ink on them.
+   * The desk is what the Surface canvas sits on: a color, an optional texture over it
+   * (none = the grid shows), and the grid lines. */
+  --dex-role-menu: var(--dex-role-pop);
+  --dex-role-menu-image: none;
+  --dex-role-menu-ink: var(--dex-role-pop-ink);
+  --dex-role-menu-edge: var(--dex-role-pop-edge);
+  --dex-role-menu-radius: var(--dex-role-pop-radius);
+  --dex-role-menu-shadow: var(--dex-role-pop-shadow);
+  --dex-role-data-mix: 100%;
+  --dex-role-data-ink: var(--dex-role-chip-ink);
+  --dex-role-desk: var(--dex-paper);
+  --dex-role-desk-image: none;
+  --dex-role-desk-grid: var(--dex-grid);
+  --dex-role-desk-grid-major: var(--dex-grid-major);
+  /* scrollbars (scrollrole 20261120): the thumb and the track every scroll area wears under a skin.
+   * Solid colors (they feed scrollbar-color, which takes no gradient). A rom maps them on its
+   * :root[data-dsc-skin] (scrollbar-color inherits, so one line covers every pane); .dex-scroll reads them. */
+  --dex-role-scroll: var(--dex-mute-lo);
+  --dex-role-scroll-track: var(--dex-scroll-track);
+}
+
+/* ---------- 3. COMPONENTS (see docs\SKIN_COMPONENTS.md) ---------- */
+
+/* backgrounds: one surface per layer, never a literal color */
+.dex-app { background: var(--dex-bg) var(--dex-bg-image); color: var(--dex-ink); font: 14px/1.4 var(--dex-font); }
+.dex-panel { background: var(--dex-surface) var(--dex-surface-image); color: var(--dex-ink); border: var(--dex-border-w) solid var(--dex-border-soft); border-radius: var(--dex-radius); }
+.dex-panel.is-raised, .dex-card { background: var(--dex-surface-2); color: var(--dex-ink); border: var(--dex-border-w) solid var(--dex-border-soft); border-radius: var(--dex-radius-sm); }
+.dex-well { background: var(--dex-surface-sunk); border: var(--dex-border-w) solid var(--dex-border-soft); border-radius: var(--dex-radius-sm); }
+.dex-sheet { background: var(--dex-surface); box-shadow: var(--dex-sheet-shadow); border-radius: var(--dex-radius); }
+.dex-scrim { position: fixed; inset: 0; background: var(--dex-backdrop); }
+
+/* window chrome / title bar (Deck Host reads the data-deck-* attributes) */
+.dex-titlebar { display: flex; align-items: center; gap: 8px; height: var(--dex-cap-h); flex: 0 0 var(--dex-cap-h); padding: 0 8px; background: var(--dex-chrome); color: var(--dex-chrome-ink); border-bottom: var(--dex-border-w) solid var(--dex-border); user-select: none; }
+.dex-titlebar-title { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font: 13px var(--dex-font-display); }
+.dex-titlebar-spacer { flex: 1; }
+.dex-chip { cursor: pointer; font: 11px var(--dex-font-chip); letter-spacing: 0.06em; padding: 2px 6px; background: var(--dex-chip-bg); color: var(--dex-chip-fg); border: 0; border-radius: var(--dex-chip-radius); box-shadow: var(--dex-chip-bevel); }
+.dex-strip { display: flex; align-items: center; gap: 8px; min-height: var(--dex-strip-h); padding: 0 10px; background: var(--dex-strip); color: var(--dex-strip-ink); border-bottom: var(--dex-border-w) solid var(--dex-strip-rule); }
+
+/* buttons */
+.dex-btn { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; font: inherit; color: var(--dex-btn-ink); background: var(--dex-btn-bg); border: var(--dex-border-w) solid var(--dex-btn-rule); border-radius: var(--dex-btn-radius); box-shadow: var(--dex-btn-bevel); cursor: pointer; }
+.dex-btn:hover { background: var(--dex-btn-hover); }
+.dex-btn:focus-visible { outline: 2px solid var(--dex-focus); outline-offset: 1px; }
+.dex-btn:disabled, .dex-btn.is-disabled { color: var(--dex-ink-faint); cursor: default; }
+.dex-btn.is-primary { background: var(--dex-accent); color: var(--dex-accent-ink); border-color: var(--dex-accent); }
+.dex-btn.is-quiet { background: transparent; border-color: transparent; color: var(--dex-ink-soft); }
+.dex-btn.is-quiet:hover { color: var(--dex-ink); background: var(--dex-hover); }
+.dex-btn.is-danger { color: var(--dex-bad); border-color: var(--dex-bad); background: transparent; }
+.dex-btn.is-on, .dex-btn[aria-pressed="true"], .dex-btn[aria-current="true"] { background: var(--dex-accent-wash); border-color: var(--dex-accent); color: var(--dex-ink); }
+
+/* fields and inputs */
+.dex-field { box-sizing: border-box; padding: 4px 8px; font: inherit; color: var(--dex-field-ink); background: var(--dex-field-bg, var(--dex-surface-sunk)); border: var(--dex-border-w) solid var(--dex-field-rule); border-radius: var(--dex-field-radius); }
+.dex-field:focus { outline: none; border-color: var(--dex-field-focus); box-shadow: 0 0 0 2px var(--dex-accent-a28); }
+.dex-field::placeholder { color: var(--dex-ink-faint); }
+.dex-label { font: 600 10px var(--dex-font); letter-spacing: 0.12em; text-transform: uppercase; color: var(--dex-mute); }
+
+/* lists */
+.dex-list { list-style: none; margin: 0; padding: 0; }
+.dex-list > li, .dex-list-row { display: flex; align-items: center; gap: 8px; padding: 5px 8px; border-bottom: var(--dex-border-w) solid var(--dex-border-soft); }
+.dex-list > li:hover, .dex-list-row:hover { background: var(--dex-hover); }
+.dex-list > li.is-selected, .dex-list-row.is-selected { background: var(--dex-accent-wash); box-shadow: inset 3px 0 0 var(--dex-accent); }
+.dex-list .is-done { color: var(--dex-ink-faint); text-decoration: line-through; }
+
+/* tags and status */
+.dex-tag { display: inline-flex; align-items: center; gap: 4px; padding: 0 8px; font: 11px/18px var(--dex-font-chip); border-radius: 999px; color: var(--dex-tag, var(--dex-accent)); background: color-mix(in srgb, var(--dex-tag, var(--dex-accent)) 14%, transparent); border: var(--dex-border-w) solid color-mix(in srgb, var(--dex-tag, var(--dex-accent)) 45%, transparent); white-space: nowrap; }
+.dex-status { font-size: 12px; color: var(--dex-mute); }
+.dex-status.is-good, .dex-tag.is-good { --dex-tag: var(--dex-good); color: var(--dex-good); }
+.dex-status.is-warn, .dex-tag.is-warn { --dex-tag: var(--dex-warn); color: var(--dex-warn); }
+.dex-status.is-bad, .dex-tag.is-bad { --dex-tag: var(--dex-bad); color: var(--dex-bad); }
+.dex-status.is-info, .dex-tag.is-info { --dex-tag: var(--dex-info); color: var(--dex-info); }
+
+/* cabinet data: houses, fields, threads, notes, cu-tags */
+:where([data-house="io"]) { --dex-house: var(--dex-house-io); }
+:where([data-house="cu"]) { --dex-house: var(--dex-house-cu); }
+:where([data-house="ab"]) { --dex-house: var(--dex-house-ab); }
+:where([data-house="dx"]) { --dex-house: var(--dex-house-dx); }
+:where([data-house="tps"]) { --dex-house: var(--dex-house-tps); }
+.dex-cab-field { display: grid; grid-template-columns: minmax(6em, max-content) 1fr; gap: 2px 10px; align-items: baseline; padding: 3px 0; border-bottom: var(--dex-border-w) dashed var(--dex-border-soft); }
+.dex-cab-key { font: 10px var(--dex-font-chip); letter-spacing: 0.06em; text-transform: uppercase; color: var(--dex-mute); }
+.dex-cab-val { color: var(--dex-ink); overflow-wrap: anywhere; }
+.dex-cab-thread { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; font: 12px var(--dex-font-chip); color: var(--dex-ink-soft); }
+.dex-cab-thread .dex-cab-sep { color: var(--dex-house, var(--dex-accent)); }
+.dex-cab-note { min-width: 0; padding: 6px 9px 8px; font-size: 12px; background: var(--dex-surface); border: var(--dex-border-w) solid var(--dex-border-soft); border-top: 3px solid var(--dex-house, var(--dex-accent)); border-radius: var(--dex-radius-sm); }
+.dex-cab-note-kicker { font: 10px var(--dex-font-chip); letter-spacing: 0.06em; color: var(--dex-mute); }
+.dex-cab-note-title { margin: 3px 0 2px; font-weight: 600; color: var(--dex-ink); overflow-wrap: anywhere; }
+.dex-cab-note-body { color: var(--dex-ink-soft); white-space: pre-wrap; overflow-wrap: anywhere; }
+.dex-cu-tag { display: inline-block; padding: 1px 9px; font: 11px/16px var(--dex-font-chip); border-radius: 999px; color: var(--dex-house, var(--dex-house-cu)); background: color-mix(in srgb, var(--dex-house, var(--dex-house-cu)) 14%, transparent); border: var(--dex-border-w) solid color-mix(in srgb, var(--dex-house, var(--dex-house-cu)) 55%, transparent); white-space: nowrap; }
+
+/* images: never wider than their box */
+.dex-media, .dex-media img { display: block; max-width: 100%; height: auto; }
+
+/* scrollbars for any pane that opts in */
+.dex-scroll { scrollbar-width: thin; scrollbar-color: var(--dex-role-scroll) var(--dex-role-scroll-track); }

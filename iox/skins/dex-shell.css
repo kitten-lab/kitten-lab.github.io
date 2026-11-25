@@ -1,0 +1,145 @@
+/* dex-shell.css - the shared shell every rom wears while a skin is painted (skinshell 20261119).
+ * Served as /skins/cc.dex/dex-shell.css; dsc-load.js v7 links it right after dex-base.css.
+ * Built ONLY from --dex-role-* tokens (dex-base.css section 2b, docs\SHADE_SPEC.md), so a skin
+ * restyles every rom's title bar, buttons and cabinet by answering the roles once.
+ * Every rule is scoped to :root[data-dsc-skin]: under "Rom's own look" nothing here applies
+ * and the rom's own CSS keeps its native chrome.
+ *
+ * Markup (any rom):
+ *   <header class="dex-shell" data-deck-chrome data-deck-controls="min,max,close">
+ *     <span class="dex-shell-spine" aria-hidden="true"></span>
+ *     <button class="dex-shell-mark" data-deck-menu data-shell-stamp="CASE LOG">ABUJO</button>
+ *     <span class="dex-shell-code">kronos.abj</span>
+ *     ...rom tools (.dex-btn or plain buttons inside .dex-shell-tools)...
+ *     <span class="dex-shell-drag" data-deck-drag></span>
+ *     <span class="dex-shell-tape" aria-hidden="true"></span>
+ *     <div data-deck-window-controls></div>
+ *   </header>
+ * Cabinet (any rom): .dex-cab > .dex-cab-head + .dex-cab-tabs > .dex-cab-tab + .dex-slip (.dex-slip-key,
+ * .dex-slip-val) + .dex-pin + .dex-stamp. Set --cab on a row for its house color. */
+
+/* ---------- title bar ---------- */
+:root[data-dsc-skin] .dex-shell {
+  position: relative; display: flex; align-items: center; gap: 8px;
+  height: var(--dex-role-bar-h); min-height: var(--dex-role-bar-h); flex: 0 0 auto;
+  margin: var(--dex-role-bar-margin); padding: 0 6px 0 0;
+  background: var(--dex-role-bar); color: var(--dex-role-bar-ink);
+  border-style: solid; border-color: var(--dex-role-bar-edge); border-width: var(--dex-role-bar-edge-w);
+  border-radius: var(--dex-role-bar-radius); box-shadow: var(--dex-role-bar-shadow);
+  font: var(--dex-role-bar-weight) var(--dex-role-bar-size) / 1 var(--dex-role-bar-font);
+  user-select: none;
+}
+:root[data-dsc-skin] .dex-shell > :first-child:not(.dex-shell-spine) { margin-left: 8px; }
+:root[data-dsc-skin] .dex-shell-spine {
+  align-self: stretch; flex: 0 0 var(--dex-role-bar-spine-w); width: var(--dex-role-bar-spine-w);
+  background: var(--dex-role-bar-spine); border-right: var(--dex-role-edge-w) solid var(--dex-role-bar-spine-edge);
+  border-radius: var(--dex-role-bar-radius) 0 0 var(--dex-role-bar-radius);
+}
+:root[data-dsc-skin] .dex-shell-mark {
+  display: inline-flex; align-items: center; gap: 8px; margin: 0; padding: 0 2px 0 6px;
+  background: none; border: 0; box-shadow: none; color: inherit; cursor: pointer;
+  font: inherit; letter-spacing: var(--dex-role-bar-track); text-transform: var(--dex-role-bar-case);
+}
+:root[data-dsc-skin] .dex-shell-title { font: inherit; letter-spacing: inherit; text-transform: inherit; color: inherit; position: static; }
+:root[data-dsc-skin] .dex-shell-mark:hover { background: none; color: var(--dex-role-bar-stamp-ink); }
+:root[data-dsc-skin] .dex-shell-mark::after {
+  content: attr(data-shell-stamp); display: var(--dex-role-bar-stamp-show);
+  padding: 1px 5px 0; position: relative; top: -2px;
+  font: 700 8px/1.2 var(--dex-role-font-label); letter-spacing: 0.24em; text-transform: uppercase;
+  color: var(--dex-role-bar-stamp-ink); border: 1.25px solid var(--dex-role-bar-stamp-ink);
+  border-radius: var(--dex-role-radius-sm); transform: rotate(-3deg); opacity: 0.85;
+}
+:root[data-dsc-skin] .dex-shell-chip {
+  padding: 2px 6px; font: 11px var(--dex-role-font-label); letter-spacing: 0.06em;
+  background: var(--dex-role-chip); color: var(--dex-role-chip-ink);
+  border: var(--dex-role-edge-w) solid var(--dex-role-chip-edge); border-radius: var(--dex-role-chip-radius);
+  box-shadow: var(--dex-role-chip-bevel); cursor: pointer;
+}
+:root[data-dsc-skin] .dex-shell-code {
+  padding: 1px 5px; font: 600 8.5px var(--dex-role-font-label); letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--dex-role-code-tag-ink); border: 1px solid var(--dex-role-code-tag-edge); border-radius: var(--dex-role-radius-sm);
+}
+:root[data-dsc-skin] .dex-shell-drag { flex: 1; align-self: stretch; min-width: 24px; }
+:root[data-dsc-skin] .dex-shell-tape {
+  display: var(--dex-role-bar-tape-show); position: absolute; top: -6px; left: 44%; width: 74px; height: 13px;
+  pointer-events: none; background: var(--dex-role-bar-tape); box-shadow: 0 0 0 0.5px var(--dex-role-bar-tape-edge);
+  clip-path: var(--dex-role-bar-tape-clip); transform: rotate(var(--dex-role-bar-tape-rot)); opacity: 0.92;
+}
+/* window buttons (Deck Host / the desk fill [data-deck-window-controls]) */
+:root[data-dsc-skin] .dex-shell [data-deck-window-controls] { display: flex; align-items: center; gap: 4px; align-self: stretch; }
+:root[data-dsc-skin] .dex-shell [data-deck-window-controls] .dh-cap-btn {
+  width: var(--dex-role-cap-btn-size); height: var(--dex-role-cap-btn-size); padding: 0; margin: auto 0;
+  display: grid; place-items: center; opacity: 1;
+  background: var(--dex-role-cap-btn); color: var(--dex-role-cap-btn-ink);
+  border: var(--dex-role-edge-w) solid var(--dex-role-cap-btn-edge); border-radius: var(--dex-role-cap-btn-radius);
+  box-shadow: var(--dex-role-cap-btn-bevel); font: 600 11px/1 var(--dex-role-font);
+}
+:root[data-dsc-skin] .dex-shell [data-deck-window-controls] .dh-cap-btn svg { width: 10px; height: 10px; stroke: currentColor; }
+:root[data-dsc-skin] .dex-shell [data-deck-window-controls] .dh-cap-btn:hover { background: var(--dex-role-cap-btn-hover); color: var(--dex-role-cap-btn-ink); }
+:root[data-dsc-skin] .dex-shell [data-deck-window-controls] .dh-cap-btn:active { box-shadow: var(--dex-role-btn-bevel-in); }
+:root[data-dsc-skin] .dex-shell [data-deck-window-controls] .dh-cap-btn.close:hover { background: var(--dex-role-cap-btn-close); color: var(--dex-role-cap-btn-close-ink); }
+
+/* ---------- buttons, fields, tabs (any rom: .dex-btn / .dex-field / .dex-tabs) ---------- */
+:root[data-dsc-skin] .dex-btn {
+  background: var(--dex-role-btn); color: var(--dex-role-btn-ink);
+  border: var(--dex-role-edge-w) solid var(--dex-role-btn-edge); border-radius: var(--dex-role-btn-radius);
+  box-shadow: var(--dex-role-btn-bevel); font-family: var(--dex-role-btn-font); font-weight: var(--dex-role-btn-weight);
+  letter-spacing: var(--dex-role-btn-track); text-transform: var(--dex-role-btn-case);
+}
+:root[data-dsc-skin] .dex-btn:hover { background: var(--dex-role-btn-hover); color: var(--dex-role-btn-hover-ink); }
+:root[data-dsc-skin] .dex-btn:active, :root[data-dsc-skin] .dex-btn[aria-pressed="true"] { background: var(--dex-role-btn-active); box-shadow: var(--dex-role-btn-bevel-in); }
+:root[data-dsc-skin] .dex-btn.is-primary { background: var(--dex-role-btn-primary); color: var(--dex-role-btn-primary-ink); border-color: var(--dex-role-btn-primary-edge); }
+:root[data-dsc-skin] .dex-btn.is-primary:hover { background: var(--dex-role-btn-primary-hover); }
+:root[data-dsc-skin] .dex-field {
+  background: var(--dex-role-field); color: var(--dex-role-field-ink);
+  border: var(--dex-role-edge-w) solid var(--dex-role-field-edge); border-radius: var(--dex-role-field-radius);
+  box-shadow: var(--dex-role-field-bevel); font-family: var(--dex-role-font);
+}
+:root[data-dsc-skin] .dex-field:focus { outline: none; border-color: var(--dex-role-field-focus); }
+:root[data-dsc-skin] .dex-tabs > button, :root[data-dsc-skin] .dex-tab {
+  background: var(--dex-role-tab); color: var(--dex-role-tab-ink);
+  border: var(--dex-role-edge-w) solid var(--dex-role-tab-edge); border-bottom: 0; border-radius: var(--dex-role-tab-radius);
+  box-shadow: none; font: var(--dex-role-btn-weight) var(--dex-role-control-size) var(--dex-role-font-label);
+  letter-spacing: var(--dex-role-label-track); text-transform: var(--dex-role-label-case);
+}
+:root[data-dsc-skin] .dex-tabs { display: inline-flex; align-items: flex-end; gap: 3px; }
+:root[data-dsc-skin] .dex-tabs > button:hover, :root[data-dsc-skin] .dex-tab:hover { color: var(--dex-role-tab-on-ink); }
+:root[data-dsc-skin] .dex-tabs > button[aria-current="true"], :root[data-dsc-skin] .dex-tab.is-on {
+  background: var(--dex-role-tab-on); color: var(--dex-role-tab-on-ink); border-color: var(--dex-role-edge);
+  padding-bottom: 5px; margin-bottom: -1px;
+}
+
+/* ---------- cabinet pieces (TFC / DATBOX / MED cabinets) ---------- */
+:root[data-dsc-skin] .dex-cab {
+  background: var(--dex-role-cab) var(--dex-role-cab-image); color: var(--dex-role-cab-ink);
+  border: var(--dex-role-edge-w) solid var(--dex-role-cab-edge); border-radius: var(--dex-role-cab-radius);
+  box-shadow: var(--dex-role-cab-shadow);
+}
+:root[data-dsc-skin] .dex-cab-head { background: var(--dex-role-cab-head); color: var(--dex-role-cab-head-ink); font-family: var(--dex-role-cab-head-font); }
+:root[data-dsc-skin] .dex-cab-tab {
+  background: var(--dex-role-cab-tab); color: var(--dex-role-cab-tab-ink);
+  border: var(--dex-role-edge-w) solid var(--dex-role-cab-edge); border-bottom: 0; border-top: 3px solid var(--cab, var(--dex-role-edge));
+  border-radius: var(--dex-role-tab-radius); font: 11px var(--dex-role-font-label);
+}
+:root[data-dsc-skin] .dex-cab-tab.is-on { background: var(--dex-role-cab-tab-on); color: var(--dex-role-cab-tab-on-ink); }
+:root[data-dsc-skin] .dex-cab-label { font: 10px var(--dex-role-font-label); letter-spacing: 0.1em; text-transform: var(--dex-role-label-case); color: var(--dex-role-cab-label); }
+:root[data-dsc-skin] .dex-slip {
+  background: var(--dex-role-slip); color: var(--dex-role-slip-ink);
+  border: var(--dex-role-edge-w) solid var(--dex-role-slip-edge); border-left: var(--dex-role-slip-strip-w) solid var(--cab, var(--dex-role-edge));
+  border-radius: var(--dex-role-slip-radius); box-shadow: var(--dex-role-slip-shadow);
+}
+:root[data-dsc-skin] .dex-slip-key {
+  font: 10px var(--dex-role-font-label); letter-spacing: 0.04em; color: var(--dex-role-slip-key-ink, var(--cab, var(--dex-role-mute)));
+  background: color-mix(in srgb, var(--cab, var(--dex-role-mute)) var(--dex-role-slip-key-mix), transparent);
+}
+:root[data-dsc-skin] .dex-pin {
+  font: 11px/16px var(--dex-role-font-label); color: var(--dex-role-pin-ink, var(--cab, var(--dex-role-mute))); border-radius: var(--dex-role-pin-radius);
+  border: var(--dex-role-edge-w) solid var(--dex-role-pin-edge, color-mix(in srgb, var(--cab, var(--dex-role-mute)) 55%, transparent));
+  background: var(--dex-role-pin, color-mix(in srgb, var(--cab, var(--dex-role-mute)) var(--dex-role-pin-mix), transparent));
+}
+:root[data-dsc-skin] .dex-stamp {
+  color: var(--dex-role-stamp-ink, var(--cab, var(--dex-role-mute))); background: var(--dex-role-stamp-bg);
+  border: var(--dex-role-stamp-border) var(--dex-role-stamp-ink, var(--cab, var(--dex-role-mute)));
+  border-radius: var(--dex-role-stamp-radius); box-shadow: var(--dex-role-stamp-shadow);
+  font: 11px var(--dex-role-stamp-font); letter-spacing: 0.1em; text-transform: uppercase; transform: rotate(var(--dex-role-stamp-rot));
+}
