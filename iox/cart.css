@@ -12,6 +12,8 @@
   position: relative;
   width: var(--cart-w);
   height: var(--cart-h);
+  min-width: 0;
+  max-width: 100%;
   margin: 0;
   padding: 0;
   border: 0;
@@ -20,6 +22,7 @@
   font: inherit;
   text-align: left;
   cursor: pointer;
+  vertical-align: top;
 }
 .rl-case:hover { transform: translateY(-2px); }
 .rl-case:active { transform: translateY(1px); }
@@ -291,3 +294,32 @@
   border-style: dashed;
 }
 .srf-pill.is-launcher { margin-right: 4px; }
+
+/* Shelf layout lives with the cart paint, not only in shell.css.
+   A cached shell sheet must not leave these buttons as an unpadded
+   inline row. minmax(0, 1fr) is required: Firefox's min-content
+   minimum on <button> otherwise refuses to shrink the columns. */
+.desk-shelf {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  box-sizing: border-box;
+  width: 268px;
+  margin: 0;
+  padding: 22px 18px 18px 12px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-flow: row;
+  align-content: start;
+  justify-items: center;
+  gap: 18px 14px;
+  overflow: auto;
+}
+.desk-shelf .rl-case {
+  --cart-w: 5.5rem;
+  --cart-h: 6.35rem;
+  min-width: 0;
+  max-width: 100%;
+}
