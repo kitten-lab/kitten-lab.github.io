@@ -11,13 +11,14 @@
   <link rel="stylesheet" href="skins/dex-shell.css">
   <script src="skin-boot.js"></script>
   <link rel="stylesheet" href="shell.css">
+  <link rel="stylesheet" href="cart.css">
 </head>
 <body>
   <a class="skip" href="#windows">Skip to the desk</a>
   <div class="os" id="os">
     <div class="desk" id="desk">
       <p class="desk-pin">Shell preview · text she still has to write is marked SAMPLE</p>
-      <div class="desk-icons" id="desk-icons"></div>
+      <div class="desk-shelf" id="desk-shelf" aria-label="ROM carts"></div>
       <div class="windows" id="windows"></div>
     </div>
     <footer class="taskbar" id="taskbar">
@@ -25,7 +26,13 @@
         <span class="code">IOX</span>
         <span class="who"><b>Dani Leve</b><small>Studio</small></span>
       </button>
-      <div class="task-scroll" id="task-scroll" role="toolbar" aria-label="ROM tabs"></div>
+      <div class="task-scroll" id="task-scroll" role="toolbar" aria-label="Open windows">
+        <button type="button" class="srf-pill is-launcher" id="case-btn" data-open="cse">
+          <span class="srf-pill-code">CSE</span>
+          <span class="srf-pill-name">Case studies</span>
+        </button>
+        <div class="open-chips" id="open-chips"></div>
+      </div>
       <div class="tools">
         <div class="pop">
           <button type="button" class="tool" id="skin-btn" data-menu="skin-menu" aria-haspopup="true" aria-expanded="false">

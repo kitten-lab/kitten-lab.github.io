@@ -1,0 +1,293 @@
+/* ROM cart face, ported from CLASSIC.romfit/types/cart.css.
+   Geometry (lip, well, plate, shutter, pins) is hers. Paint reads
+   --dex-role-* so a skin restyles the plastic. Candy mass is her
+   julie tint on --julie (romfit.manifest swatches), mixed with the
+   role panel so the skin still moves the color. */
+
+.rl-case {
+  --cart-w: 5.8rem;
+  --cart-h: 6.6rem;
+  --julie: #c01830;
+  --rom-c: var(--julie);
+  position: relative;
+  width: var(--cart-w);
+  height: var(--cart-h);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.rl-case:hover { transform: translateY(-2px); }
+.rl-case:active { transform: translateY(1px); }
+
+.rl-case-shell,
+.rl-case-notch,
+.rl-case-well,
+.rl-case-shutter,
+.rl-case-pins,
+.rl-case-badge,
+.rl-case-label,
+.rl-case-sku {
+  position: absolute;
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
+.rl-case-shell {
+  inset: 0;
+  border-radius: 2px 10px 2px 10px;
+}
+
+/* classicboi: NES gray, rebuilt from the role surfaces */
+.rl-case.shell-classicboi .rl-case-shell {
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--dex-role-card) 62%, var(--dex-role-panel)) 0%,
+    var(--dex-role-panel) 55%,
+    color-mix(in srgb, var(--dex-role-panel) 55%, var(--dex-role-ink)) 100%
+  );
+  box-shadow:
+    2px 2px 0 color-mix(in srgb, var(--dex-role-ink) 45%, transparent),
+    inset 0 0 0 1px color-mix(in srgb, var(--dex-role-ink) 55%, var(--dex-role-panel)),
+    inset 1px 1px 0 color-mix(in srgb, var(--dex-role-card) 70%, white),
+    inset -1px -1px 0 color-mix(in srgb, var(--dex-role-ink) 35%, var(--dex-role-panel));
+}
+.rl-case.shell-classicboi .rl-case-notch {
+  top: 1.5%;
+  left: 6%;
+  right: 6%;
+  height: 11%;
+  z-index: 3;
+  border-radius: 1px 6px 2px 2px;
+  background:
+    repeating-linear-gradient(
+      180deg,
+      transparent 0 3px,
+      color-mix(in srgb, var(--dex-role-ink) 45%, var(--dex-role-panel)) 3px 4px,
+      color-mix(in srgb, var(--dex-role-card) 80%, var(--dex-role-panel)) 4px 5px,
+      transparent 5px 8px
+    ),
+    linear-gradient(180deg, var(--dex-role-card), var(--dex-role-panel));
+  box-shadow:
+    inset 0 1px 0 var(--dex-role-card),
+    inset 0 -1px 0 color-mix(in srgb, var(--dex-role-ink) 40%, transparent);
+}
+.rl-case.shell-classicboi .rl-case-well {
+  display: block;
+  left: 6%;
+  right: 6%;
+  top: 14%;
+  height: 49%;
+  z-index: 1;
+  background: color-mix(in srgb, var(--dex-role-ink) 22%, var(--dex-role-panel));
+  box-shadow:
+    inset 1px 1px 0 color-mix(in srgb, var(--dex-role-ink) 35%, transparent),
+    inset -1px -1px 0 color-mix(in srgb, var(--dex-role-card) 55%, transparent);
+}
+.rl-case.shell-classicboi .rl-case-badge {
+  background: color-mix(in srgb, var(--dex-role-ink) 28%, var(--dex-role-panel));
+  color: var(--dex-role-card);
+}
+.rl-case.shell-classicboi .rl-case-label {
+  background: var(--dex-role-card);
+  color: var(--dex-role-card-ink);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--dex-role-ink) 55%, transparent),
+    inset 1px 1px 0 color-mix(in srgb, var(--dex-role-ink) 18%, transparent);
+}
+.rl-case.shell-classicboi .rl-case-sku {
+  color: var(--dex-role-ink);
+  text-shadow: 0 1px 0 color-mix(in srgb, var(--dex-role-card) 70%, transparent);
+}
+
+/* julie: same cartridge, candy mass from her tint */
+.rl-case.shell-julie .rl-case-shell {
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--julie) 42%, var(--dex-role-card)) 0%,
+    color-mix(in srgb, var(--julie) 68%, var(--dex-role-panel)) 28%,
+    color-mix(in srgb, var(--julie) 78%, var(--dex-role-panel)) 62%,
+    color-mix(in srgb, var(--julie) 70%, var(--dex-role-ink)) 100%
+  );
+  box-shadow:
+    2px 2px 0 color-mix(in srgb, var(--julie) 45%, var(--dex-role-ink)),
+    inset 0 0 0 1px color-mix(in srgb, var(--julie) 40%, var(--dex-role-ink)),
+    inset 1px 1px 0 color-mix(in srgb, var(--julie) 16%, var(--dex-role-card)),
+    inset -1px -1px 0 color-mix(in srgb, var(--julie) 48%, var(--dex-role-ink));
+}
+.rl-case.shell-julie .rl-case-notch {
+  top: 1.5%;
+  left: 6%;
+  right: 6%;
+  height: 11%;
+  z-index: 3;
+  border-radius: 1px 6px 2px 2px;
+  background:
+    repeating-linear-gradient(
+      180deg,
+      transparent 0 3px,
+      color-mix(in srgb, var(--julie) 48%, var(--dex-role-ink)) 3px 4px,
+      color-mix(in srgb, var(--julie) 18%, var(--dex-role-card)) 4px 5px,
+      transparent 5px 8px
+    ),
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--julie) 28%, var(--dex-role-card)),
+      color-mix(in srgb, var(--julie) 66%, var(--dex-role-panel))
+    );
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, var(--julie) 12%, var(--dex-role-card)),
+    inset 0 -1px 0 color-mix(in srgb, var(--julie) 50%, var(--dex-role-ink));
+}
+.rl-case.shell-julie .rl-case-well {
+  display: block;
+  left: 6%;
+  right: 6%;
+  top: 14%;
+  height: 49%;
+  z-index: 1;
+  background: color-mix(in srgb, var(--julie) 62%, var(--dex-role-ink));
+  box-shadow:
+    inset 1px 1px 0 color-mix(in srgb, var(--julie) 50%, var(--dex-role-ink)),
+    inset -1px -1px 0 color-mix(in srgb, var(--julie) 22%, var(--dex-role-card));
+}
+.rl-case.shell-julie .rl-case-badge {
+  background: color-mix(in srgb, var(--julie) 58%, var(--dex-role-ink));
+  color: color-mix(in srgb, var(--julie) 10%, var(--dex-role-card));
+}
+.rl-case.shell-julie .rl-case-label {
+  background: var(--dex-role-card);
+  color: var(--dex-role-card-ink);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--julie) 45%, var(--dex-role-ink)),
+    inset 1px 1px 0 color-mix(in srgb, var(--dex-role-ink) 16%, transparent);
+}
+.rl-case.shell-julie .rl-case-sku {
+  color: color-mix(in srgb, var(--julie) 42%, var(--dex-role-ink));
+  text-shadow: 0 1px 0 color-mix(in srgb, var(--julie) 16%, var(--dex-role-card));
+}
+
+.rl-case-badge {
+  top: 3.2%;
+  left: 8%;
+  z-index: 4;
+  max-width: 52%;
+  padding: 0.04rem 0.16rem;
+  font: 700 0.42rem/1.2 "IBM Plex Mono", ui-monospace, monospace;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.rl-case-label {
+  left: 8.5%;
+  right: 8.5%;
+  top: 16%;
+  height: 45%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.2rem 0.18rem;
+  text-align: center;
+  font: 500 0.62rem/1.15 "IBM Plex Mono", ui-monospace, monospace;
+  letter-spacing: 0.04em;
+  overflow: hidden;
+}
+.rl-case-label-main {
+  max-height: 3.4em;
+  overflow: hidden;
+}
+.rl-case-sku {
+  left: 8%;
+  right: 8%;
+  top: 64%;
+  z-index: 4;
+  font: 500 0.42rem/1 "IBM Plex Mono", ui-monospace, monospace;
+  letter-spacing: 0.06em;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.rl-case-shutter {
+  left: 8%;
+  right: 8%;
+  bottom: 0;
+  height: 16%;
+  z-index: 3;
+  background: color-mix(in srgb, var(--dex-role-ink) 82%, var(--dex-role-panel));
+  box-shadow:
+    0 -1px 0 color-mix(in srgb, var(--dex-role-card) 80%, transparent),
+    0 -2px 0 color-mix(in srgb, var(--dex-role-mute) 70%, var(--dex-role-panel)),
+    inset 0 1px 0 color-mix(in srgb, var(--dex-role-ink) 70%, transparent);
+}
+.rl-case-pins {
+  left: 12%;
+  right: 12%;
+  bottom: 2px;
+  height: 12%;
+  z-index: 4;
+  background-color: color-mix(in srgb, var(--dex-role-ink) 88%, black);
+  background-image: repeating-linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--rom-c) 25%, var(--dex-role-card)) 0 1px,
+    var(--rom-c) 1px 2px,
+    color-mix(in srgb, var(--dex-role-ink) 88%, black) 2px 3px
+  );
+  box-shadow: inset 0 1px 0 color-mix(in srgb, var(--rom-c) 30%, var(--dex-role-card));
+}
+
+/* Surface taskbar chip: one container, code piece + name, all caps.
+   --rom-c is her maker color or a julie swatch. --dex-role-data-mix
+   is how much of that color the skin lets through (srfmenu). */
+.srf-pill {
+  display: inline-flex;
+  align-items: stretch;
+  height: 28px;
+  padding: 0;
+  border: 1px solid var(--dex-role-btn-edge);
+  border-radius: var(--dex-role-btn-radius);
+  overflow: hidden;
+  cursor: pointer;
+  flex: 0 0 auto;
+  background: var(--dex-role-btn);
+  color: var(--dex-role-btn-ink);
+  box-shadow: var(--dex-role-btn-bevel);
+  font: 700 12px/1 var(--dex-role-font-label);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.srf-pill-code,
+.srf-pill-name { display: flex; align-items: center; }
+.srf-pill-code {
+  padding: 0 8px 0 9px;
+  background: color-mix(in srgb, var(--rom-c, var(--dex-role-link)) var(--dex-role-data-mix, 100%), var(--dex-role-chip));
+  color: var(--dex-role-chip-ink);
+  font-weight: 800;
+}
+.srf-pill-name { padding: 0 10px 0 8px; }
+.srf-pill:hover { background: var(--dex-role-btn-hover); color: var(--dex-role-btn-hover-ink); }
+.srf-pill.is-open { border-color: var(--dex-role-edge); }
+.srf-pill.is-focus {
+  background: var(--dex-role-btn-primary);
+  color: var(--dex-role-btn-primary-ink);
+  border-color: var(--dex-role-btn-primary-edge);
+  box-shadow: var(--dex-role-shadow);
+}
+.srf-pill.is-focus .srf-pill-code {
+  background: color-mix(in srgb, var(--rom-c, var(--dex-role-link)) var(--dex-role-data-mix, 100%), var(--dex-role-btn-primary));
+  color: var(--dex-role-btn-primary-ink);
+}
+.srf-pill.is-min {
+  opacity: 0.62;
+  background: transparent;
+  border-style: dashed;
+}
+.srf-pill.is-launcher { margin-right: 4px; }

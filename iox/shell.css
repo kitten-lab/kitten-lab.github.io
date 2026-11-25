@@ -51,53 +51,26 @@ button { cursor: pointer; }
   color: var(--dex-role-mute);
 }
 
-.desk-icons {
+.desk-shelf {
   position: absolute;
-  top: 22px;
-  right: 18px;
+  top: 16px;
+  right: 14px;
   z-index: 2;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  width: 92px;
+  width: 214px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 8px;
+  justify-items: center;
 }
-.desk-icon {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 7px;
-  width: 100%;
-  padding: 0;
-  border: 0;
-  background: transparent;
-  color: var(--dex-role-ink);
-}
-.desk-icon .code {
-  min-width: 58px;
-  text-align: center;
-  padding: 8px 6px;
-  background: var(--dex-role-chip);
-  color: var(--dex-role-chip-ink);
-  border: var(--dex-role-edge-w) solid var(--dex-role-chip-edge);
-  border-radius: var(--dex-role-chip-radius);
-  box-shadow: var(--dex-role-chip-bevel);
-  font: 800 12px/1 var(--dex-role-font-label);
-  letter-spacing: 0.08em;
-}
-.desk-icon .label {
-  font: 600 11px/1.25 var(--dex-role-font-label);
-  letter-spacing: 0.02em;
-  text-align: center;
-  text-shadow: 0 0 6px var(--dex-role-desk), 0 1px 0 var(--dex-role-desk);
-}
-.desk-icon[data-slot="more"] { display: none; }
+.desk-shelf .rl-case { --cart-w: 5.7rem; --cart-h: 6.55rem; }
+.desk-shelf { width: 230px; }
 
 /* windows */
 .win {
   position: absolute;
   display: none;
   flex-direction: column;
-  width: min(680px, calc(100% - 28px));
+  width: min(560px, calc(100% - 250px));
   max-height: calc(100% - 16px);
   background: var(--dex-role-app);
   background-image: var(--dex-role-app-image);
@@ -108,8 +81,9 @@ button { cursor: pointer; }
   overflow: hidden;
 }
 :root[data-dsc-skin] .os .dex-shell-tape { top: 2px; }
-.win[data-kind="case"] { width: min(720px, calc(100% - 28px)); }
-.win[data-kind="board"] { width: min(780px, calc(100% - 28px)); }
+.win[data-kind="case"] { width: min(680px, calc(100% - 40px)); }
+.win[data-kind="launcher"] { width: min(740px, calc(100% - 36px)); }
+.win[data-kind="board"] { width: min(740px, calc(100% - 40px)); }
 .win[data-kind="world"] {
   width: min(920px, calc(100% - 28px));
   height: min(680px, calc(100% - 20px));
@@ -430,7 +404,7 @@ button.linkish {
   background: transparent;
   color: inherit;
 }
-.home .code, .rom .code {
+.home .code {
   background: var(--dex-role-chip);
   color: var(--dex-role-chip-ink);
   border: var(--dex-role-edge-w) solid var(--dex-role-chip-edge);
@@ -460,38 +434,15 @@ button.linkish {
   scrollbar-width: thin;
   scrollbar-color: var(--dex-role-scroll) transparent;
 }
-.group { display: flex; align-items: center; gap: 6px; flex: none; }
-.group-label {
-  margin-right: 2px;
-  font: 700 9px/1 var(--dex-role-font-label);
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--dex-strip-soft);
+.open-chips { display: flex; align-items: center; gap: 8px; flex: none; }
+.case-shelf {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px 18px;
+  justify-items: center;
+  margin-top: 8px;
 }
-.rom {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 3px 10px 3px 3px;
-  border: 0;
-  border-radius: var(--dex-role-radius-sm);
-  background: transparent;
-  color: inherit;
-}
-.rom .code { padding: 6px 6px; }
-.rom .name { font-size: 12px; font-weight: 700; letter-spacing: 0.03em; }
-.rom.is-focus {
-  background: var(--dex-role-select);
-  color: var(--dex-role-select-ink);
-}
-.rom.is-min .code {
-  background: transparent;
-  color: inherit;
-  box-shadow: none;
-  border-style: dashed;
-}
-.rom.is-closed { opacity: 0.72; }
-.rom.is-min .name { opacity: 0.6; }
+.case-shelf .rl-case { --cart-w: 6.4rem; --cart-h: 7.3rem; }
 
 .tools { display: flex; align-items: center; gap: 4px; flex: none; }
 .pop { position: relative; }
@@ -566,17 +517,16 @@ button.linkish {
 @media (max-width: 860px) {
   .desk-pin { display: none; }
   .home .who small { display: none; }
-  .group-label { display: none; }
-  .os.has-focus .desk-icons { display: none; }
-  .os:not(.has-focus) .desk-icons {
+  .os.has-focus .desk-shelf { display: none; }
+  .os:not(.has-focus) .desk-shelf {
     display: grid;
     position: static;
     width: auto;
     grid-template-columns: repeat(3, 1fr);
-    gap: 22px 12px;
-    padding: 28px 16px 20px;
+    gap: 18px 10px;
+    padding: 22px 12px 16px;
   }
-  .desk-icon[data-slot="more"] { display: flex; }
+  .case-shelf { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .win {
     left: 0 !important;
     top: 0 !important;
@@ -596,7 +546,6 @@ button.linkish {
   .tool-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
 }
 @media (max-width: 560px) {
-  .rom .name { display: none; }
   .home .who { display: none; }
   .taskbar { gap: 6px; padding-inline: 8px; }
 }

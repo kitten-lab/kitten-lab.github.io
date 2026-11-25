@@ -11,8 +11,8 @@
   };
 
   var WINS = [
-    { id: "who", code: "WHO", name: "Who I am", tab: "Who", title: "Dani Leve", group: "studio", kind: "studio", stamp: "STUDIO", slot: "more" },
-    { id: "do", code: "DO", name: "What I do", tab: "Do", title: "What I do", group: "studio", kind: "studio", stamp: "STUDIO", slot: "more" },
+    { id: "who", code: "WHO", name: "Who I am", tab: "Dani", title: "Dani Leve", group: "studio", kind: "studio", stamp: "STUDIO", slot: "more" },
+    { id: "do", code: "DO", name: "What I do", tab: "What I do", title: "What I do", group: "studio", kind: "studio", stamp: "STUDIO", slot: "more" },
     { id: "bts", code: "BTS", name: "Betsoft", tab: "Betsoft", title: "Betsoft Gaming", group: "studio", kind: "studio", stamp: "STUDIO", slot: "more" },
     { id: "blt", code: "BLT", name: "Built", tab: "Built", title: "Built and tested", group: "studio", kind: "studio", stamp: "STUDIO", slot: "more" },
     { id: "skl", code: "SKL", name: "Skills", tab: "Skills", title: "Research and skills", group: "studio", kind: "studio", stamp: "STUDIO", slot: "more" },
@@ -65,8 +65,36 @@
     { id: "mbo", code: "MBO", name: "Model behavior", tab: "Behavior", title: "Model behavior", group: "work", kind: "board", stamp: "BOARD", slot: "desk" },
     { id: "pgo", code: "PGO", name: "Pocket Go", tab: "Pocket", title: "Pocket Go", group: "work", kind: "world", stamp: "WORLD", slot: "desk", href: "../pocket-go/index.html", blurb: "The Pocket Go page already published on this site." },
     { id: "dsk", code: "DSK", name: "Desk World", tab: "Desk", title: "Desk World", group: "work", kind: "world", stamp: "WORLD", slot: "desk", href: "../desk-world/index.html", blurb: "The Desk World page already published on this site." },
-    { id: "hst", code: "HST", name: "Deck Host", tab: "Host", title: "Deck Host", group: "work", kind: "world", stamp: "WORLD", slot: "desk", href: "../deck-host/index.html", blurb: "The Deck Host page already published on this site." }
+    { id: "hst", code: "HST", name: "Deck Host", tab: "Host", title: "Deck Host", group: "work", kind: "world", stamp: "WORLD", slot: "desk", href: "../deck-host/index.html", blurb: "The Deck Host page already published on this site." },
+    { id: "cse", code: "CSE", name: "Case studies", tab: "Case studies", title: "Case studies", group: "launcher", kind: "launcher", stamp: "CASE", slot: "none" }
   ];
+
+  /* Per-rom color: maker accents from surface/app.css (--bm-cc, --bm-bb, --bm-mira)
+     and julie swatches from CLASSIC.romfit/romfit.manifest. No new hex. */
+  var ROM_FACE = {
+    who: { color: "#6a8cff", plate: "Dani Leve" },
+    do: { color: "#189878", plate: "What I do" },
+    bts: { color: "#e24b4b", plate: "Betsoft" },
+    blt: { color: "#a070ff", plate: "Built" },
+    skl: { color: "#4a5058", plate: "Skills" },
+    art: { color: "#c87810", plate: "Art line" },
+    rsp: { color: "#6a90b0", plate: "Engine" },
+    tbk: { color: "#7a0018", plate: "The Bank" },
+    dxe: { color: "#1858c8", plate: "DXE" },
+    glc: { color: "#c01830", plate: "Compost" },
+    rdm: { color: "#5a18b8", plate: "RoseDoc" },
+    mbo: { color: "#d02878", plate: "Behavior" },
+    pgo: { color: "#6a8cff", plate: "Pocket Go" },
+    dsk: { color: "#c87810", plate: "Desk" },
+    hst: { color: "#4a5058", plate: "Host" },
+    cse: { color: "#6a8cff", plate: "Cases" }
+  };
+  WINS.forEach(function (w) {
+    var face = ROM_FACE[w.id] || { color: "#6a8cff", plate: w.name };
+    w.color = face.color;
+    w.plate = face.plate;
+    w.shell = w.group === "case" ? "julie" : "classicboi";
+  });
 
   var byId = {};
   WINS.forEach(function (w) { byId[w.id] = w; });
@@ -241,36 +269,50 @@
       '</ul></div>';
   }
 
+  function cartHTML(w) {
+    return '<button type="button" class="rl-case shell-' + w.shell + '" data-open="' + w.id + '" style="--julie:' + w.color + ';--rom-c:' + w.color + '">' +
+      '<span class="rl-case-shell" aria-hidden="true"></span>' +
+      '<span class="rl-case-notch" aria-hidden="true"></span>' +
+      '<span class="rl-case-well" aria-hidden="true"></span>' +
+      '<span class="rl-case-badge">' + w.code + '</span>' +
+      '<span class="rl-case-label"><span class="rl-case-label-main">' + w.plate + '</span></span>' +
+      '<span class="rl-case-sku">' + w.code + '</span>' +
+      '<span class="rl-case-shutter" aria-hidden="true"></span>' +
+      '<span class="rl-case-pins" aria-hidden="true"></span>' +
+      '</button>';
+  }
+
+  function launcherBody() {
+    var cases = WINS.filter(function (w) { return w.group === "case"; });
+    return '<p class="kicker">Launcher</p>' +
+      '<h3 class="who-name" style="font-size:28px">Case studies</h3>' +
+      '<p class="board-intro">Pick a file. Lines marked SAMPLE are still to be written. A shared link such as #dxe opens that file directly.</p>' +
+      '<div class="case-shelf">' + cases.map(cartHTML).join("") + '</div>';
+  }
+
   function paneFor(w) {
     if (w.kind === "case") return caseBody(w);
     if (w.kind === "board") return boardBody();
     if (w.kind === "world") return worldBody(w);
+    if (w.kind === "launcher") return launcherBody();
     return studioBody(w.id);
   }
 
+  function pillHTML(w, extra) {
+    return '<button type="button" class="srf-pill' + (extra || "") + '" data-open="' + w.id + '" style="--rom-c:' + w.color + '">' +
+      '<span class="srf-pill-code">' + w.code + '</span>' +
+      '<span class="srf-pill-name">' + (w.tab || w.name) + '</span></button>';
+  }
+
   function render() {
-    var icons = document.getElementById("desk-icons");
+    var shelf = document.getElementById("desk-shelf");
     var windows = document.getElementById("windows");
-    var bar = document.getElementById("task-scroll");
-    icons.innerHTML = WINS.map(function (w) {
-      return '<button type="button" class="desk-icon" data-slot="' + w.slot + '" data-open="' + w.id + '"><span class="code">' + w.code + '</span><span class="label">' + w.name + '</span></button>';
-    }).join("");
+    shelf.innerHTML = WINS.filter(function (w) { return w.slot === "desk" || w.group === "studio"; }).map(cartHTML).join("");
     windows.innerHTML = WINS.map(function (w, i) {
-      var left = 28 + (i % 5) * 26;
-      var top = 20 + (i % 4) * 22;
+      var left = 24 + (i % 5) * 22;
+      var top = 18 + (i % 4) * 18;
       return '<section class="win" data-win="' + w.id + '" data-kind="' + w.kind + '" id="win-' + w.id + '" style="left:' + left + 'px;top:' + top + 'px" aria-label="' + w.title + '">' +
         shellHead(w) + '<div class="pane">' + paneFor(w) + '</div></section>';
-    }).join("");
-    var groups = [
-      ["studio", "Studio"],
-      ["case", "Cases"],
-      ["work", "Work"]
-    ];
-    bar.innerHTML = groups.map(function (g) {
-      var tabs = WINS.filter(function (w) { return w.group === g[0]; }).map(function (w) {
-        return '<button type="button" class="rom is-closed" data-open="' + w.id + '" aria-pressed="false"><span class="code">' + w.code + '</span><span class="name">' + (w.tab || w.name) + '</span></button>';
-      }).join("");
-      return '<div class="group"><span class="group-label">' + g[1] + '</span>' + tabs + '</div>';
     }).join("");
     document.querySelector("#skin-btn .tool-ico").innerHTML = ICON.skin;
     document.getElementById("more-ico").innerHTML = ICON.more;
@@ -392,13 +434,24 @@
         el.style.zIndex = String(z);
         ensureFrame(el);
       }
-      document.querySelectorAll('.rom[data-open="' + w.id + '"]').forEach(function (tab) {
-        tab.classList.toggle("is-focus", focused);
-        tab.classList.toggle("is-min", st === "min");
-        tab.classList.toggle("is-closed", st === "closed");
-        tab.setAttribute("aria-pressed", st === "open" ? "true" : "false");
-      });
     });
+    var chips = document.getElementById("open-chips");
+    chips.innerHTML = WINS.filter(function (w) {
+      return w.id !== "cse" && state[w.id] !== "closed";
+    }).map(function (w) {
+      var st = state[w.id];
+      var extra = st === "min" ? " is-min" : " is-open";
+      if (focus === w.id && st === "open") extra += " is-focus";
+      return pillHTML(w, extra);
+    }).join("");
+    var cse = byId.cse;
+    var cseBtn = document.getElementById("case-btn");
+    var cseState = state.cse;
+    cseBtn.className = "srf-pill is-launcher" +
+      (cseState === "min" ? " is-min" : cseState === "open" ? " is-open" : "") +
+      (focus === "cse" && cseState === "open" ? " is-focus" : "");
+    cseBtn.style.setProperty("--rom-c", cse.color);
+    cseBtn.setAttribute("aria-pressed", cseState === "open" ? "true" : "false");
     document.getElementById("os").classList.toggle("has-focus", any);
   }
 
@@ -535,7 +588,7 @@
     }
     var opener = e.target.closest("[data-open]");
     if (opener) {
-      if (opener.classList.contains("rom")) onTab(opener.getAttribute("data-open"));
+      if (opener.classList.contains("srf-pill")) onTab(opener.getAttribute("data-open"));
       else openWin(opener.getAttribute("data-open"));
       return;
     }
